@@ -30,7 +30,29 @@ function initMap(){
     });
     
     
+    //map.on('load', loadGeojsonBarcelona());
+    map.on('load', loadGeojson(9, 'buenosaires'));
+/*     map.on('load', loadGeojsonBarcelona());
     map.on('load', loadGeojsonBarcelona());
+    map.on('load', loadGeojsonBarcelona());
+    map.on('load', loadGeojsonBarcelona()); */
+
+
+    function loadGeojson(tilecount, folder){
+    
+        //var listNames = [ 'final_tile_2071,1528,12.geojson', 'final_tile_2071,1529,12.geojson', 'final_tile_2071,1530,12.geojson', 'final_tile_2072,1528,12.geojson', 'final_tile_2072,1529,12.geojson', 'final_tile_2072,1530,12.geojson', 'final_tile_2073,1528,12.geojson', 'final_tile_2073,1529,12.geojson', 'final_tile_2073,1530,12.geojson'];
+    
+        for(var i=0; i<tilecount; i++){
+    
+            fetch('data/'+folder+'/final_tile'+i+'.geojson').then(function(res){
+                return res.json();
+            }).then(function(geojson){
+    
+                addGeojson(geojson);
+    
+            });
+        }    
+    }    
     
     function loadGeojsonBarcelona(){
     
@@ -43,13 +65,12 @@ function initMap(){
             }).then(function(geojson){
     
                 addGeojson(geojson);
-    
+
             });
-        }
-    
+        }    
     }
     
-    function loadGeojson(e) {
+/*     function loadGeojson(e) {
     
     
         
@@ -84,7 +105,7 @@ function initMap(){
             addGeojson(geojson, 'tile3');
     
         });            
-    }
+    } */
     
     
     function addGeojson(geojson, sourcename = Date.now()){
