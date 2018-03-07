@@ -4,6 +4,24 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZ2Vvc3RhcnRlcnMiLCJhIjoiMGNxekwxayJ9.sE1YC8Zx
 
 function initMap(){
 
+    var bboxList = {
+        asuncion: [-57.6723, -25.3518, -57.5391, -25.241],
+        barcelona: [2.0875, 41.2944, 2.2582, 41.4574],
+        buenosaires: [-58.5315, -34.7056, -58.3351, -34.5266],
+        cochabamba: [-66.2027, -17.4339, -66.1153, -17.3349],
+        lima: [-77.1538, -12.1651, -76.9163, -11.9757],
+        montevideo:[-56.2621, -34.936, -56.0538, -34.8066]         
+    };
+
+    var centerList = {
+        asuncion: [-57.63591, -25.30066],
+        barcelona: [2.154007, 41.390205],
+        buenosaires: [-58.37723, -34.61315],
+        cochabamba: [-66.1568, -17.3895],
+        lima: [ -77.02824, -12.04318],
+        montevideo:[ -56.18816, -34.90328]         
+    };    
+
     var map = new mapboxgl.Map({
         container: 'map', // container id
         style: 'mapbox://styles/geostarters/cj0wc7qhm00rt2rny75ogya88', // stylesheet location
@@ -117,6 +135,64 @@ function initMap(){
         });    
     
     }
+
+
+    $(".nombre-ciudad").hover(function(){
+        $(this).css("background-color", "#243342");
+        }, function(){
+        $(this).css("background-color", "");
+    });
+
+    /*CLICK EVENTS*/
+
+    $("#barcelona" ).click(function() {
+        $(".nombre-ciudad").removeClass("selected");
+        $(this).addClass("selected");
+        map.flyTo({
+            center: centerList.barcelona
+        }); 
+
+    });
+
+    $("#asuncion" ).click(function() {
+        $(".nombre-ciudad").removeClass("selected");
+        $(this).addClass("selected"); 
+        map.flyTo({
+            center: centerList.asuncion
+        }); 
+    });
+    
+    $("#buenosaires" ).click(function() {
+        $(".nombre-ciudad").removeClass("selected");
+        $(this).addClass("selected"); 
+        map.flyTo({
+            center: centerList.buenosaires
+        });
+    });
+    
+    $("#lima" ).click(function() {
+        $(".nombre-ciudad").removeClass("selected");
+        $(this).addClass("selected"); 
+        map.flyTo({
+            center: centerList.lima
+        });
+    });
+    
+    $("#montevideo" ).click(function() {
+        $(".nombre-ciudad").removeClass("selected");
+        $(this).addClass("selected"); 
+        map.flyTo({
+            center: centerList.montevideo
+        });
+    });
+    
+    $("#cochabamba" ).click(function() {
+        $(".nombre-ciudad").removeClass("selected");
+        $(this).addClass("selected"); 
+        map.flyTo({
+            center: centerList.cochabamba
+        });
+    });    
 
 }
 

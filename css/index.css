@@ -15,15 +15,51 @@ body {
     position:absolute; 
     top:0; 
     bottom:0; 
-    width:200px;
+    width:250px;
     height: 100%;
     background-color: rgba(25,83,95,0.8);
     z-index: 1000;
-    padding: 20px;  
+    padding-top: 15px;
 }
+
+.padding10{padding: 10px;}
 
 #description-txt{
     color: #ffffff ;
     text-align: justify;
-
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
 }
+
+#geochicas-txt{
+    text-align: center;
+    color: #ffff;
+    font-size: 18px;    
+}
+#geochicas-txt > p {
+    margin-bottom: 4px;
+}
+
+.separator{
+    color: red;
+    height: 5px;
+    width: 100%;
+}
+
+.ciudades-list{
+    text-align: center;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+.nombre-ciudad{
+    padding: 5px;
+}
+
+.selected{
+    font-weight: bold;
+    background-color: #243342;
+    border-right: 5px solid #00B99E;
+}
+

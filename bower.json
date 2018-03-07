@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "flexboxgrid": "^6.3.2"
+    "flexboxgrid": "^6.3.2",
+    "jquery": "^3.3.1"
   }
 }
