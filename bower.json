@@ -1,0 +1,20 @@
+{
+  "name": "lascallesdelasmujeres",
+  "homepage": "https://github.com/geochicasosm/lascallesdelasmujeres",
+  "authors": [
+    "Jessica Sena <jessisena@gmail.com>"
+  ],
+  "description": "las calles de las mujeres",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "flexboxgrid": "^6.3.2"
+  }
+}

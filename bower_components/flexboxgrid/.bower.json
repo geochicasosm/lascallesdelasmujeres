@@ -1,0 +1,34 @@
+{
+  "name": "flexboxgrid",
+  "version": "6.3.2",
+  "license": "Apache 2",
+  "homepage": "https://github.com/kristoferjoseph/flexboxgrid",
+  "authors": [
+    "@dam"
+  ],
+  "description": "Grid based on the flex display property.",
+  "main": "dist/flexboxgrid.css",
+  "keywords": [
+    "browser",
+    "flexbox",
+    "grid",
+    "css"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "6.3.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v6.3.2",
+    "commit": "6492775d723d16e0950c4e1c1e46e7ff4e9473cd"
+  },
+  "_source": "https://github.com/kristoferjoseph/flexboxgrid.git",
+  "_target": "^6.3.2",
+  "_originalSource": "flexboxgrid",
+  "_direct": true
+}
