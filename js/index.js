@@ -44,7 +44,7 @@ function initMap(){
     
         for(var i=0; i<tilecount; i++){
     
-            fetch('data/'+folder+'/final_tile'+i+'.geojson').then(function(res){
+            fetch('https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master/data/'+folder+'/final_tile'+i+'.geojson').then(function(res){
                 return res.json();
             }).then(function(geojson){
     
