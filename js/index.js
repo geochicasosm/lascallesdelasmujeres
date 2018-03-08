@@ -40,15 +40,10 @@ function initMap(){
     });
     
     
-    //map.on('load', loadGeojsonBarcelona());
     map.on('load', loadGeojson(11, 'barcelona'));
     map.on('load', loadGeojson(9, 'buenosaires'));
     map.on('load', loadGeojson(12, 'cochabamba'));
     map.on('load', loadGeojson(9, 'asuncion'));
-/*     map.on('load', loadGeojsonBarcelona());
-    map.on('load', loadGeojsonBarcelona());
-    map.on('load', loadGeojsonBarcelona());
-    map.on('load', loadGeojsonBarcelona()); */
 
 
     function loadGeojson(tilecount, folder){    
@@ -94,13 +89,14 @@ function initMap(){
             var name = e.features[0].properties.name;
             var gender = e.features[0].properties.gender;
     
-            var html = '<div class="popup-male"><p>'+name+'</p><p>'+gender+'</p></div>';
+            var html = '<div class="popup-male"><p>'+name+'</p></div>';
+
             if (gender === 'Female'){
 
                 html = '<div class="row">'+
                             '<div class="col-xs">'+
                                 '<div class="box">'+
-                                '<div class="popup-female"><p>'+name+'</p><p>( mujer )</p> <p class="button"><a target="_blank" href=\''+link+'\'><img src="./css/images/wikipedia.svg"/></a></p></div>'+
+                                '<div class="popup-female"><p>'+name+'</p><p class=""><a target="_blank" href=\''+link+'\'><img id="wiki" class="effect6" src="./css/images/wikipedia.svg"/></a></p></div>'+
                                 '</div>'+
                             '</div>'+
                         '</div>';
@@ -115,6 +111,7 @@ function initMap(){
                 .addTo(map);
         });        
     }
+
 
 
     $(".nombre-ciudad").hover(function(){

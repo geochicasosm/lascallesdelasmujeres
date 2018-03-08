@@ -11,7 +11,6 @@
 body { 
     font-family: 'Open Sans', sans-serif;
     font-family: 'Roboto', sans-serif;
-
     margin:0; 
     padding:0; 
 }
@@ -23,7 +22,6 @@ body {
     top:0; 
     bottom:0; 
     width:250px;
-    height: 100%;
     background-color: rgba(25,83,95,0.8);
     z-index: 1000;
     padding-top: 15px;
@@ -61,9 +59,14 @@ body {
 }
 
 .separator{
-    color: red;
-    height: 5px;
-    width: 100%;
+    border-color: #0e9686;
+    border-style: solid;
+    border-width: 0 0 2px;
+    height: 10px;
+    line-height: 20px;
+    text-align:center;
+    margin: 15px 10px 0px 10px;
+    opacity: 0.5;
 }
 
 .ciudades-list{
@@ -95,12 +98,92 @@ body {
 }
 
 .popup-male{
-    border: 2px solid var(--male-color);
-    background-color: var(--male-color);
     text-align: center;    
 }
 
+.img-button{
+    box-shadow: 0 8px 6px -6px black;
+}
 
+.effect1{
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+       -moz-box-shadow: 0 10px 6px -6px #777;
+            box-shadow: 0 10px 6px -6px #777;
+}
+
+/*==================================================
+ * Effect 5
+ * ===============================================*/
+ .effect5
+ {
+   position: relative;
+ }
+ .effect5:before, .effect5:after
+ {
+   z-index: -1;
+   position: absolute;
+   content: "";
+   bottom: 25px;
+   left: 10px;
+   width: 50%;
+   top: 80%;
+   max-width:300px;
+   background: #777;
+   -webkit-box-shadow: 0 35px 20px #777;
+   -moz-box-shadow: 0 35px 20px #777;
+   box-shadow: 0 35px 20px #777;
+   -webkit-transform: rotate(-8deg);
+   -moz-transform: rotate(-8deg);
+   -o-transform: rotate(-8deg);
+   -ms-transform: rotate(-8deg);
+   transform: rotate(-8deg);
+ }
+ .effect5:after
+ {
+   -webkit-transform: rotate(8deg);
+   -moz-transform: rotate(8deg);
+   -o-transform: rotate(8deg);
+   -ms-transform: rotate(8deg);
+   transform: rotate(8deg);
+   right: 10px;
+   left: auto;
+ }
+
+/*==================================================
+ * Effect 6
+ * ===============================================*/
+ .effect6
+ {
+     position:relative;
+     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+             box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+ }
+ .effect6:before, .effect6:after
+ {
+     content:"";
+     position:absolute;
+     z-index:-1;
+     -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+     -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+     box-shadow:0 0 20px rgba(0,0,0,0.8);
+     top:50%;
+     bottom:0;
+     left:10px;
+     right:10px;
+     -moz-border-radius:100px / 10px;
+     border-radius:100px / 10px;
+ }
+ .effect6:after
+ {
+     right:10px;
+     left:auto;
+     -webkit-transform:skew(8deg) rotate(3deg);
+        -moz-transform:skew(8deg) rotate(3deg);
+         -ms-transform:skew(8deg) rotate(3deg);
+          -o-transform:skew(8deg) rotate(3deg);
+             transform:skew(8deg) rotate(3deg);
+ } 
 
 
 .button2 {
