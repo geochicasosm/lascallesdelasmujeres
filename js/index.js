@@ -40,6 +40,7 @@ function initMap(){
     
     
     //map.on('load', loadGeojsonBarcelona());
+    map.on('load', loadGeojson(11, 'barcelona'));
     map.on('load', loadGeojson(9, 'buenosaires'));
     map.on('load', loadGeojson(12, 'cochabamba'));
     map.on('load', loadGeojson(9, 'asuncion'));
