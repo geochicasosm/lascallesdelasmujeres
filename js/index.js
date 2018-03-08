@@ -24,9 +24,10 @@ function initMap(){
     
     var datos = {
         asuncion:       {pcM: 91.9, numM: 1542, pcF: 8.1, numF: 135},
-        barcelona:      {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
+        barcelona:      {pcM: 84.1, numM: 2139, pcF: 15.9, numF: 404},
         buenosaires:    {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
-        cochabamba:     {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
+        cochabamba:     {pcM: 93.6, numM: 701, pcF: 6.4, numF: 48},
+
         lima:           {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
         montevideo:     {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
     };    
