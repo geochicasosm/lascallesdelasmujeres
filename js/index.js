@@ -20,13 +20,22 @@ function initMap(){
         cochabamba: [-66.1568, -17.3895],
         lima: [ -77.02824, -12.04318],
         montevideo:[ -56.18816, -34.90328]         
+    };
+    
+    var datos = {
+        asuncion:       {pcM: 91.9, numM: 1542, pcF: 8.1, numF: 135},
+        barcelona:      {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
+        buenosaires:    {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
+        cochabamba:     {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
+        lima:           {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
+        montevideo:     {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
     };    
 
     var map = new mapboxgl.Map({
         container: 'map', // container id
         style: 'mapbox://styles/geostarters/cj0wc7qhm00rt2rny75ogya88', // stylesheet location
-        center: [2.154007, 41.390205], // starting position [lng, lat]
-        zoom: 12 // starting zoom
+        center: [	-39.11133, 36.66842], // starting position [lng, lat]
+        zoom: 2 // starting zoom
     });
     
     
@@ -40,9 +49,7 @@ function initMap(){
     map.on('load', loadGeojsonBarcelona()); */
 
 
-    function loadGeojson(tilecount, folder){
-    
-        //var listNames = [ 'final_tile_2071,1528,12.geojson', 'final_tile_2071,1529,12.geojson', 'final_tile_2071,1530,12.geojson', 'final_tile_2072,1528,12.geojson', 'final_tile_2072,1529,12.geojson', 'final_tile_2072,1530,12.geojson', 'final_tile_2073,1528,12.geojson', 'final_tile_2073,1529,12.geojson', 'final_tile_2073,1530,12.geojson'];
+    function loadGeojson(tilecount, folder){    
     
         for(var i=0; i<tilecount; i++){
     
@@ -56,65 +63,12 @@ function initMap(){
         }    
     }    
     
-    function loadGeojsonBarcelona(){
-    
-        var listNames = [ 'final_tile_2071,1528,12.geojson', 'final_tile_2071,1529,12.geojson', 'final_tile_2071,1530,12.geojson', 'final_tile_2072,1528,12.geojson', 'final_tile_2072,1529,12.geojson', 'final_tile_2072,1530,12.geojson', 'final_tile_2073,1528,12.geojson', 'final_tile_2073,1529,12.geojson', 'final_tile_2073,1530,12.geojson'];
-    
-        for(var i=0; i<listNames.length; i++){
-    
-            fetch('data/barcelona/'+listNames[i]).then(function(res){
-                return res.json();
-            }).then(function(geojson){
-    
-                addGeojson(geojson);
-
-            });
-        }    
-    }
-    
-/*     function loadGeojson(e) {
-    
-    
-        
-        fetch('data/tile0.geojson').then(function(res){
-            return res.json();
-        }).then(function(geojson){
-    
-            addGeojson(geojson, 'tile0');
-    
-        });
-    
-        fetch('data/tile1.geojson').then(function(res){
-            return res.json();
-        }).then(function(geojson){
-    
-            addGeojson(geojson, 'tile1');
-    
-        });
-    
-        fetch('data/tile2.geojson').then(function(res){
-            return res.json();
-        }).then(function(geojson){
-    
-            addGeojson(geojson, 'tile2');
-    
-        });
-    
-        fetch('data/tile3.geojson').then(function(res){
-            return res.json();
-        }).then(function(geojson){
-    
-            addGeojson(geojson, 'tile3');
-    
-        });            
-    } */
+  
     
     
     function addGeojson(geojson, sourcename = Date.now()){
-    
-    
-    
-    map.addLayer({
+           
+        map.addLayer({
             "id": `${sourcename}`,
             "type": "line",
             "source": {
@@ -127,27 +81,29 @@ function initMap(){
             },
             "paint": {
                 //"line-color":  "#76ef0a",
-                'line-color': ['case', ['==', ['get', 'gender'], 'Female'], '#76ef0a', '#FFA463'],
-                "line-width": ['case', ['==', ['get', 'gender'], 'Female'], 6, 4],
+                'line-color': ['case', ['==', ['get', 'gender'], 'Female'], '#FFA400', '#00B99E'],
+                "line-width": ['case', ['==', ['get', 'gender'], 'Female'], 5, 4],
             }
         });
     
         map.on('click', `${sourcename}`, function (e) {
-            //var coordinates = e.features[0].geometry.coordinates.slice(1);
+
             var link = e.features[0].properties.wikipedia_link;
             var name = e.features[0].properties.name;
             var gender = e.features[0].properties.gender;
     
-            // Ensure that if the map is zoomed out such that multiple
-            // copies of the feature are visible, the popup appears
-            // over the copy being pointed to.
-    /*         while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-            } */
-    
-            var html = '<div><p>'+name+'</p><p>'+gender+'</p></div>';
+            var html = '<div class="popup-male"><p>'+name+'</p><p>'+gender+'</p></div>';
             if (gender === 'Female'){
-                html = '<div><p>'+name+'</p><p>'+gender+'</p> <p><a target="_blank" href=\''+link+'\'>Wikipedia info</a></p></div>';
+
+                html = '<div class="row">'+
+                            '<div class="col-xs">'+
+                                '<div class="box">'+
+                                '<div class="popup-female"><p>'+name+'</p><p>( mujer )</p> <p class="button"><a target="_blank" href=\''+link+'\'><img src="./css/images/wikipedia.svg"/></a></p></div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>';
+
+                //html = '<div class="popup-female"><p>'+name+'</p><p>( mujer )</p> <p><a target="_blank" href=\''+link+'\'><img src="./css/images/wikipedia.svg"/></a></p></div>';
             }
             
     
@@ -155,8 +111,7 @@ function initMap(){
                 .setLngLat(e.lngLat)
                 .setHTML(html)
                 .addTo(map);
-        });    
-    
+        });        
     }
 
 
@@ -172,50 +127,104 @@ function initMap(){
         $(".nombre-ciudad").removeClass("selected");
         $(this).addClass("selected");
         map.flyTo({
-            center: centerList.barcelona
+            center: centerList.barcelona,
+            zoom: 13
         }); 
-
+        loadChart(datos.barcelona, 'Barcelona');
     });
 
     $("#asuncion" ).click(function() {
         $(".nombre-ciudad").removeClass("selected");
         $(this).addClass("selected"); 
         map.flyTo({
-            center: centerList.asuncion
+            center: centerList.asuncion,
+            zoom: 13
         }); 
+        loadChart(datos.asuncion, 'Asunción');
     });
     
     $("#buenosaires" ).click(function() {
         $(".nombre-ciudad").removeClass("selected");
         $(this).addClass("selected"); 
         map.flyTo({
-            center: centerList.buenosaires
+            center: centerList.buenosaires,
+            zoom: 13
         });
+        loadChart(datos.buenosaires, 'Buenos Aires');
     });
     
     $("#lima" ).click(function() {
         $(".nombre-ciudad").removeClass("selected");
         $(this).addClass("selected"); 
         map.flyTo({
-            center: centerList.lima
+            center: centerList.lima,
+            zoom: 13
         });
+        loadChart(datos.lima, 'Lima');
     });
     
     $("#montevideo" ).click(function() {
         $(".nombre-ciudad").removeClass("selected");
         $(this).addClass("selected"); 
         map.flyTo({
-            center: centerList.montevideo
+            center: centerList.montevideo,
+            zoom: 13
         });
+        loadChart(datos.montevideo, 'Montevideo');
     });
     
     $("#cochabamba" ).click(function() {
         $(".nombre-ciudad").removeClass("selected");
         $(this).addClass("selected"); 
         map.flyTo({
-            center: centerList.cochabamba
+            center: centerList.cochabamba,
+            zoom: 13
         });
-    });    
+        loadChart(datos.cochabamba, 'Cochabamba');
+    });
+
+    /* graficos */
+
+
+    
+    
+    function loadChart(datos, ciudad){
+        var ctx = document.getElementById('chart-area').getContext('2d');
+        var config = {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [ datos.numM, datos.numF],
+                    backgroundColor: [
+                       '#00b99e',
+                       '#FFCA3A'
+                    ],
+                    label: 'label'
+                }],
+                labels: [ 'H, '+datos.pcM+'%', 'M, '+datos.pcF+'%' ]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'bottom',
+                    fontFamily: 'Roboto',
+                    fullWidth: false
+                },
+                title: {
+                    display: true,
+                    text: ciudad,
+                    position: 'left',
+                    fontFamily: 'Roboto',
+                    fontSize: 14
+                },            
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }
+        };
+		window.myDoughnut = new Chart(ctx, config);
+    }
 
 }
 

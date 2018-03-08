@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "flexboxgrid": "^6.3.2",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "chart.js": "^2.7.2"
   }
 }

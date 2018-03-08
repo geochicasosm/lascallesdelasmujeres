@@ -11,11 +11,13 @@
 
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
     <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-    <script src="./bower_components/flexboxgrid/dist/flexboxgrid.min.js"></script>  
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="./bower_components/chart.js/dist/Chart.min.js"></script>
+    <!-- <script src="./bower_components/flexboxgrid/dist/flexboxgrid.min.js"></script>   -->
     <script src="./js/index.js"></script>
+    
     
 </head>
 <body>
@@ -66,15 +68,19 @@
             <div id="cochabamba" class="box nombre-ciudad">
                 <p>COCHABAMBA</p>                                
             </div>             
-            <div id="montevideo" class="box nombre-ciudad">
+<!--             <div id="montevideo" class="box nombre-ciudad">
                 <p>MONTEVIDEO</p>                                
             </div>  
             <div id="lima" class="box nombre-ciudad">
                 <p>LIMA</p>                                
-            </div>                                                  
+            </div>   -->                                                
         </div>
     </div>      
 
+</div>
+
+<div id="panel-chart">
+    <canvas id="chart-area"></canvas>
 </div>
 
 

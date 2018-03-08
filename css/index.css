@@ -1,5 +1,12 @@
 
+:root {
+    --female-color: #FFCA3A;
+    --male-color: #00b99e;
+    --primary-color: red;
+    --secondary-color: blue;
+  }
 
+  /*var(--main-bg-color);*/
 
 body { 
     font-family: 'Open Sans', sans-serif;
@@ -20,6 +27,18 @@ body {
     background-color: rgba(25,83,95,0.8);
     z-index: 1000;
     padding-top: 15px;
+}
+
+#panel-chart{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0.8;
+    background-color: #ffffff;
+    opacity: 0.9;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 1000;
 }
 
 .padding10{padding: 10px;}
@@ -55,6 +74,7 @@ body {
 
 .nombre-ciudad{
     padding: 5px;
+    cursor: pointer;
 }
 
 .selected{
@@ -62,4 +82,97 @@ body {
     background-color: #243342;
     border-right: 5px solid #00B99E;
 }
+
+/**/
+.popup-female{
+    text-align: center; 
+    font-size: 14px;
+}
+
+.popup-female img{
+    width: 30px;
+    text-transform: uppercase;
+}
+
+.popup-male{
+    border: 2px solid var(--male-color);
+    background-color: var(--male-color);
+    text-align: center;    
+}
+
+
+
+
+.button2 {
+    width: 45px;
+    height: 45px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    }
+  
+  .button2:hover {
+    background-color: var(--female-color);
+    box-shadow: 0px 10px 15px var(--female-color);
+    color: #fff;
+    transform: translateY(-5px);
+  }
+
+  .button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 auto;
+    width: 70px;
+    height: 70px;
+    font-size: 52px;
+    transition: all 0.4s ease-in;
+    span[class^='ion'] {
+      position: relative;
+    }
+    //start click effect
+    &:before {
+      content: '';
+      background-color: aliceblue;
+      border-radius: 50%;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: scale(0.001, 0.001);
+    }
+    &:focus {
+      outline: 0;
+      color: #fff;
+      &:before {
+        animation: effect_dylan 0.8s ease-out;
+      }
+    }
+  }
+  @keyframes effect_dylan {
+    50% {
+      transform: scale(1.5, 1.5);
+      opacity: 0;
+    }
+    99% {
+      transform: scale(0.001, 0.001);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0.001, 0.001);
+      opacity: 1;
+    }
+  }
 
