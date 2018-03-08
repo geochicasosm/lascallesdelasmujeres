@@ -5,15 +5,15 @@
     <title>Las calles de las mujeres</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />    
-    <link href='./bower_components/flexboxgrid/dist/flexboxgrid.min.css' rel='stylesheet' />   
-    <link href='./css/index.css' rel='stylesheet' /> 
+    <link rel="stylesheet" href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />    
+    <link rel="stylesheet" href='./bower_components/bootstrap-4.0.0-dist/css/bootstrap.min.css' rel='stylesheet' /> 
+    <link rel="stylesheet" href="./css/fontawesome-all.min.css">
+    <link rel="stylesheet" href='./css/index.css' rel='stylesheet' /> 
 
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="./bower_components/bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./bower_components/bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js.map"></script>
     <script src="./bower_components/chart.js/dist/Chart.min.js"></script>
     <!-- <script src="./bower_components/flexboxgrid/dist/flexboxgrid.min.js"></script>   -->
     <script src="./js/index.js"></script>
@@ -22,66 +22,110 @@
 </head>
 <body>
 
-<div id='map'></div>
+<div id='map' class="container-fluid"></div>
 
-<div id='panel'>
-<!--     <div class="row">
-        <img id="logo_proyecto" src="./css/images/logo_proyecto.svg"/>
-    </div> -->
-    <div class="row">
-        <div class="col-xs">
-            <div class="box padding10"><img id="logo-proyecto" src="./css/images/logo_proyecto.svg"/></div>
+
+
+<nav class="navbar navbar-expand-lg my-navbar d-block d-md-none">        
+        <button id="my-toggle-menu"  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <!-- <span class="navbar-toggler-icon"></span> -->
+          <i class="fas fa-chevron-circle-down" aria-hidden="true"></i>
+
+        </button>
+        <a class="navbar-brand" href="#">Las calles de las mujeres</a>
+        
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div id="menu-list" class="navbar-nav">
+            <a id="menu-asuncion" class="nav-item nav-link" href="#"> ASUNCIÓN <span class="sr-only">(current)</span></a>
+            <a id="menu-barcelona" class="nav-item nav-link" href="#">BARCELONA</a>
+            <a id="menu-buenosaires" class="nav-item nav-link" href="#">BUENOS AIRES</a>
+            <a id="menu-cochabamba" class="nav-item nav-link" href="#">COCHABAMBA</a>
+<!--             <a id="menu-lima" class="nav-item nav-link" href="#">LIMA</a>
+            <a id="menu-montevideo" class="nav-item nav-link" href="#">MONTEVIDEO</a> -->
+
+          </div>
+          <div class="row menu-info">
+                <div class="col">
+                        <img width="150px" id="logo-proyecto" src="./css/images/logo_proyecto.svg"/>
+                </div>
+                <div class="col my-col-right">
+                    <a href="http://geochicas.org/" target="_blank"><img width="100px" id="logo-geochicas" src="./css/images/logo_geo.svg"/></a>
+                    <br>  
+                    <i class="fab fa-twitter" aria-hidden="true">&nbsp;&nbsp;<a href="https://twitter.com/GeochicasOSM" target="_blank"></i>@GeochicasOSM</a><br>
+                    <i class="fab fa-github" aria-hidden="true">&nbsp;&nbsp;<a href="https://github.com/geochicasosm" target="_blank"></i>geochicasosm</a><br>                        
+                </div>                            
+          </div>
+          
+        </div>
+      </nav>
+
+      <!-- <div>Barlceona</div> -->
+
+<div id='panel' class="container d-none d-md-block">
+
+    <div class="row padding15">
+      <div class="col-sm">
+        <img id="logo-proyecto" src="./css/images/logo_proyecto.svg"/>
+      </div>
+    </div>
+
+    <div class="row paddingTop30 paddingSides15">
+        <div class="col-sm">
+            <div id="description-txt">
+                <p>Mapa generado a partir de las calles con nombre de mujeres, en diferentes ciudades de habla hispana (Latinoamérica y España).</p>
+                <p>El objetivo es visibilizar la brecha que existe históricamente en la representación de figuras femeninas en las calles de las ciudades.</p>
+            </div>
         </div>
     </div>
-    
-    <div class="row">
-        <div class="col-xs">
-            <div id="description-txt" class="box padding10">
-                <p>Mapa generado a partir de las calles con nombre de mujeres, en diferentes ciudades de habla hispana (Latinoamérica y España).</p>
-                <p>El objetivo es visibilizar la brecha que existe históricamente en la representación de figuras femeninas en las ciudades.</p>
-            </div>
+
+    <div class="row padding15 ">
+        <div id="geochicas-txt" class="col-sm">
+            <p>Un proyecto de</p>                
+            <a href="http://geochicas.org/" target="_blank"><img id="logo-geochicas" src="./css/images/logo_geo.svg"/></a>            
         </div>
-    </div>  
-
-
-
-    <div class="row">
-        <div class="col-xs">
-            <div id="geochicas-txt" class="box">
-                <p>Un proyecto de</p>
-                <img id="logo-geochicas" src="./css/images/logo_geo.svg"/>
-            </div>
-        </div>
-    </div>   
+    </div>     
     
-    <div class="separator"> </div>      
+    <div class="separator"> </div>
 
-    <div class="row">
-        <div class="col-xs ciudades-list">
-            <div id="asuncion" class="box nombre-ciudad">
-                <p>ASUNCIÓN</p>                                
+    <div class="row ">
+        <div id="ciudades-list" class="col-sm">
+
+            <div id="asuncion" class="nombre-ciudad">
+                ASUNCIÓN                                
             </div>
-            <div id="barcelona" class="box nombre-ciudad">
-                <p>BARCELONA</p>                                
+            <div id="barcelona" class="nombre-ciudad">
+                BARCELONA                                
             </div> 
-            <div id="buenosaires" class="box nombre-ciudad">
-                <p>BUENOS AIRES</p>                                
+            <div id="buenosaires" class="nombre-ciudad">
+                BUENOS AIRES                             
             </div> 
-            <div id="cochabamba" class="box nombre-ciudad">
-                <p>COCHABAMBA</p>                                
+            <div id="cochabamba" class="nombre-ciudad">
+                COCHABAMBA                                
             </div>             
-<!--             <div id="montevideo" class="box nombre-ciudad">
-                <p>MONTEVIDEO</p>                                
+<!--             <div id="montevideo" class="nombre-ciudad">
+                MONTEVIDEO                               
             </div>  
-            <div id="lima" class="box nombre-ciudad">
-                <p>LIMA</p>                                
-            </div>   -->                                                
+            <div id="lima" class="nombre-ciudad">
+                LIMA                               
+            </div>  -->              
+
         </div>
-    </div>      
+    </div> 
+
+    <div class="separator"> </div>
+    
+    <div class="row ">
+            <div id="my-footer" class="col-sm">                    
+                    <i class="fab fa-twitter" aria-hidden="true">&nbsp;&nbsp;<a href="https://twitter.com/GeochicasOSM" target="_blank"></i>@GeochicasOSM</a><br>
+                    <i class="fab fa-github" aria-hidden="true">&nbsp;&nbsp;<a href="https://github.com/geochicasosm" target="_blank"></i>geochicasosm</a><br>
+            </div>
+    </div>
 
 </div>
 
-<div id="panel-chart">
+
+
+<div id="panel-chart" class="invisible" >
     <canvas id="chart-area"></canvas>
 </div>
 

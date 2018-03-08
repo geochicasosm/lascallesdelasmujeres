@@ -1,4 +1,6 @@
 
+@import url('./button-effects.css');
+
 :root {
     --female-color: #FFCA3A;
     --male-color: #00b99e;
@@ -15,17 +17,35 @@ body {
     padding:0; 
 }
 
-#map { position:absolute; top:0; bottom:0; width:100%; }
+
+#map { position:absolute; top:0; bottom:0; width:100%; padding: 0 !important;}
 
 #panel {
     position:absolute; 
     top:0; 
     bottom:0; 
-    width:250px;
+    width: 20%;
     background-color: rgba(25,83,95,0.8);
     z-index: 1000;
+    padding: 0;
     padding-top: 15px;
 }
+@media (min-width: 1200px) {
+    #panel {
+        width: 250px;
+    }
+}
+
+.my-navbar{
+    background-color: rgba(25,83,95,0.8);
+    color: white; 
+    text-align: center;   
+    padding: .5rem 0rem;
+}
+.my-navbar a{
+    color: white;    
+}
+
 
 #panel-chart{
     position: absolute;
@@ -40,13 +60,17 @@ body {
 }
 
 .padding10{padding: 10px;}
+.padding15{padding: 15px;}
+.paddingTop10{padding-top: 10px;}
+.paddingTop30{padding-top: 30px;}
+.paddingSides15{padding-left: 15px; padding-right: 15px;}
 
 #description-txt{
     color: #ffffff ;
     text-align: justify;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 13px;
 }
 
 #geochicas-txt{
@@ -65,18 +89,20 @@ body {
     height: 10px;
     line-height: 20px;
     text-align:center;
-    margin: 15px 10px 0px 10px;
+    margin: 10px 10px 10px 10px;
     opacity: 0.5;
 }
 
 .ciudades-list{
-    text-align: center;
-    color: #ffffff;
+    padding: 0px;
     margin-top: 20px;
 }
 
 .nombre-ciudad{
-    padding: 5px;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 15px;
+    padding-bottom: 15px;
     cursor: pointer;
 }
 
@@ -84,6 +110,83 @@ body {
     font-weight: bold;
     background-color: #243342;
     border-right: 5px solid #00B99E;
+}
+.menu-selected{
+    font-weight: bold;
+    background-color: #243342;
+    border-right: 5px solid #00B99E;    
+    border-left: 5px solid #00B99E;
+}
+
+#my-toggle-menu{
+    color: white !important;
+}
+
+.menu-info{
+    padding-top: 15px;
+    text-align: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+.my-col-right {padding-bottom: 0px;
+    padding-top: 15px;}
+.menu-info a:hover {
+    font-weight: bold;
+}
+
+@media (max-height: 850px) {
+
+    #description-txt{
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 12px;
+    }
+    
+    #geochicas-txt{
+        text-align: center;
+        color: #ffff;
+        font-size: 15px;    
+    }
+    #geochicas-txt > p {
+        margin-bottom: 4px;
+    }
+    
+    .separator{
+        height: 5px;
+        line-height: 10px;
+        margin: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    .ciudades-list{
+        padding: 0px;
+        margin-top: 10px;
+    }
+    
+    .nombre-ciudad{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+}
+
+#my-footer{
+
+    bottom: 0;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 2em;
+}
+
+#my-footer a {
+    text-decoration: none;
+    color: white;
+}
+#my-footer a:hover {
+    font-weight: bold;
 }
 
 /**/
@@ -104,158 +207,4 @@ body {
 .img-button{
     box-shadow: 0 8px 6px -6px black;
 }
-
-.effect1{
-    -webkit-box-shadow: 0 10px 6px -6px #777;
-       -moz-box-shadow: 0 10px 6px -6px #777;
-            box-shadow: 0 10px 6px -6px #777;
-}
-
-/*==================================================
- * Effect 5
- * ===============================================*/
- .effect5
- {
-   position: relative;
- }
- .effect5:before, .effect5:after
- {
-   z-index: -1;
-   position: absolute;
-   content: "";
-   bottom: 25px;
-   left: 10px;
-   width: 50%;
-   top: 80%;
-   max-width:300px;
-   background: #777;
-   -webkit-box-shadow: 0 35px 20px #777;
-   -moz-box-shadow: 0 35px 20px #777;
-   box-shadow: 0 35px 20px #777;
-   -webkit-transform: rotate(-8deg);
-   -moz-transform: rotate(-8deg);
-   -o-transform: rotate(-8deg);
-   -ms-transform: rotate(-8deg);
-   transform: rotate(-8deg);
- }
- .effect5:after
- {
-   -webkit-transform: rotate(8deg);
-   -moz-transform: rotate(8deg);
-   -o-transform: rotate(8deg);
-   -ms-transform: rotate(8deg);
-   transform: rotate(8deg);
-   right: 10px;
-   left: auto;
- }
-
-/*==================================================
- * Effect 6
- * ===============================================*/
- .effect6
- {
-     position:relative;
-     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-        -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-             box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
- }
- .effect6:before, .effect6:after
- {
-     content:"";
-     position:absolute;
-     z-index:-1;
-     -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
-     -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
-     box-shadow:0 0 20px rgba(0,0,0,0.8);
-     top:50%;
-     bottom:0;
-     left:10px;
-     right:10px;
-     -moz-border-radius:100px / 10px;
-     border-radius:100px / 10px;
- }
- .effect6:after
- {
-     right:10px;
-     left:auto;
-     -webkit-transform:skew(8deg) rotate(3deg);
-        -moz-transform:skew(8deg) rotate(3deg);
-         -ms-transform:skew(8deg) rotate(3deg);
-          -o-transform:skew(8deg) rotate(3deg);
-             transform:skew(8deg) rotate(3deg);
- } 
-
-
-.button2 {
-    width: 45px;
-    height: 45px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #fff;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    }
-  
-  .button2:hover {
-    background-color: var(--female-color);
-    box-shadow: 0px 10px 15px var(--female-color);
-    color: #fff;
-    transform: translateY(-5px);
-  }
-
-  .button {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    margin: 0 auto;
-    width: 70px;
-    height: 70px;
-    font-size: 52px;
-    transition: all 0.4s ease-in;
-    span[class^='ion'] {
-      position: relative;
-    }
-    //start click effect
-    &:before {
-      content: '';
-      background-color: aliceblue;
-      border-radius: 50%;
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      transform: scale(0.001, 0.001);
-    }
-    &:focus {
-      outline: 0;
-      color: #fff;
-      &:before {
-        animation: effect_dylan 0.8s ease-out;
-      }
-    }
-  }
-  @keyframes effect_dylan {
-    50% {
-      transform: scale(1.5, 1.5);
-      opacity: 0;
-    }
-    99% {
-      transform: scale(0.001, 0.001);
-      opacity: 0;
-    }
-    100% {
-      transform: scale(0.001, 0.001);
-      opacity: 1;
-    }
-  }
 
