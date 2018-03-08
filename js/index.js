@@ -200,7 +200,7 @@ function initMap(){
                     ],
                     label: 'label'
                 }],
-                labels: [ 'H, '+datos.pcM+'%', 'M, '+datos.pcF+'%' ]
+                labels: [ 'H,'+datos.pcM+'%', 'M,'+datos.pcF+'%' ]
             },
             options: {
                 responsive: true,
