@@ -15,7 +15,7 @@ Se pretende realizar un relevamiento de información sobre calles, avenidas, pas
 
 ### Estado actual
 
-El proyecto se encuentra aún en desarrollo. La idea es ir ampliando paulatinamente el número de calles mapeadas, que hasta el momento son:
+El proyecto se encuentra aún en desarrollo. La idea es ir ampliando paulatinamente el número de ciudades mapeadas, que hasta el momento son:
 
 - Asunción
 - Barcelona
@@ -25,7 +25,7 @@ El proyecto se encuentra aún en desarrollo. La idea es ir ampliando paulatiname
 En preparación:
 
 - Lima
-- Perú
+- Montevideo
 
 
 ## Built With
