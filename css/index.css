@@ -37,10 +37,11 @@ body {
 }
 
 .my-navbar{
-    background-color: rgba(25,83,95,0.8);
+    background-color: rgba(25,83,95,0.9);
     color: white; 
     text-align: center;   
     padding: .5rem 0rem;
+    z-index: 1000;
 }
 .my-navbar a{
     color: white;    
@@ -56,7 +57,7 @@ body {
     opacity: 0.9;
     border-radius: 5px;
     padding: 5px;
-    z-index: 1000;
+    z-index: 999;
 }
 
 .padding10{padding: 10px;}
@@ -123,15 +124,47 @@ body {
 }
 
 .menu-info{
-    padding-top: 15px;
+    
     text-align: white;
     text-decoration: none;
     font-size: 12px;
 }
-.my-col-right {padding-bottom: 0px;
-    padding-top: 15px;}
+.menu-logo-proyecto{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.menu-logo-proyecto img{
+    width: 150px;
+}
+.menu-text{
+    font-size: 12px;
+    text-align: justify;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.menu-footer p{
+    margin: 0px;
+}
+
+.my-col-right {
+    padding-bottom: 0px;
+    padding-top: 15px;
+}
+
 .menu-info a:hover {
     font-weight: bold;
+}
+
+@media (max-height: 600px) {
+
+    .menu-logo-proyecto img{
+        width: 85px;
+    }
+    .my-menu-item{
+        font-size: 14px !important;
+    }
+
 }
 
 @media (max-height: 850px) {
@@ -190,7 +223,17 @@ body {
 }
 
 /**/
+
+.mapboxgl-popup-content{
+    /* background-color: #0e9686f2; */
+    color: white;
+    font-weight: bold;
+    max-width: 150px;
+    border: 2px solid white;
+}
+.mapboxgl-popup-close-button{color: white}
 .popup-female{
+    margin-top: 5px;
     text-align: center; 
     font-size: 14px;
 }
@@ -201,6 +244,8 @@ body {
 }
 
 .popup-male{
+    font-size: 13px;
+    margin-top: 5px;
     text-align: center;    
 }
 
