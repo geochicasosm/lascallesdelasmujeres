@@ -25,7 +25,7 @@ function Constants(){
         cochabamba:     {pcM: 93.6, numM: 701, pcF: 6.4, numF: 48},
 
         lima:           {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
-        montevideo:     {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
+        montevideo:     {pcM: 92, numM: 2070, pcF: 8, numF: 178},
     }; 
 
     this.mapDarkStyle = 'mapbox://styles/mapbox/dark-v9';
