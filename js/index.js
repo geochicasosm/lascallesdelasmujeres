@@ -11,6 +11,7 @@ function initApp(){
    myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 9, 'buenosaires'));
    myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 12, 'cochabamba'));
    myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 9, 'asuncion'));
+   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 12, 'montevideo'));
 
   
     $("#ciudades-list .nombre-ciudad, #menu-list a").hover(function(){

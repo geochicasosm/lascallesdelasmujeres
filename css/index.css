@@ -66,12 +66,15 @@ body {
 .paddingTop30{padding-top: 30px;}
 .paddingSides15{padding-left: 15px; padding-right: 15px;}
 
-#description-txt{
+#description-txt, #description-txt-short{
     color: #ffffff ;
     text-align: justify;
     padding-left: 15px;
     padding-right: 15px;
     font-size: 13px;
+}
+#description-txt-short{
+    display: none;
 }
 
 #geochicas-txt{
@@ -167,9 +170,22 @@ body {
 
 }
 
-@media (max-height: 850px) {
+@media (max-height: 700px) {
+
+    #description-txt-short{
+        display: block;
+    }
 
     #description-txt{
+        display: none;
+    }    
+
+}
+
+
+@media (max-height: 850px) {
+
+    #description-txt, #description-txt-short{
         padding-left: 5px;
         padding-right: 5px;
         font-size: 12px;
