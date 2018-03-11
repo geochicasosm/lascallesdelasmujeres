@@ -116,7 +116,7 @@ function initApp(){
 
 
 window.onload = function() {
-    var myApp = initApp();
+    var myApp = initApp;
     myApp();
 
 };

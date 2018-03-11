@@ -17,7 +17,7 @@ function ChartService(){
                     ],
                     label: 'label'
                 }],
-                labels: [ 'H,'+datos.pcM+'%', 'M,'+datos.pcF+'%' ]
+                labels: [ 'Hombres, '+datos.pcM+'%', 'Mujeres, '+datos.pcF+'%' ]
             },
             options: {
                 responsive: true,
