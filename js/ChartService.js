@@ -10,14 +10,14 @@ function ChartService(){
             type: 'doughnut',
             data: {
                 datasets: [{
-                    data: [ datos.numM, datos.numF],
+                    data: [ datos.numMale, datos.numFemale],
                     backgroundColor: [
                        '#00b99e',
                        '#FFCA3A'
                     ],
                     label: 'label'
                 }],
-                labels: [ 'Hombres, '+datos.pcM+'%', 'Mujeres, '+datos.pcF+'%' ]
+                labels: [ 'Hombres, '+datos.pcMale+'%', 'Mujeres, '+datos.pcFemale+'%' ]
             },
             options: {
                 responsive: true,

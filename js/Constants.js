@@ -19,13 +19,13 @@ function Constants(){
     };
     
     this.datos = {
-        asuncion:       {pcM: 91.9, numM: 1542, pcF: 8.1, numF: 135},
-        barcelona:      {pcM: 84.1, numM: 2139, pcF: 15.9, numF: 404},
-        buenosaires:    {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
-        cochabamba:     {pcM: 93.6, numM: 701, pcF: 6.4, numF: 48},
+        asuncion:       {numLink:55,pcLink:45.5,numNoLink:66,pcNoLink:54.5,numMale:1426,numFemale:121,pcMale:92.2,pcFemale:7.8,totalNames:1547}, //{pcM: 91.9, numM: 1542, pcF: 8.1, numF: 135},
+        barcelona:      {numLink:229,pcLink:69.4,numNoLink:101,pcNoLink:30.6,numMale:1795,numFemale:330,pcMale:84.5,pcFemale:15.5,totalNames:2125}, //{pcM: 84.1, numM: 2139, pcF: 15.9, numF: 404},
+        buenosaires:    {numLink:86,pcLink:67.7,numNoLink:41,pcNoLink:32.3,numMale:1941,numFemale:127,pcMale:93.9,pcFemale:6.1,totalNames:2068}, //{pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
+        cochabamba:     {numLink:16,pcLink:34.8,numNoLink:30,pcNoLink:65.2,numMale:617,numFemale:46,pcMale:93.1,pcFemale:6.9,totalNames:663}, //{pcM: 93.6, numM: 701, pcF: 6.4, numF: 48},
 
         lima:           {pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
-        montevideo:     {pcM: 92, numM: 2070, pcF: 8, numF: 178},
+        montevideo:     {numLink:78,pcLink:47.9,numNoLink:85,pcNoLink:52.1,numMale:1875,numFemale:163,pcMale:92.0,pcFemale:8.0,totalNames:2038} //{pcM: 92, numM: 2070, pcF: 8, numF: 178},
     }; 
 
     this.mapDarkStyle = 'mapbox://styles/mapbox/dark-v9';
