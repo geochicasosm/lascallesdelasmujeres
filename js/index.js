@@ -8,10 +8,10 @@ function initApp(){
    const myMap = new MyMap();
            
    myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'barcelona'));
-   myMap.map.on('load', geojsonMapService.loadGeojsonTiles(myMap.map, 9, 'buenosaires'));
-   myMap.map.on('load', geojsonMapService.loadGeojsonTiles(myMap.map, 12, 'cochabamba'));
-   myMap.map.on('load', geojsonMapService.loadGeojsonTiles(myMap.map, 9, 'asuncion'));
-   myMap.map.on('load', geojsonMapService.loadGeojsonTiles(myMap.map, 12, 'montevideo'));
+   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'buenosaires'));
+   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'cochabamba'));
+   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'asuncion'));
+   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'montevideo'));
 
   
     $("#ciudades-list .nombre-ciudad, #menu-list a").hover(function(){
