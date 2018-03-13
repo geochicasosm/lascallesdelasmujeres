@@ -3,7 +3,15 @@ function GeojsonMapService(){
     //this.map = map;
     this.urlData = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
 
-    this.loadGeojson = function(map, tilecount, folder){    
+    this.loadGeojson = function(map, folder){    
+    
+        fetch(this.urlData+ '/data/'+folder+'/final_tile.geojson').then(function(res){
+            return res.json();
+        }).then(addGeojsonSource.bind(this, map));
+   
+    };
+
+    this.loadGeojsonTiles = function(map, tilecount, folder){    
     
         for(var i=0; i<tilecount; i++){
     
