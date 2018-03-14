@@ -6,6 +6,8 @@
     --male-color: #00b99e;
     --primary-color: red;
     --secondary-color: blue;
+
+    --popup-female-text: #686868;
   }
 
   /*var(--main-bg-color);*/
@@ -254,6 +256,7 @@ body {
     margin-top: 5px;
     text-align: center; 
     font-size: 14px;
+    color: var(--popup-female-text);
 }
 
 .popup-female img{
