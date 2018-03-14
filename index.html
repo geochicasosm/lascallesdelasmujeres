@@ -10,6 +10,7 @@
     <link rel="stylesheet" href='./bower_components/bootstrap-4.0.0-dist/css/bootstrap.min.css' rel='stylesheet' /> 
     <link rel="stylesheet" href="./css/fontawesome-all.min.css">
     <link rel="stylesheet" href='./css/index.css' rel='stylesheet' /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115468415-1"></script>
     <script src="./js/ga.js"></script>
@@ -20,6 +21,7 @@
     <script src="./bower_components/bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js"></script>
     <script src="./bower_components/bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js.map"></script>
     <script src="./bower_components/chart.js/dist/Chart.min.js"></script>
+    
 
     <script src="./js/Constants.js"></script>
     <script src="./js/GeojsonMapService.js"></script>
@@ -151,10 +153,17 @@
 
 
 
+<button id="open-chart-btn" type="button" class="btn btn-light invisible"><i class="fas fa-chart-pie"></i></button>
+
 <div id="panel-chart" class="invisible" >
     
+    <div id="close-chart-btn"><i class="fas fa-times"></i></div>
+
     <canvas id="chart-area"></canvas>
+
+    <div class="margin20"></div>
     <!-- <canvas id="bar-area"></canvas> -->
+    <canvas id="pie-area"></canvas>
 </div>
 
 

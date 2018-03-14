@@ -54,14 +54,34 @@ body {
     position: absolute;
     bottom: 0;
     right: 0;
-    opacity: 0.8;
     background-color: #ffffff;
     opacity: 0.9;
     border-radius: 5px;
     padding: 5px;
     z-index: 999;
+}
 
+#open-chart-btn{
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 5px;
+    z-index: 1001;
+    font-size: 30px;
+    opacity: 0.9;
+}
 
+#close-chart-btn{
+    cursor: pointer;
+    line-height: 0.5em;
+    text-align: right;
+    padding-right: 3px;    
+}
+
+.margin20{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .padding10{padding: 10px;}
