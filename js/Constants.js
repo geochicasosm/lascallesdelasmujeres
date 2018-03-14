@@ -24,7 +24,7 @@ function Constants(){
         buenosaires:    {numLink:86,pcLink:67.7,numNoLink:41,pcNoLink:32.3,numMale:1941,numFemale:127,pcMale:93.9,pcFemale:6.1,totalNames:2068}, //{pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
         cochabamba:     {numLink:16,pcLink:34.8,numNoLink:30,pcNoLink:65.2,numMale:617,numFemale:46,pcMale:93.1,pcFemale:6.9,totalNames:663}, //{pcM: 93.6, numM: 701, pcF: 6.4, numF: 48},
 
-        lima:           {numLink:16,pcLink:34.8,numNoLink:30,pcNoLink:65.2,numMale:617,numFemale:46,pcMale:93.1,pcFemale:6.9,totalNames:663}, //{pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
+        lima:           {numLink:155,pcLink:58.1,numNoLink:112,pcNoLink:41.9,numMale:2881,numFemale:267,pcMale:91.5,pcFemale:8.5,totalNames:3148}, //{pcM: 93.6, numM: 2445, pcF: 6.4, numF: 166},
         montevideo:     {numLink:78,pcLink:47.9,numNoLink:85,pcNoLink:52.1,numMale:1875,numFemale:163,pcMale:92.0,pcFemale:8.0,totalNames:2038} //{pcM: 92, numM: 2070, pcF: 8, numF: 178},
     }; 
 
