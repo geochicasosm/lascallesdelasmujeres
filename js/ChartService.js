@@ -6,7 +6,7 @@ function ChartService(){
         $("#panel-chart").removeClass("invisible");
 
         var ctx = document.getElementById('chart-area').getContext('2d');
-        var ctxBar = document.getElementById('bar-area').getContext('2d');
+        //var ctxBar = document.getElementById('bar-area').getContext('2d');
 
         var config = {
             type: 'doughnut',
