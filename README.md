@@ -21,24 +21,25 @@ El proyecto se encuentra aún en desarrollo. La idea es ir ampliando paulatiname
 - Barcelona
 - Buenoas Aires
 - Cochabamba
-
-En preparación:
-
 - Lima
 - Montevideo
 
 
-## Built With
+En preparación:
+- Ciudad de México
+
+
+## Realizado con
 
 * [Mapbox](https://www.mapbox.com/) - The web framework used
 
 
-## Contributing
+## Contribuir con el proyecto
 
 Únete a nuestro canal de slack [#lascallesdelasmujeres](https://join.slack.com/t/geochicas-osm/shared_invite/enQtMzIzMzUyMDQyNjczLTU0YjYzNTQ2ZWRkOWQwZGJlNGY4NjhmODY4Y2M2M2Y2MDM3M2EyZTg4NWI0ODY2ZWRhZGIyN2JjMDc0ZDdlODE) si te interesa contribuir.
 
 
-## Authors
+## Coordinadoras
 
 
 * **Caleidoscpic** (*Bolivia*) - [@CaleidoscopeEye](http://www.fotonostra.com/glosario/arroba.htm) 
@@ -57,16 +58,32 @@ En preparación:
     
     Técnica en SIG, Geoinquieta
 
-* **Selene Yang** (*Nicaragua*) - [@srta_peperina)
+* **Selene Yang** (*Nicaragua*) - [@srta_peperina](https://twitter.com/Srta_Peperina)
     
-    Investigadora académica. Sobreviviendo a un doctorado en Comunicación en la UNLP. Geofeminista                
+    Investigadora académica. Sobreviviendo a un doctorado en Comunicación en la UNLP. Geofeminista     
+    
+## Colaboradores
 
 
-## License
+* **Carina Córdoba** (*Argentina*)
+
+* **Noe Ortiz** (*México*)
+
+
+## Organizaciones Aliadas
+
+* **Wikimedia Argentina** (*Argentina*)
+
+* **Wikimedia Bolivia** (*Bolivia*)
+
+* **Fundación Kiru y Datalat** (*Ecuador*)
+
+
+## Licencia
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
+## Reconocimiento
 
-* [Proyecto](https://blog.mapbox.com/mapping-female-versus-male-street-names-b4654c1e00d5) de Mapbox por [Aruna Sankaranarayanan](https://www.mapbox.com/about/team/aruna-sankaranarayanan/) 
+* [Proyecto](https://blog.mapbox.com/mapping-female-versus-male-street-names-b4654c1e00d5) _Mapping female versus male street names_ de Mapbox por [Aruna Sankaranarayanan](https://www.mapbox.com/about/team/aruna-sankaranarayanan/) 
 
