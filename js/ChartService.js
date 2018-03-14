@@ -64,7 +64,7 @@ function ChartService(){
                 },
                 title: {
                     display: true,
-                    text: 'Calles de Mujer con artículo en Wikipedia',
+                    text: 'Calles de mujer con artículo en Wikipedia',
                     position: 'top',
                     fontFamily: 'Roboto',
                     fontSize: 14
