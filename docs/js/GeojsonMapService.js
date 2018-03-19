@@ -3,11 +3,11 @@ function GeojsonMapService(){
     //this.map = map;
     this.urlData = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
 
-    this.loadGeojson = function(map, folder){    
+    this.loadGeojson = function(map, folder, isMobile){    
     
         fetch(this.urlData+ '/data/'+folder+'/final_tile.geojson').then(function(res){
             return res.json();
-        }).then(addGeojsonSource.bind(this, map));
+        }).then(addGeojsonSource.bind(this, map, isMobile));
    
     };
 
@@ -21,8 +21,11 @@ function GeojsonMapService(){
         }    
     };
 
-    function addGeojsonSource(map, geojson, sourcename = Date.now()){
+    function addGeojsonSource(map, isMobile, geojson, sourcename = Date.now()){
            
+        const widthFemale = isMobile ? 5 : 4;
+        const widthMale = isMobile ? 4 : 3;
+
         map.addLayer({
             "id": `${sourcename}`,
             "type": "line",
@@ -35,14 +38,22 @@ function GeojsonMapService(){
                 "line-cap": "round"
             },
             "paint": {
-                //"line-color":  "#76ef0a",
+                "line-blur": ['case', ['==', ['get', 'wikipedia_link'], ''], 4, 1],
                 'line-color': ['case', ['==', ['get', 'gender'], 'Female'], '#ffca3a', '#00B99E'],
-                "line-width": ['case', ['==', ['get', 'gender'], 'Female'], 5, 4],
+                "line-width": ['case', ['==', ['get', 'gender'], 'Female'], widthFemale, widthMale],
             }
+        });
+
+        var popupClick = new mapboxgl.Popup();
+        var popupHover = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
         });
     
         map.on('click', `${sourcename}`, function (e) {
 
+            popupHover.remove();
+            
             var link = e.features[0].properties.wikipedia_link;
             var name = e.features[0].properties.name;
             var gender = e.features[0].properties.gender;
@@ -76,15 +87,63 @@ function GeojsonMapService(){
                 //html = '<div class="popup-female"><p>'+name+'</p><p>( mujer )</p> <p><a target="_blank" href=\''+link+'\'><img src="./css/images/wikipedia.svg"/></a></p></div>';
             }
             
-            
-            new mapboxgl.Popup()
-                .setLngLat(e.lngLat)
+            popupClick.setLngLat(e.lngLat)
                 .setHTML(html)
                 .addTo(map);
             $(".mapboxgl-popup-content").css("background-color", color);
-
-
         });        
+
+    
+        if(!isMobile){
+            map.on('mouseenter', `${sourcename}`, function(e) {
+
+                popupClick.remove();
+                map.getCanvas().style.cursor = 'pointer';
+    
+                var link = e.features[0].properties.wikipedia_link;
+                var name = e.features[0].properties.name;
+                var gender = e.features[0].properties.gender;
+    
+                var color = "#0e9686f2";
+    
+                var html = '<div class="row">'+
+                            '<div class="col-sm">'+
+                                '<div class="popup-male"><p>'+name+'</p></div>'+
+                            '</div>'+
+                        '</div>';
+    
+                if (gender === 'Female'){
+                    color = "#ffca3af2";
+    
+                    var txtLink = '<p class=""><a  class="btn btn-light" target="_blank" href=\''+link+'\'><i class="fab fa-wikipedia-w"></i></a></p>';
+                    if(link === ''){
+                        txtLink = '<p class=""><a  class="btn btn-light disabled" target="_blank" href=\''+link+'\'><i class="fab fa-wikipedia-w"></i></a></p>'+
+                        '<span class="badge badge-secondary"><i class="fas fa-exclamation"></i>&nbsp;Calle sin artículo</span>';
+                    }
+    
+                    html = '<div class="row">'+
+                                '<div class="col-sm">'+
+                                    '<div class="popup-female">'+
+                                        '<p>'+name+'</p>'+
+                                        txtLink+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>';
+    
+                    //html = '<div class="popup-female"><p>'+name+'</p><p>( mujer )</p> <p><a target="_blank" href=\''+link+'\'><img src="./css/images/wikipedia.svg"/></a></p></div>';
+                }        
+    
+                popupHover.setLngLat(e.lngLat)
+                    .setHTML(html)
+                    .addTo(map);
+                $(".mapboxgl-popup-content").css("background-color", color);
+            });
+    
+            map.on('mouseleave', `${sourcename}`, function() {
+                map.getCanvas().style.cursor = '';
+                popupHover.remove();
+            });
+        }
     }
 
 }

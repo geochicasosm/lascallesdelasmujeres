@@ -19,7 +19,7 @@ function ChartService(){
                     ],
                     label: 'label'
                 }],
-                labels: [ 'Hombres, '+datos.pcMale+'%', 'Mujeres, '+datos.pcFemale+'%' ]
+                labels: [ `${datos.pcMale}% Hombres`,`${datos.pcFemale}% Mujeres` ]
             },
             options: {
                 responsive: true,
@@ -30,7 +30,7 @@ function ChartService(){
                 },
                 title: {
                     display: true,
-                    text: ciudad,
+                    text: `Calles de ${ciudad}`,
                     position: 'top',
                     fontFamily: 'Roboto',
                     fontSize: 14
@@ -49,7 +49,8 @@ function ChartService(){
                     data: [ datos.numLink, datos.numNoLink],
                     backgroundColor: [
                        
-                       '#FFCA3A'
+                       '#FFCA3A',
+                       '#ffca3a73'
                     ],
                     label: 'label'
                 }],
@@ -64,7 +65,7 @@ function ChartService(){
                 },
                 title: {
                     display: true,
-                    text: 'Calles de mujer con artículo en Wikipedia',
+                    text: 'Mujeres con artículo en Wikipedia',
                     position: 'top',
                     fontFamily: 'Roboto',
                     fontSize: 14

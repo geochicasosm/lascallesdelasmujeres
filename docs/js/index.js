@@ -6,13 +6,14 @@ function initApp(){
    const geojsonMapService = new GeojsonMapService();
    const chartService = new ChartService();
    const myMap = new MyMap();
+   const isMobile = isMobileDevice();
            
-   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'barcelona'));
-   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'buenosaires'));
-   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'cochabamba'));
-   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'asuncion'));
-   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'lima'));
-   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'montevideo'));
+   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'barcelona', isMobile));
+   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'buenosaires', isMobile));
+   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'cochabamba', isMobile));
+   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'asuncion', isMobile));
+   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'lima', isMobile));
+   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'montevideo', isMobile));
 
   
     $("#ciudades-list .nombre-ciudad, #menu-list a").hover(function(){
@@ -145,6 +146,10 @@ function initApp(){
         $("#panel-chart").addClass("animated slideInUp");
         $("#open-chart-btn").addClass("animated slideOutDown");
     }
+
+    function isMobileDevice() {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    };
        
 }
 

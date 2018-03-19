@@ -273,6 +273,7 @@ body {
 }
 .mapboxgl-popup-close-button{color: white}
 .popup-female{
+    min-width: 80px;
     margin-top: 5px;
     text-align: center; 
     font-size: 14px;
