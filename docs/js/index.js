@@ -79,7 +79,7 @@ function initApp(){
         $(".nombre-ciudad").removeClass("selected");
         $(this).addClass("selected"); 
         myMap.mapTo(constants.centerList.cdmx);        
-        chartService.loadChart(constants.datos.cdmx, 'Buenos Aires');   
+        chartService.loadChart(constants.datos.cdmx, 'C. de México');   
         showChart(); 
     });
     $('#menu-cdmx').click(function() {
