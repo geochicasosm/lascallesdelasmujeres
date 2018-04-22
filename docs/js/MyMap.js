@@ -16,6 +16,6 @@ function MyMap(){
             center: center, //this.constats.centerList.barcelona,
             zoom: zoom
         });        
-    }; 
-
+    };
+    
 }

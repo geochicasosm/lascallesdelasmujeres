@@ -3,7 +3,8 @@ function ChartService(){
 
     this.loadChart = function(datos, ciudad){
 
-        $("#panel-chart").removeClass("invisible");
+        const panelChart = document.getElementById("panel-chart");
+        panelChart.classList.remove("invisible");
 
         var ctx = document.getElementById('chart-area').getContext('2d');
         var ctxPie = document.getElementById('pie-area').getContext('2d');
@@ -83,7 +84,4 @@ function ChartService(){
     };
 
   
-
-
-
 }

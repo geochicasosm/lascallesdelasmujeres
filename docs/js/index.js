@@ -2,171 +2,108 @@
 
 function initApp(){
 
-   const constants = new Constants();
-   const geojsonMapService = new GeojsonMapService();
-   const chartService = new ChartService();
-   const myMap = new MyMap();
-   const isMobile = isMobileDevice();
-           
-   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'barcelona', isMobile));
-   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'buenosaires', isMobile));
-   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'cdmx', isMobile));
-   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'cochabamba', isMobile));
-   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'asuncion', isMobile));
-   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'lima', isMobile));
-   myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, 'montevideo', isMobile));
+    const constants = new Constants();
+    const geojsonMapService = new GeojsonMapService();
+    const chartService = new ChartService();
+    const myMap = new MyMap();
+    const isMobile = isMobileDevice();
 
-  
+ 
+           
+    for(let i= 0; i<constants.citiesList.length; i++){
+
+        const city = constants.citiesList[i];
+
+        myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, city.id, isMobile, city.center));
+
+        /*CLICK EVENTS*/
+        const elem = document.getElementById(city.id);
+        elem.onclick = doElemClick;
+        function doElemClick() {
+            
+            const prevElem = document.getElementsByClassName("selected");
+            if(prevElem.length !== 0) prevElem[0].classList.remove("selected");
+            elem.classList.add("selected");
+
+            myMap.mapTo(city.center);        
+            chartService.loadChart(city.datos, city.name); 
+            showChart();
+        }
+
+        const elemMenu = document.getElementById('menu-'+city.id+'');
+        elemMenu.onclick = doElemMenuClick;
+        function doElemMenuClick() {
+
+            const prevElemMenu = document.getElementsByClassName("menu-selected");
+            if(prevElemMenu.length !== 0) prevElemMenu[0].classList.remove("menu-selected");
+            elemMenu.classList.add("menu-selected");
+
+            const navBar =  document.getElementsByClassName("navbar-collapse");
+            if(navBar.length !== 0) navBar[0].classList.remove("show");
+
+            myMap.mapTo(city.center);        
+            chartService.loadChart(city.datos, city.name);  
+            showChart();
+        }
+
+    }
+
+    /* const nombreCiudadElem = document.getElementsByClassName("nombre-ciudad");
+    const ciudadesListElem = document.getElementById("ciudades-list");
+    const menuListElem = document.getElementById("menu-list");
+
+    for(var index = 0; index < ciudadesListElem.children.length; index++){
+
+        ciudadesListElem.children[index].addEventListener("mouseenter", addBackgroundColor);
+        menuListElem.children[index].addEventListener("mouseenter", addBackgroundColor);
+        
+        ciudadesListElem.children[index].addEventListener("mouseleave ", removeBackgroundColor, false);
+        menuListElem.children[index].addEventListener("mouseleave ", removeBackgroundColor, false);        
+    }
+
+    function addBackgroundColor(event){
+        event.target.style.backgroundColor = "#243342";
+    }
+    function removeBackgroundColor(event){
+        event.target.style.backgroundColor = "";
+    }  */   
+
+ 
     $("#ciudades-list .nombre-ciudad, #menu-list a").hover(function(){
         $(this).css("background-color", "#243342");
         }, function(){
         $(this).css("background-color", "");
     });
     
-    /*CLICK EVENTS*/
-    $("#barcelona" ).click(function() {
-        $(".nombre-ciudad").removeClass("selected");
-        $(this).addClass("selected");
-        myMap.mapTo(constants.centerList.barcelona);        
-        chartService.loadChart(constants.datos.barcelona, 'Barcelona'); 
-        showChart();
-    });
-    $('#menu-barcelona').click(function() {        
-        $("#menu-list a").removeClass("menu-selected");
-        $(this).addClass("menu-selected");
-        $(".navbar-collapse").removeClass("show");
-
-        myMap.mapTo(constants.centerList.barcelona);        
-        chartService.loadChart(constants.datos.barcelona, 'Barcelona');  
-        $('#open-chart-btn').addClass("invisible");
-    });
-   
-
-    $("#asuncion" ).click(function() {
-        $(".nombre-ciudad").removeClass("selected");
-        $(this).addClass("selected"); 
-        myMap.mapTo(constants.centerList.asuncion);        
-        chartService.loadChart(constants.datos.asuncion, 'Asunción'); 
-        $('#open-chart-btn').addClass("invisible");
-    });
-    $('#menu-asuncion').click(function() {
-        $("#menu-list a").removeClass("menu-selected");
-        $(this).addClass("menu-selected");
-        myMap.mapTo(constants.centerList.asuncion);        
-        chartService.loadChart(constants.datos.asuncion, 'Asunción'); 
-        $('#open-chart-btn').addClass("invisible");
-        $(".navbar-collapse").removeClass("show");
-    });
- 
-    
-    $("#buenosaires").click(function() {
-        $(".nombre-ciudad").removeClass("selected");
-        $(this).addClass("selected"); 
-        myMap.mapTo(constants.centerList.buenosaires);        
-        chartService.loadChart(constants.datos.buenosaires, 'Buenos Aires');   
-        showChart(); 
-    });
-    $('#menu-buenosaires').click(function() {
-        $("#menu-list a").removeClass("menu-selected");
-        $(this).addClass("menu-selected");
-        $(".navbar-collapse").removeClass("show");
-        myMap.mapTo(constants.centerList.buenosaires);        
-        chartService.loadChart(constants.datos.buenosaires, 'Buenos Aires');  
-        showChart();      
-    });
-
-    $("#cdmx").click(function() {
-        $(".nombre-ciudad").removeClass("selected");
-        $(this).addClass("selected"); 
-        myMap.mapTo(constants.centerList.cdmx);        
-        chartService.loadChart(constants.datos.cdmx, 'C. de México');   
-        showChart(); 
-    });
-    $('#menu-cdmx').click(function() {
-        $("#menu-list a").removeClass("menu-selected");
-        $(this).addClass("menu-selected");
-        $(".navbar-collapse").removeClass("show");
-        myMap.mapTo(constants.centerList.cdmx);        
-        chartService.loadChart(constants.datos.cdmx, 'C. de México');  
-        showChart();      
-    });    
-
-    $("#cochabamba" ).click(function() {
-        $(".nombre-ciudad").removeClass("selected");
-        $(this).addClass("selected"); 
-        myMap.mapTo(constants.centerList.cochabamba);        
-        chartService.loadChart(constants.datos.cochabamba, 'Cochabamba'); 
-        $('#open-chart-btn').addClass("invisible");
-    });
-    $('#menu-cochabamba').click(function() {
-        $("#menu-list a").removeClass("menu-selected");
-        $(this).addClass("menu-selected");
-        myMap.mapTo(constants.centerList.cochabamba);        
-        chartService.loadChart(constants.datos.cochabamba, 'Cochabamba');     
-        showChart();
-        $(".navbar-collapse").removeClass("show");
-    });
-     
-    
-    $("#lima" ).click(function() {
-        $(".nombre-ciudad").removeClass("selected");
-        $(this).addClass("selected"); 
-        myMap.mapTo(constants.centerList.lima);        
-        chartService.loadChart(constants.datos.lima, 'Lima'); 
-        showChart();
-
-    });
-    $('#menu-lima').click(function() {
-        $("#menu-list a").removeClass("menu-selected");
-        $(this).addClass("menu-selected");
-        myMap.mapTo(constants.centerList.lima);        
-        chartService.loadChart(constants.datos.lima, 'Lima'); 
-        showChart();
-        $(".navbar-collapse").removeClass("show");
-    });
- 
-    
-    $("#montevideo" ).click(function() {
-        $(".nombre-ciudad").removeClass("selected");
-        $(this).addClass("selected");
-        myMap.mapTo(constants.centerList.montevideo);        
-        chartService.loadChart(constants.datos.montevideo, 'Montevideo'); 
-        showChart();
-    });
-    $('#menu-montevideo').click(function() {
-        $("#menu-list a").removeClass("menu-selected");
-        $(this).addClass("menu-selected");
-        myMap.mapTo(constants.centerList.montevideo);        
-        chartService.loadChart(constants.datos.montevideo, 'Montevideo');
-        showChart();
-        $(".navbar-collapse").removeClass("show");
-    });
 
     //** CHART display*/
+    const closeChartBtn = document.getElementById('close-chart-btn');
+    const openChartBtn = document.getElementById('open-chart-btn');
+    const panelChart = document.getElementById("panel-chart");
 
-    $('#close-chart-btn').click(function(){
-        hideChart();
-    });
-
-    $('#open-chart-btn').click(function(){
-        showChart();
-    });
+    closeChartBtn.onclick = hideChart;
+    openChartBtn.onclick = showChart;
     
     function hideChart(){
-        $("#panel-chart").addClass("animated fadeOut");
-        $('#open-chart-btn').removeClass("invisible animated fadeOut");
-        $("#open-chart-btn").addClass("animated fadeIn");
+        
+        panelChart.classList.add("animated", "fadeOut");
+        openChartBtn.classList.remove("invisible", "animated", "fadeOut");
+        openChartBtn.classList.add("animated", "fadeIn");
+
     }
     
     function showChart(){
-        $('#panel-chart').removeClass("animated fadeOut");
-        $("#panel-chart").addClass("animated fadeIn");
-        $("#open-chart-btn").addClass("animated fadeOut");
+
+        panelChart.classList.remove("animated", "fadeOut");
+        panelChart.classList.add("animated", "fadeIn");
+        openChartBtn.classList.add("animated", "fadeOut");
+
     }
 
     function isMobileDevice() {
         return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-    };
+    }
+    
        
 }
 

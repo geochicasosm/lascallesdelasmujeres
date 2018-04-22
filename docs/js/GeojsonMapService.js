@@ -3,11 +3,13 @@ function GeojsonMapService(){
     //this.map = map;
     this.urlData = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
 
-    this.loadGeojson = function(map, folder, isMobile){    
+    this.loadGeojson = function(map, folder, isMobile, coords){    
     
         fetch(this.urlData+ '/data/'+folder+'/final_tile.geojson').then(function(res){
             return res.json();
-        }).then(addGeojsonSource.bind(this, map, isMobile));
+        }).then(addGeojsonSource.bind(this, map, isMobile, coords));
+
+        
    
     };
 
@@ -21,7 +23,7 @@ function GeojsonMapService(){
         }    
     };
 
-    function addGeojsonSource(map, isMobile, geojson, sourcename = Date.now()){
+    function addGeojsonSource(map, isMobile, coords, geojson, sourcename = Date.now()){
            
         const widthFemale = isMobile ? 5 : 4;
         const widthMale = isMobile ? 4 : 3;
@@ -90,7 +92,8 @@ function GeojsonMapService(){
             popupClick.setLngLat(e.lngLat)
                 .setHTML(html)
                 .addTo(map);
-            $(".mapboxgl-popup-content").css("background-color", color);
+            const popUpContent = document.getElementsByClassName("mapboxgl-popup-content");
+            if(popUpContent.length !== 0) popUpContent[0].style.backgroundColor = color;                            
         });        
 
     
@@ -136,7 +139,8 @@ function GeojsonMapService(){
                 popupHover.setLngLat(e.lngLat)
                     .setHTML(html)
                     .addTo(map);
-                $(".mapboxgl-popup-content").css("background-color", color);
+                const popUpContent = document.getElementsByClassName("mapboxgl-popup-content");
+                if(popUpContent.length !== 0) popUpContent[0].style.backgroundColor = color;
             });
     
             map.on('mouseleave', `${sourcename}`, function() {
@@ -144,6 +148,77 @@ function GeojsonMapService(){
                 popupHover.remove();
             });
         }
+
+        addAnimatedPoint(map, sourcename+'_point', sourcename+'_point', coords);
+        
     }
+
+    function addAnimatedPoint(map, sourcename, layername, coords = [0, 0]) {
+
+        var framesPerSecond = 15; 
+        var initialOpacity = 1;
+        var opacity = initialOpacity;
+        var initialRadius = 5;
+        var radius = initialRadius;
+        var maxRadius = 18;        
+
+        // Add a source and layer displaying a point which will be animated in a circle.
+        map.addSource(sourcename, {
+            "type": "geojson",
+            "data": {
+                "type": "Point",
+                "coordinates": coords
+            }
+        });
+    
+        map.addLayer({
+            "id": layername,
+            "source": sourcename,
+            "type": "circle",
+            "paint": {
+                "circle-radius": initialRadius,
+                "circle-radius-transition": {duration: 0},
+                "circle-opacity-transition": {duration: 0},
+                "circle-color": "#FFCA3A"
+            },
+            "minzoom": 1,
+            "maxzoom": 7
+        });
+    
+        map.addLayer({
+            "id": layername+"1",
+            "source": sourcename,
+            "type": "circle",
+            "paint": {
+                "circle-radius": initialRadius,
+                "circle-color": "#FFCA3A"
+            },
+            "minzoom": 1,
+            "maxzoom": 7
+        });
+    
+    
+        function animateMarker(timestamp) {
+            setTimeout(function(){
+                requestAnimationFrame(animateMarker);
+    
+                radius += (maxRadius - radius) / framesPerSecond;
+                opacity -= ( 0.9 / framesPerSecond );
+    
+                map.setPaintProperty(sourcename, 'circle-radius', radius);
+                map.setPaintProperty(sourcename, 'circle-opacity', (opacity<0 ? 0 : opacity));
+    
+                if (opacity <= 0) {
+                    radius = initialRadius;
+                    opacity = initialOpacity;
+                } 
+    
+            }, 1000 / framesPerSecond);
+            
+        }
+    
+        // Start the animation.
+        animateMarker(0);
+    }     
 
 }
