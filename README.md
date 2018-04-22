@@ -1,16 +1,22 @@
 # #LasCallesDeLasMujeres
 
+Read this in ENGLISH here: [README.en.md](https://github.com/geochicasosm/lascallesdelasmujeres/blob/master/README.en.md)
+
 Visita la web del proyecto: [#LasCallesDeLasMujeres](https://geochicasosm.github.io/lascallesdelasmujeres/) ( Versión beta )
+
+Lee una explicación técnica del proyecto algo más detallada en este artículo: [#LasCallesDeLasMujeres (TheStreetsOfWomen) meets Mapbox #mapmadness18](https://t.co/1NCGE0eyIO)
 
 ## Descripción del proyecto
 
-Proyecto colaborativo de Geochicas para producir un mapa a partir de las calles que cuenten con un nombre de alguna mujer en Latinoamérica y España. Esta propuesta busca enlazar y generar contenidos en OSM y Wikipedia sobre mujeres destacadas.
+Este es un proyecto colaborativo de Geochicas para producir un mapa de las calles con nombres de mujeres en América Latina y España. Esta propuesta busca vincular y generar contenido en OSM y Wikipedia sobre mujeres prominentes.
 
-Buscamos crear una nueva narración de la historia de manera colaborativa, y así hacer un énfasis en la importancia de recordar a las mujeres, sus luchas y logros a través del espacio público y el espacio digital.
+El objetivo principal es crear una nueva narrativa de manera colaborativa, y así enfatizar la importancia de recordar a las mujeres, sus luchas y logros a través del espacio público y digital.
 
-Esta propuesta busca generar un mapa a partir de las calles que cuenten con nombres de mujeres en las diferentes ciudades de Latinoamérica y España, y así visibilizar la brecha que existe históricamente dentro de las ciudades. El proyecto se presentará en el marco del Día Internacional de las Mujeres, el 8 de Marzo. 
+Por esta razón, hemos generado un mapa de las calles que tienen nombres de mujeres en las diferentes ciudades de América Latina y España, y así mostrar la brecha que históricamente existe dentro de las ciudades.
 
-Se pretende realizar un relevamiento de información sobre calles, avenidas, pasajes, carreteras que cuenten con nombres de mujeres y así mismo sus respectivas biografías en Wikipedia. También se impulsará agregar los nombres de calles correspondientes a mujeres que no se encuentran mapeadas en OpenStreetMap (Mapa libre y colaborativo) y la creación de los artículos de las mismas en Wikipedia.
+Se pretende hacer una encuesta de información sobre calles, avenidas, pasajes, caminos que tienen los nombres de mujeres y también sus respectivas biografías en Wikipedia. También se alentará a agregar los nombres de las calles correspondientes a las mujeres que no están mapeadas en OpenStreetMap (mapa gratuito y colaborativo) y la creación de sus artículos en Wikipedia.
+
+El proyecto fue presentado oficialmente en el marco del Día Internacional de la Mujer, el 8 de marzo.
 
 
 ### Estado actual
@@ -23,10 +29,10 @@ El proyecto se encuentra aún en desarrollo. La idea es ir ampliando paulatiname
 - Cochabamba
 - Lima
 - Montevideo
-
+- Ciudad de México
 
 En preparación:
-- Ciudad de México
+- La Habana
 
 
 ## Realizado con
