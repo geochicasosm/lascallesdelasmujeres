@@ -155,7 +155,7 @@ function GeojsonMapService(){
 
     function addAnimatedPoint(map, sourcename, layername, coords = [0, 0]) {
 
-        var framesPerSecond = 15; 
+        var framesPerSecond = 60; 
         var initialOpacity = 1;
         var opacity = initialOpacity;
         var initialRadius = 5;
@@ -199,25 +199,22 @@ function GeojsonMapService(){
     
     
         function animateMarker(timestamp) {
-            setTimeout(function(){
-                requestAnimationFrame(animateMarker);
-    
-                radius += (maxRadius - radius) / framesPerSecond;
-                opacity -= ( 0.9 / framesPerSecond );
-    
-                map.setPaintProperty(sourcename, 'circle-radius', radius);
-                map.setPaintProperty(sourcename, 'circle-opacity', (opacity<0 ? 0 : opacity));
-    
-                if (opacity <= 0) {
-                    radius = initialRadius;
-                    opacity = initialOpacity;
-                } 
-    
-            }, 1000 / framesPerSecond);
+            
+            radius += (maxRadius - radius) / framesPerSecond;
+            opacity -= ( 0.9 / framesPerSecond );
+
+            map.setPaintProperty(sourcename, 'circle-radius', radius);
+            map.setPaintProperty(sourcename, 'circle-opacity', (opacity<0 ? 0 : opacity));
+
+            if (opacity <= 0) {
+                radius = initialRadius;
+                opacity = initialOpacity;
+            }
+            
+            requestAnimationFrame(animateMarker);
             
         }
     
-        // Start the animation.
         animateMarker(0);
     }     
 
