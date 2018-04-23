@@ -48,17 +48,16 @@ function initApp(){
 
     }
 
-    /* const nombreCiudadElem = document.getElementsByClassName("nombre-ciudad");
-    const ciudadesListElem = document.getElementById("ciudades-list");
+    const nombreCiudadElem = document.getElementsByClassName("nombre-ciudad");
     const menuListElem = document.getElementById("menu-list");
 
-    for(var index = 0; index < ciudadesListElem.children.length; index++){
+    for(var index = 0; index < nombreCiudadElem.length; index++){
 
-        ciudadesListElem.children[index].addEventListener("mouseenter", addBackgroundColor);
+        nombreCiudadElem[index].addEventListener("mouseenter", addBackgroundColor);
         menuListElem.children[index].addEventListener("mouseenter", addBackgroundColor);
         
-        ciudadesListElem.children[index].addEventListener("mouseleave ", removeBackgroundColor, false);
-        menuListElem.children[index].addEventListener("mouseleave ", removeBackgroundColor, false);        
+        nombreCiudadElem[index].addEventListener("mouseout", removeBackgroundColor, false);
+        menuListElem.children[index].addEventListener("mouseout", removeBackgroundColor, false);        
     }
 
     function addBackgroundColor(event){
@@ -66,15 +65,8 @@ function initApp(){
     }
     function removeBackgroundColor(event){
         event.target.style.backgroundColor = "";
-    }  */   
-
- 
-    $("#ciudades-list .nombre-ciudad, #menu-list a").hover(function(){
-        $(this).css("background-color", "#243342");
-        }, function(){
-        $(this).css("background-color", "");
-    });
-    
+    }    
+   
 
     //** CHART display*/
     const closeChartBtn = document.getElementById('close-chart-btn');
