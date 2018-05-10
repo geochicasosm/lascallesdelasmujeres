@@ -232,6 +232,17 @@ body {
     font-weight: bold;
 }
 
+#menu-list{
+    max-height: 200px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.my-menu-item{
+    border-top: 0.25px solid #0e968675;
+    border-bottom: 0.25px solid #0e968675;    
+}
+
 @media (max-height: 600px) {
 
     .menu-logo-proyecto img{
@@ -320,9 +331,12 @@ body {
     font-weight: bold;
 }
 
-.my-icon-list{
+.my-icon-list, .my-menu-icon-list{
     color: #0e9686;
     text-align: center;
+}
+.my-menu-icon-list{
+    font-size: 0.7em;
 }
 
 /*scrollbar*/
