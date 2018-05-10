@@ -7,7 +7,7 @@ function initApp(){
     const chartService = new ChartService();
     const myMap = new MyMap();
     const isMobile = isMobileDevice();
-
+    let openToggleMenu = false;
  
            
     for(let i= 0; i<constants.citiesList.length; i++){
@@ -41,6 +41,11 @@ function initApp(){
             const navBar =  document.getElementsByClassName("navbar-collapse");
             if(navBar.length !== 0) navBar[0].classList.remove("show");
 
+            const icon = document.getElementById("menu-toggle-icon");
+            icon.classList.remove("fa-chevron-circle-right");
+            icon.classList.add("fa-chevron-circle-down");
+            openToggleMenu = false;
+
             myMap.mapTo(city.center);        
             chartService.loadChart(city.datos, city.name);  
             showChart();
@@ -65,7 +70,10 @@ function initApp(){
     }
     function removeBackgroundColor(event){
         event.target.style.backgroundColor = "";
-    }    
+    }
+
+    const toggleMenu = document.getElementById("my-toggle-menu");
+    toggleMenu.addEventListener("click", updateToggleMenuIcon); 
    
 
     //** CHART display*/
@@ -94,6 +102,20 @@ function initApp(){
 
     function isMobileDevice() {
         return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    }
+
+    function updateToggleMenuIcon(){
+        
+        const icon = document.getElementById("menu-toggle-icon");
+
+        if(!openToggleMenu){            
+            icon.classList.remove("fa-chevron-circle-down");
+            icon.classList.add("fa-chevron-circle-right");
+        } else {
+            icon.classList.remove("fa-chevron-circle-right");
+            icon.classList.add("fa-chevron-circle-down");
+        }
+        openToggleMenu = !openToggleMenu;
     }
     
        
