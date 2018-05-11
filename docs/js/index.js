@@ -87,6 +87,7 @@ function initApp(){
     function hideChart(){
         
         panelChart.classList.add("animated", "fadeOut");
+        panelChart.style.zIndex = "-1";
         openChartBtn.classList.remove("invisible", "animated", "fadeOut");
         openChartBtn.classList.add("animated", "fadeIn");
 
@@ -96,6 +97,7 @@ function initApp(){
 
         panelChart.classList.remove("animated", "fadeOut");
         panelChart.classList.add("animated", "fadeIn");
+        panelChart.style.zIndex = "999";        
         openChartBtn.classList.add("animated", "fadeOut");
 
     }
