@@ -9,15 +9,31 @@ function initApp(){
     const isMobile = isMobileDevice();
     let openToggleMenu = false;
  
-           
+    const menuListELem = document.getElementById("menu-list");
+    const panelListELem = document.getElementById("ciudades-list");
+
+    //Create an HTML node for every city and load its data
     for(let i= 0; i<constants.citiesList.length; i++){
 
         const city = constants.citiesList[i];
 
         myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, city.id, isMobile, city.center));
+        
+        const elem = document.createElement("DIV");        
+        const elemMenu = document.createElement("A");
+
+        elem.setAttribute("id", city.id);
+        elem.classList.add("nombre-ciudad");
+
+        elemMenu.setAttribute("id", "menu-"+city.id);
+        elemMenu.setAttribute("href", "#");
+        elemMenu.classList.add("nav-item", "nav-link",  "my-menu-item");                        
+
+        elem.appendChild(document.createTextNode(city.name.toLocaleUpperCase()));
+        elemMenu.appendChild(document.createTextNode(city.name.toLocaleUpperCase()));
 
         /*CLICK EVENTS*/
-        const elem = document.getElementById(city.id);
+
         elem.onclick = doElemClick;
         function doElemClick() {
             
@@ -30,7 +46,6 @@ function initApp(){
             showChart();
         }
 
-        const elemMenu = document.getElementById('menu-'+city.id+'');
         elemMenu.onclick = doElemMenuClick;
         function doElemMenuClick() {
 
@@ -51,20 +66,19 @@ function initApp(){
             showChart();
         }
 
-    }
-
-    const nombreCiudadElem = document.getElementsByClassName("nombre-ciudad");
-    const menuListElem = document.getElementById("menu-list");
-
-    for(var index = 0; index < nombreCiudadElem.length; index++){
-
-        nombreCiudadElem[index].addEventListener("mouseenter", addBackgroundColor);
-        menuListElem.children[index].addEventListener("mouseenter", addBackgroundColor);
+        elem.addEventListener("mouseenter", addBackgroundColor);
+        elemMenu.addEventListener("mouseenter", addBackgroundColor);
         
-        nombreCiudadElem[index].addEventListener("mouseout", removeBackgroundColor, false);
-        menuListElem.children[index].addEventListener("mouseout", removeBackgroundColor, false);        
+        elem.addEventListener("mouseout", removeBackgroundColor, false);
+        elemMenu.addEventListener("mouseout", removeBackgroundColor, false);
+
+        //Add elem to the panel and menu list
+        panelListELem.appendChild(elem);
+        menuListELem.appendChild(elemMenu);
+
     }
 
+    
     function addBackgroundColor(event){
         event.target.style.backgroundColor = "#243342";
     }
