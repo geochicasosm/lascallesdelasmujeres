@@ -19,6 +19,7 @@
     "chart.js": "^2.7.2",
     "animate.css": "^3.5.2",
     "bootstrap": "^4.0.0",
-    "fontawesome": "^5.0.8"
+    "fontawesome": "^5.0.8",
+    "fingerprintjs2": "^1.8.0"
   }
 }

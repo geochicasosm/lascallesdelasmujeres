@@ -78,7 +78,7 @@ function initApp(){
 
     }
 
-    
+
     function addBackgroundColor(event){
         event.target.style.backgroundColor = "#243342";
     }
@@ -132,6 +132,12 @@ function initApp(){
             icon.classList.add("fa-chevron-circle-down");
         }
         openToggleMenu = !openToggleMenu;
+    }
+
+    function addText() {
+        const userLang = navigator.language || navigator.userLanguage;
+        
+
     }
     
        
