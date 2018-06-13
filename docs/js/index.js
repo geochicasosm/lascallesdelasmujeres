@@ -33,7 +33,7 @@ function initApp(){
 
         myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, city.id, isMobile, city.center));
         
-        const elem = document.createElement("A");        
+        const elem = document.createElement("DIV");        
         const elemMenu = document.createElement("A");
 
 
