@@ -12,21 +12,37 @@ function initApp(){
     const menuListELem = document.getElementById("menu-list");
     const panelListELem = document.getElementById("ciudades-list");
 
-    //Create an HTML node for every city and load its data
+    let selectedCity = '';
+
+    if (window.location.hash) {
+        // A city was linked throught URL
+        selectedCity = window.location.hash.replace('#', '');
+    }
+    // Sort cities alphabetically
+    constants.citiesList.sort(function (a, b) {
+        let nameA = a.name.toLowerCase();
+        let nameB = b.name.toLowerCase();
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        return 0;
+    });
+    // Create an HTML node for every city and load its data
     for(let i= 0; i<constants.citiesList.length; i++){
 
         const city = constants.citiesList[i];
 
         myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, city.id, isMobile, city.center));
         
-        const elem = document.createElement("DIV");        
+        const elem = document.createElement("A");        
         const elemMenu = document.createElement("A");
+
 
         elem.setAttribute("id", city.id);
         elem.classList.add("nombre-ciudad");
+        elem.setAttribute("href", "#" + city.id);
 
-        elemMenu.setAttribute("id", "menu-"+city.id);
-        elemMenu.setAttribute("href", "#");
+        elemMenu.setAttribute("id", "menu-"+ city.id);
+        elemMenu.setAttribute("href", "#" + city.id);
         elemMenu.classList.add("nav-item", "nav-link",  "my-menu-item");                        
 
         elem.appendChild(document.createTextNode(city.name.toLocaleUpperCase()));
@@ -75,6 +91,15 @@ function initApp(){
         //Add elem to the panel and menu list
         panelListELem.appendChild(elem);
         menuListELem.appendChild(elemMenu);
+
+        if (selectedCity === city.id) {
+            elem.classList.add("selected");
+            elemMenu.classList.add("menu-selected");
+            // Load the selected city
+            myMap.mapTo(city.center);        
+            chartService.loadChart(city.datos, city.name);  
+            showChart();
+        }
 
     }
 

@@ -181,6 +181,7 @@ body {
     cursor: pointer;
     border-top: 0.25px solid #0e968675;
     border-bottom: 0.25px solid #0e968675;
+    display: block;
 }
 
 .selected{
