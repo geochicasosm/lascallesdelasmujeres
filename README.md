@@ -23,16 +23,18 @@ El proyecto fue presentado oficialmente en el marco del Día Internacional de la
 
 El proyecto se encuentra aún en desarrollo. La idea es ir ampliando paulatinamente el número de ciudades mapeadas, que hasta el momento son:
 
-- Asunción
-- Barcelona
-- Buenoas Aires
-- Cochabamba
-- Lima
-- Montevideo
+- Asunción, Paraguay
+- Barcelona, España
+- Buenos Aires, Argentina
+- Cochabamba, Bolivia
+- Lima, Perú
+- Montevideo, Uruguay
 - Ciudad de México
+- La Habana, Cuba
+- Rosario, Argentina
 
 En preparación:
-- La Habana
+- Santa Fe, Argentina
 
 
 ## Realizado con
@@ -83,6 +85,8 @@ En preparación:
 * **Wikimedia Bolivia** (*Bolivia*)
 
 * **Fundación Kiru y Datalat** (*Ecuador*)
+
+* **SantaLab** (*Argentina*)
 
 
 ## Licencia
