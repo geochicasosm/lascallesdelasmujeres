@@ -21,16 +21,18 @@ The project was officially presented within the framework of International Women
 
 The project is still under development. The idea is to gradually expand the number of mapped cities, which so far are:
 
-- Asunción
-- Barcelona
-- Buenoas Aires
-- Cochabamba
-- Lima
-- Montevideo
+- Asunción, Paraguay
+- Barcelona, España
+- Buenos Aires, Argentina
+- Cochabamba, Bolivia
+- Lima, Perú
+- Montevideo, Uruguay
 - Ciudad de México
+- La Habana, Cuba
+- Rosario, Argentina
 
 Work in progress:
-- La Habana
+- Santa Fe, Argentina
 
 
 ## Built with:
@@ -81,6 +83,8 @@ Join our slack channel [#lascallesdelasmujeres](https://join.slack.com/t/geochic
 * **Wikimedia Bolivia** (*Bolivia*)
 
 * **Fundación Kiru y Datalat** (*Ecuador*)
+
+* **SantaLab** (*Argentina*)
 
 
 ## License
