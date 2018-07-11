@@ -12,7 +12,7 @@ function Constants(){
         {id: 'habana', name: 'La Habana', datos: {numLink:42,pcLink:36.2,numNoLink:74,pcNoLink:63.8,numMale:191,numFemale:116,pcMale:62.2,pcFemale:37.8,totalNames:307}, center: [-82.366592,23.113592]},
         {id: 'lima', name: 'Lima', datos: {numLink:155,pcLink:58.1,numNoLink:112,pcNoLink:41.9,numMale:2881,numFemale:267,pcMale:91.5,pcFemale:8.5,totalNames:3148}, center: [ -77.02824, -12.04318]},
         {id: 'montevideo', name: 'Montevideo', datos: {numLink:78,pcLink:47.9,numNoLink:85,pcNoLink:52.1,numMale:1875,numFemale:163,pcMale:92.0,pcFemale:8.0,totalNames:2038}, center: [ -56.18816, -34.90328]},
-          {id: 'rosario', name: 'Rosario', datos: {numLink:28,pcLink:43.8,numNoLink:36,pcNoLink:56.3,numMale:504,numFemale:64,pcMale:88.7,pcFemale:11.3,totalNames:568}, center: [-60.6553737,  -32.9427715]}
+        {id: 'rosario', name: 'Rosario', datos: {numLink:28,pcLink:43.8,numNoLink:36,pcNoLink:56.3,numMale:504,numFemale:64,pcMale:88.7,pcFemale:11.3,totalNames:568}, center: [-60.6553737,  -32.9427715]}
     ];
     
     this.lang = {
