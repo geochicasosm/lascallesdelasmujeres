@@ -30,6 +30,7 @@ The project is still under development. The idea is to gradually expand the numb
 - Ciudad de México
 - La Habana, Cuba
 - Rosario, Argentina
+- Resistencia, Argentina
 
 Work in progress:
 - Santa Fe, Argentina
