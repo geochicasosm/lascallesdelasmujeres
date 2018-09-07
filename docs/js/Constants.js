@@ -18,12 +18,12 @@ function Constants(){
 
 */
     this.countriesList = [
-        {id: 'argentina', name: 'Argentina', citiesList: [
-        {id: 'resistencia', name: 'Resistencia', datos: {numLink:51,pcLink:75.0,numNoLink:17,pcNoLink:25.0,numMale:474,numFemale:68,pcMale:87.5,pcFemale:12.5,totalNames:542}, center: [ -58.98652, -27.45112]},
-        {id: 'rosario', name: 'Rosario', datos: {numLink:28,pcLink:43.8,numNoLink:36,pcNoLink:56.3,numMale:504,numFemale:64,pcMale:88.7,pcFemale:11.3,totalNames:568}, center: [-60.6553737,  -32.9427715]},
-        {id: 'buenosaires', name: 'Buenos Aires', datos: {numLink:86,pcLink:67.7,numNoLink:41,pcNoLink:32.3,numMale:1941,numFemale:127,pcMale:93.9,pcFemale:6.1,totalNames:2068}, center: [-58.37723, -34.61315]}]},
+        {id: 'argentina', name: 'Argentina', citiesList:
+          [{id: 'resistencia', name: 'Resistencia', datos: {numLink:51,pcLink:75.0,numNoLink:17,pcNoLink:25.0,numMale:474,numFemale:68,pcMale:87.5,pcFemale:12.5,totalNames:542}, center: [ -58.98652, -27.45112]},
+          {id: 'rosario', name: 'Rosario', datos: {numLink:28,pcLink:43.8,numNoLink:36,pcNoLink:56.3,numMale:504,numFemale:64,pcMale:88.7,pcFemale:11.3,totalNames:568}, center: [-60.6553737,  -32.9427715]},
+          {id: 'buenosaires', name: 'Buenos Aires', datos: {numLink:86,pcLink:67.7,numNoLink:41,pcNoLink:32.3,numMale:1941,numFemale:127,pcMale:93.9,pcFemale:6.1,totalNames:2068}, center: [-58.37723, -34.61315]}]},
         {id: 'espana', name: 'España', citiesList:
-        [{id: 'barcelona', name: 'Barcelona', datos: {numLink:229,pcLink:69.4,numNoLink:101,pcNoLink:30.6,numMale:1795,numFemale:330,pcMale:84.5,pcFemale:15.5,totalNames:2125}, center: [2.154007, 41.390205]}]}
+          [{id: 'barcelona', name: 'Barcelona', datos: {numLink:229,pcLink:69.4,numNoLink:101,pcNoLink:30.6,numMale:1795,numFemale:330,pcMale:84.5,pcFemale:15.5,totalNames:2125}, center: [2.154007, 41.390205]}]}
 
     ];
 

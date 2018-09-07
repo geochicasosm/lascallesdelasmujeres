@@ -110,8 +110,11 @@ function initApp(){
           elemMenu.addEventListener("mouseout", removeBackgroundColor, false);
 
           //Add elem to the panel and menu list
-          panelListELem.appendChild(elem);
-          menuListELem.appendChild(elemMenu);
+        /*  panelListELem.appendChild(elem);
+          menuListELem.appendChild(elemMenu);*/
+
+          elem_c.appendChild(elem);
+          elemMenu_c.appendChild(elemMenu);
 
           if (selectedCity === city.id) {
               elem.classList.add("selected");
