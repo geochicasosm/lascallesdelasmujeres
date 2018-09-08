@@ -190,6 +190,7 @@ body {
     color: #ffffff;
     padding-top: 15px;
     padding-bottom: 15px;
+    padding-left: 15px;
     cursor: pointer;
     /*border-top: 0.25px solid #0e968675;
     border-bottom: 0.25px solid #0e968675;*/
@@ -202,11 +203,23 @@ body {
     background-color: rgba(36, 51, 66, 0.4);
 }
 
+.nombre-ciudad{
+    text-align: center;
+    color: #ffffff;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    cursor: pointer;
+    display: block;
+}
+
+
+
 .selected{
     font-weight: bold;
     background-color: rgba(36, 51, 66, 0.4);
     color: yellow;
     border-right: 5px solid #00B99E;
+
 }
 
 
@@ -268,11 +281,6 @@ body {
 .my-menu-item{
     border-top: 0.25px solid #0e968675;
     border-bottom: 0.25px solid #0e968675;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
 }
 
 /*************************

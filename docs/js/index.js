@@ -19,116 +19,121 @@ function initApp(){
         selectedCity = window.location.hash.replace('#', '');
     }
     // Sort cities alphabetically
-   constants.countriesList.sort(function (a, b) {
+/*    constants.countriesList.sort(function (a, b) {
         let nameA = a.name.toLowerCase();
         let nameB = b.name.toLowerCase();
         if (nameA < nameB) return -1;
         if (nameA > nameB) return 1;
         return 0;
-    });
-
-    for(let j= 0; j<constants.countriesList.length; j++){
-      const country= constants.countriesList[j];
-
-      const elem_c = document.createElement("DIV");
-      const elemMenu_c = document.createElement("A");
-
-      elem_c.setAttribute("id", country.id);
-      elem_c.classList.add("nombre-pais");
-      elem_c.setAttribute("href", "#" + country.id);
-
-      elemMenu_c.setAttribute("id", "menu-"+ country.id);
-      elemMenu_c.setAttribute("href", "#" + country.id);
-      elemMenu_c.classList.add("nav-item", "nav-link",  "my-menu-item");
-      elem_c.appendChild(document.createTextNode(country.name.toLocaleUpperCase()));
-      elemMenu_c.appendChild(document.createTextNode(country.name.toLocaleUpperCase()));
-
-      panelListELem.appendChild(elem_c);
-      menuListELem.appendChild(elemMenu_c);
+    });*/
 
 
+    for (let j=0; j<constants.countriesList.length; j++){
+        const country = constants.countriesList[j];
 
-      for(let i= 0; i< country.citiesList.length; i++){
+        const elemC = document.createElement("DIV");
+        const elemMenuC = document.createElement("A");
 
-          const city = country.citiesList[i];
+        elemC.setAttribute("id",country.id);
+        elemC.classList.add("nombre-pais");
+        elemC.setAttribute("href", "#" + country.id);
 
-          myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, city.id, isMobile, city.center));
+        elemMenuC.setAttribute("id", "menu-"+ country.id);
+        elemMenuC.setAttribute("href", "#" + country.id);
+        elemMenuC.classList.add("nav-item", "nav-link",  "my-menu-item");
 
-          const elem = document.createElement("DIV");
-          const elemMenu = document.createElement("A");
+
+        elemC.appendChild(document.createTextNode(country.name.toLocaleUpperCase()));
+        elemMenuC.appendChild(document.createTextNode(country.name.toLocaleUpperCase()));
+
+        panelListELem.appendChild(elemC);
+        menuListELem.appendChild(elemMenuC);
 
 
-          elem.setAttribute("id", city.id);
-          elem.classList.add("nombre-ciudad");
-          elem.setAttribute("href", "#" + city.id);
+        // Create an HTML node for every city and load its data
+        for(let i= 0; i<country.citiesList.length; i++){
 
-          elemMenu.setAttribute("id", "menu-"+ city.id);
-          elemMenu.setAttribute("href", "#" + city.id);
-          elemMenu.classList.add("nav-item", "nav-link",  "my-menu-item");
+            const city = country.citiesList[i];
 
-          elem.appendChild(document.createTextNode(city.name.toLocaleUpperCase()));
-          elemMenu.appendChild(document.createTextNode(city.name.toLocaleUpperCase()));
+            myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, city.id, isMobile, city.center));
 
-          /*CLICK EVENTS*/
+            const elem = document.createElement("DIV");
+            const elemMenu = document.createElement("A");
 
-          elem.onclick = doElemClick;
-          function doElemClick() {
+            elem.setAttribute("id", city.id);
+            elem.classList.add("nombre-ciudad");
+            elem.setAttribute("href", "#" + city.id);
 
-              const prevElem = document.getElementsByClassName("selected");
-              if(prevElem.length !== 0) prevElem[0].classList.remove("selected");
-              elem.classList.add("selected");
+            elemMenu.setAttribute("id", "menu-"+ city.id);
+            elemMenu.setAttribute("href", "#" + city.id);
+            elemMenu.classList.add("nav-item", "nav-link",  "my-menu-item");
 
-              myMap.mapTo(city.center);
-              chartService.loadChart(city.datos, city.name);
-              showChart();
-          }
+            elem.addEventListener("mouseenter", addBackgroundColor);
+            elemMenu.addEventListener("mouseenter", addBackgroundColor);
 
-          elemMenu.onclick = doElemMenuClick;
-          function doElemMenuClick() {
+            elem.addEventListener("mouseout", removeBackgroundColor, false);
+            elemMenu.addEventListener("mouseout", removeBackgroundColor, false);
 
-              const prevElemMenu = document.getElementsByClassName("menu-selected");
-              if(prevElemMenu.length !== 0) prevElemMenu[0].classList.remove("menu-selected");
-              elemMenu.classList.add("menu-selected");
+            elem.appendChild(document.createTextNode(city.name.toLocaleUpperCase()));
+            elemMenu.appendChild(document.createTextNode(city.name.toLocaleUpperCase()));
 
-              const navBar =  document.getElementsByClassName("navbar-collapse");
-              if(navBar.length !== 0) navBar[0].classList.remove("show");
+            /*CLICK EVENTS*/
 
-              const icon = document.getElementById("menu-toggle-icon");
-              icon.classList.remove("fa-chevron-circle-right");
-              icon.classList.add("fa-chevron-circle-down");
-              openToggleMenu = false;
+            elem.onclick = doElemClick;
+            function doElemClick() {
 
-              myMap.mapTo(city.center);
-              chartService.loadChart(city.datos, city.name);
-              showChart();
-          }
+                const prevElem = document.getElementsByClassName("selected");
+                if(prevElem.length !== 0) prevElem[0].classList.remove("selected");
+                elem.classList.add("selected");
 
-          elem.addEventListener("mouseenter", addBackgroundColor);
-          elemMenu.addEventListener("mouseenter", addBackgroundColor);
+                myMap.mapTo(city.center);
+                chartService.loadChart(city.datos, city.name);
+                showChart();
+            }
 
-          elem.addEventListener("mouseout", removeBackgroundColor, false);
-          elemMenu.addEventListener("mouseout", removeBackgroundColor, false);
+            elemMenu.onclick = doElemMenuClick;
+            function doElemMenuClick() {
 
-          //Add elem to the panel and menu list
-        /*  panelListELem.appendChild(elem);
-          menuListELem.appendChild(elemMenu);*/
+                const prevElemMenu = document.getElementsByClassName("menu-selected");
+                if(prevElemMenu.length !== 0) prevElemMenu[0].classList.remove("menu-selected");
+                elemMenu.classList.add("menu-selected");
 
-          elem_c.appendChild(elem);
-          elemMenu_c.appendChild(elemMenu);
+                const navBar =  document.getElementsByClassName("navbar-collapse");
+                if(navBar.length !== 0) navBar[0].classList.remove("show");
 
-          if (selectedCity === city.id) {
-              elem.classList.add("selected");
-              elemMenu.classList.add("menu-selected");
-              // Load the selected city
-              myMap.mapTo(city.center);
-              chartService.loadChart(city.datos, city.name);
-              showChart();
-          }
+                const icon = document.getElementById("menu-toggle-icon");
+                icon.classList.remove("fa-chevron-circle-right");
+                icon.classList.add("fa-chevron-circle-down");
+                openToggleMenu = false;
+
+                myMap.mapTo(city.center);
+                chartService.loadChart(city.datos, city.name);
+                showChart();
+            }
+
+            elem.addEventListener("mouseenter", addBackgroundColor);
+            elemMenu.addEventListener("mouseenter", addBackgroundColor);
+
+            elem.addEventListener("mouseout", removeBackgroundColor, false);
+            elemMenu.addEventListener("mouseout", removeBackgroundColor, false);
+
+            //Add elem to the panel and menu list
+            elemC.appendChild(elem);
+            elemMenuC.appendChild(elemMenu);
+
+            if (selectedCity === city.id) {
+                elem.classList.add("selected");
+                elemMenu.classList.add("menu-selected");
+                // Load the selected city
+                myMap.mapTo(city.center);
+                chartService.loadChart(city.datos, city.name);
+                showChart();
+            }
+
+        }
+
 
       }
-
-  }
-
 
     function addBackgroundColor(event){
         event.target.style.backgroundColor = "#243342";
