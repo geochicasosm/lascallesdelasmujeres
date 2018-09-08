@@ -34,7 +34,7 @@ function initApp(){
       const elemMenu_c = document.createElement("A");
 
       elem_c.setAttribute("id", country.id);
-      elem_c.classList.add("nombre-ciudad");
+      elem_c.classList.add("nombre-pais");
       elem_c.setAttribute("href", "#" + country.id);
 
       elemMenu_c.setAttribute("id", "menu-"+ country.id);
