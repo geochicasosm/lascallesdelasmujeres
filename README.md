@@ -32,6 +32,7 @@ El proyecto se encuentra aún en desarrollo. La idea es ir ampliando paulatiname
 - Ciudad de México
 - La Habana, Cuba
 - Rosario, Argentina
+- Resistencia, Argentina
 
 En preparación:
 - Santa Fe, Argentina
