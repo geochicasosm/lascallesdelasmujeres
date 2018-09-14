@@ -203,16 +203,14 @@ body {
     background-color: rgba(36, 51, 66, 0.4);
 }
 
-.nombre-ciudad{
+/*.nombre-ciudad{
     text-align: center;
     color: #ffffff;
     padding-top: 15px;
     padding-bottom: 15px;
     cursor: pointer;
     display: block;
-}
-
-
+}*/
 
 .selected{
     font-weight: bold;
@@ -283,22 +281,6 @@ body {
     border-bottom: 0.25px solid #0e968675;
 }
 
-/*************************
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-***********************/
 
 @media (max-height: 600px) {
 
