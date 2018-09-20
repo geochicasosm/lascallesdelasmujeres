@@ -18,15 +18,14 @@ function initApp(){
         // A city was linked throught URL
         selectedCity = window.location.hash.replace('#', '');
     }
-    // Sort cities alphabetically
-/*    constants.countriesList.sort(function (a, b) {
+    // Sort countries alphabetically
+    constants.countriesList.sort(function (a, b) {
         let nameA = a.name.toLowerCase();
         let nameB = b.name.toLowerCase();
         if (nameA < nameB) return -1;
         if (nameA > nameB) return 1;
         return 0;
-    });*/
-
+    });
 
     for (let j=0; j<constants.countriesList.length; j++){
         const country = constants.countriesList[j];
@@ -48,6 +47,14 @@ function initApp(){
 
         panelListELem.appendChild(elemC);
         menuListELem.appendChild(elemMenuC);
+
+        constants.countriesList[j].citiesList.sort(function (c, d) {
+          let c_nameA = c.name.toLowerCase();
+          let c_nameB = d.name.toLowerCase();
+          if (c_nameA < c_nameB) return -1;
+          if (c_nameA > c_nameB) return 1;
+          return 0;
+          });
 
 
         // Create an HTML node for every city and load its data

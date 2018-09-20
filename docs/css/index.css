@@ -87,7 +87,7 @@ body {
 }
 
 .my-navbar{
-    background-color: rgba(25,83,95,0.9);
+    background-color: rgba(25,83,95,0.4);
     color: white;
     text-align: center;
     padding: .5rem 0rem;
@@ -174,15 +174,15 @@ body {
 }
 
 .nombre-pais{
-    text-align: left;
-    color: #ffffff;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    cursor: pointer;
-    border-top: 0.25px solid #0e968675;
-    border-bottom: 0.25px solid #0e968675;
-    display: block;
+  text-align: left;
+  color: #ffffff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  cursor: pointer;
+  /*border-top: 0.25px solid #0e968675;*/
+  border-bottom: 0.25px solid #0e968675;
+  display: block;
 }
 
 .nombre-ciudad{
@@ -190,21 +190,40 @@ body {
     color: #ffffff;
     padding-top: 15px;
     padding-bottom: 15px;
+    padding-left: 15px;
     cursor: pointer;
+    /*border-top: 0.25px solid #0e968675;
+    border-bottom: 0.25px solid #0e968675;*/
     display: block;
+    background-color: rgba(36, 51, 66, 0.4);
 }
 
+.nombre-ciudad:hover {
+    color: yellow;
+    background-color: rgba(36, 51, 66, 0.4);
+}
 
+/*.nombre-ciudad{
+    text-align: center;
+    color: #ffffff;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    cursor: pointer;
+    display: block;
+}*/
 
 .selected{
     font-weight: bold;
-    background-color: #243342;
+    background-color: rgba(36, 51, 66, 0.4);
+    color: yellow;
     border-right: 5px solid #00B99E;
 
 }
+
+
 .menu-selected{
     font-weight: bold;
-    background-color: #243342;
+    background-color: rgba(36, 51, 66, 0.4);
     border-right: 5px solid #00B99E;
     border-left: 5px solid #00B99E;
 }
@@ -244,7 +263,12 @@ body {
 
 .menu-info a:hover {
     font-weight: bold;
+      /*color: yellow;*/
 }
+/*
+ a:hover{
+  color: #FFFF00;
+}*/
 
 #menu-list{
     max-height: 200px;
@@ -256,6 +280,7 @@ body {
     border-top: 0.25px solid #0e968675;
     border-bottom: 0.25px solid #0e968675;
 }
+
 
 @media (max-height: 600px) {
 
@@ -372,7 +397,7 @@ body {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: rgba(36, 51, 66, 0.4);
 }
 
 /**/
