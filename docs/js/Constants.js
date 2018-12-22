@@ -15,19 +15,33 @@ function Constants(){
         {id: 'resistencia', name: 'Resistencia', datos: {numLink:51,pcLink:75.0,numNoLink:17,pcNoLink:25.0,numMale:474,numFemale:68,pcMale:87.5,pcFemale:12.5,totalNames:542}, center: [ -58.98652, -27.45112]},
         {id: 'rosario', name: 'Rosario', datos: {numLink:28,pcLink:43.8,numNoLink:36,pcNoLink:56.3,numMale:504,numFemale:64,pcMale:88.7,pcFemale:11.3,totalNames:568}, center: [-60.6553737,  -32.9427715]}
     ];
-    
+        
     this.lang = {
-        es : {
+        "es" : {
             panelDescriptionText1 : 'Mapa generado a partir de las calles con nombre de mujeres, en diferentes ciudades de habla hispana (Latinoamérica y España).',
             panelDescriptionText2 : 'El objetivo es visibilizar la brecha que existe históricamente en la representación de figuras femeninas en las calles de las ciudades.',
             panelDescriptionTextShort: 'Mapa de las calles con nombre de mujer en ciudades de Latinoamérica y España, para visibilizar la brecha que existe en la representación de figuras femeninas en las ciudades.',
             panelProjectBy: 'Un proyecto de',
+            panelProjectBy2: 'Proyecto de',
             menuTitle: 'Las calles de las mujeres'
 
         },
-        en : {
-            readmore : 'Read More',
-            date     : 'Date'            
-        }
+        "ca" : {
+            panelDescriptionText1 : 'Mapa generat a partir dels carrers amb nom de dones, a diferents ciutats de parla hispana (Llatinoamèrica i Espanya).',
+            panelDescriptionText2 : 'L\'objectiu és visibilitzar la bretxa que existeix històricament en la representació de figures femenines als carrers de les ciutats.',
+            panelDescriptionTextShort: 'Mapa dels carrers amb nom de dona en ciutats de Llatinoamèrica i Espanya, per visibilitzar la bretxa que existeix en la representació de figures femenines a les ciutats.',
+            panelProjectBy: 'Un projecte de',
+            panelProjectBy2: 'Projecte de',
+            menuTitle: 'Las calles de las mujeres'
+
+        },        
+/*         "en" : {
+            panelDescriptionText1 : 'Mapa generat a partir dels carrers amb nom de dones, a diferents ciutats de parla hispana (Llatinoamèrica i Espanya).',
+            panelDescriptionText2 : 'L\'objectiu és visibilitzar la bretxa que existeix històricament en la representació de figures femenines en els carrers de les ciutats.',
+            panelDescriptionTextShort: 'Mapa dels carrers amb nom de dona en ciutats de Llatinoamèrica i Espanya, per visibilitzar la bretxa que existeix en la representació de figures femenines a les ciutats.',
+            panelProjectBy: 'Un projecte de',
+            panelProjectBy2: 'Projecte de',
+            menuTitle: 'Las calles de las mujeres'
+        } */
     }
 }

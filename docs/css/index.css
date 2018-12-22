@@ -357,6 +357,10 @@ body {
     background: #00b99e; 
 }
 
+::-moz-scrollbar-thumb {
+    background: #00b99e; 
+}
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 

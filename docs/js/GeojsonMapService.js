@@ -3,11 +3,11 @@ function GeojsonMapService(){
     //this.map = map;
     this.urlData = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
 
-    this.loadGeojson = function(map, folder, isMobile, coords){    
+    this.loadGeojson = function(map, folder, isMobile, coords, lang){    
     
         fetch(this.urlData+ '/data/'+folder+'/final_tile.geojson').then(function(res){
             return res.json();
-        }).then(addGeojsonSource.bind(this, map, isMobile, coords));
+        }).then(addGeojsonSource.bind(this, map, isMobile, lang, coords));
 
         
    
@@ -23,7 +23,7 @@ function GeojsonMapService(){
         }    
     };
 
-    function addGeojsonSource(map, isMobile, coords, geojson, sourcename = Date.now()){
+    function addGeojsonSource(map, isMobile, lang, coords, geojson, sourcename = Date.now()){
            
         const widthFemale = isMobile ? 5 : 4;
         const widthMale = isMobile ? 4 : 3;
@@ -56,17 +56,17 @@ function GeojsonMapService(){
 
             popupHover.remove();
             
-            var link = e.features[0].properties.wikipedia_link;
+            var link = e.features[0].properties.wikipedia_link; //.replace("es.wiki", lang+".wiki");
             var name = e.features[0].properties.name;
             var gender = e.features[0].properties.gender;
     
             var color = "#0e9686f2";
 
             var html = '<div class="row">'+
-                        '<div class="col-sm">'+
-                            '<div class="popup-male"><p>'+name+'</p></div>'+
-                        '</div>'+
-                    '</div>';
+                            '<div class="col-sm">'+
+                                '<div class="popup-male"><p>'+name+'</p></div>'+
+                            '</div>'+
+                        '</div>';
 
             if (gender === 'Female'){
                 color = "#ffca3af2";
@@ -103,7 +103,7 @@ function GeojsonMapService(){
                 popupClick.remove();
                 map.getCanvas().style.cursor = 'pointer';
     
-                var link = e.features[0].properties.wikipedia_link;
+                var link = e.features[0].properties.wikipedia_link; //.replace("es.wiki", lang+".wiki");;
                 var name = e.features[0].properties.name;
                 var gender = e.features[0].properties.gender;
     
