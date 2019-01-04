@@ -3,11 +3,11 @@ function GeojsonMapService(){
     //this.map = map;
     this.urlData = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
 
-    this.loadGeojson = function(map, folder, isMobile, coords, lang){    
+    this.loadGeojson = function(map, folder, isMobile, coords, lang, popupText){    
     
         fetch(this.urlData+ '/data/'+folder+'/final_tile.geojson').then(function(res){
             return res.json();
-        }).then(addGeojsonSource.bind(this, map, isMobile, lang, coords));
+        }).then(addGeojsonSource.bind(this, map, isMobile, lang, popupText, coords));
 
         
    
@@ -23,7 +23,7 @@ function GeojsonMapService(){
         }    
     };
 
-    function addGeojsonSource(map, isMobile, lang, coords, geojson, sourcename = Date.now()){
+    function addGeojsonSource(map, isMobile, lang, popupText, coords, geojson, sourcename = Date.now()){
            
         const widthFemale = isMobile ? 5 : 4;
         const widthMale = isMobile ? 4 : 3;
@@ -74,7 +74,7 @@ function GeojsonMapService(){
                 var txtLink = '<p class=""><a  class="btn btn-light" target="_blank" href=\''+link+'\'><i class="fab fa-wikipedia-w"></i></a></p>';
                 if(link === ''){
                     txtLink = '<p class=""><a  class="btn btn-light disabled" target="_blank" href=\''+link+'\'><i class="fab fa-wikipedia-w"></i></a></p>'+
-                    '<span class="badge badge-secondary"><i class="fas fa-exclamation"></i>&nbsp;Calle sin artículo</span>';
+                    '<span class="badge badge-secondary"><i class="fas fa-exclamation"></i>&nbsp;'+popupText+'</span>';
                 }
 
                 html = '<div class="row">'+
@@ -121,7 +121,7 @@ function GeojsonMapService(){
                     var txtLink = '<p class=""><a  class="btn btn-light" target="_blank" href=\''+link+'\'><i class="fab fa-wikipedia-w"></i></a></p>';
                     if(link === ''){
                         txtLink = '<p class=""><a  class="btn btn-light disabled" target="_blank" href=\''+link+'\'><i class="fab fa-wikipedia-w"></i></a></p>'+
-                        '<span class="badge badge-secondary"><i class="fas fa-exclamation"></i>&nbsp;Calle sin artículo</span>';
+                        '<span class="badge badge-secondary"><i class="fas fa-exclamation"></i>&nbsp;'+popupText+'</span>';
                     }
     
                     html = '<div class="row">'+
