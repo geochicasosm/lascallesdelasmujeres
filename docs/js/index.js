@@ -2,13 +2,16 @@
 
 function initApp(){
 
+
     const constants = new Constants();
     const geojsonMapService = new GeojsonMapService();
     const chartService = new ChartService();
     const myMap = new MyMap();
     const isMobile = isMobileDevice();
     let openToggleMenu = false;
- 
+
+    const currentLang = addText();
+
     const menuListELem = document.getElementById("menu-list");
     const panelListELem = document.getElementById("ciudades-list");
 
@@ -31,7 +34,7 @@ function initApp(){
 
         const city = constants.citiesList[i];
 
-        myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, city.id, isMobile, city.center));
+        myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, city.id, isMobile, city.center, currentLang, constants.lang[currentLang].popupText));
         
         const elem = document.createElement("DIV");        
         const elemMenu = document.createElement("A");
@@ -58,7 +61,7 @@ function initApp(){
             elem.classList.add("selected");
 
             myMap.mapTo(city.center);        
-            chartService.loadChart(city.datos, city.name); 
+            chartService.loadChart(city.datos, city.name, constants.lang[currentLang].chartTxt); 
             showChart();
         }
 
@@ -160,12 +163,34 @@ function initApp(){
     }
 
     function addText() {
-        const userLang = navigator.language || navigator.userLanguage;
-        
 
+        let userLang = navigator.language || navigator.userLanguage;
+
+        if(isBlank(userLang)){
+            userLang = "es";
+        } else {
+            userLang = userLang.split("-")[0];
+        }              
+                 
+        if (!constants.lang[userLang]) {
+            userLang = "es";
+        }
+
+        //console.log(userLang);
+        Object.entries(constants.lang[userLang]).forEach(([key, value]) => {
+            const textElem = document.getElementById(key);
+            if (textElem) {
+                textElem.innerHTML = value;
+            }            
+        });
+
+        return userLang;
     }
-    
-       
+
+    function isBlank(str) {
+        return (!str || /^\s*$/.test(str));
+    }
+           
 }
 
 

@@ -45,7 +45,7 @@ En preparación:
 
 ## Contribuir con el proyecto
 
-Únete a nuestro canal de slack [#lascallesdelasmujeres](https://join.slack.com/t/geochicas-osm/shared_invite/enQtMzIzMzUyMDQyNjczLTU0YjYzNTQ2ZWRkOWQwZGJlNGY4NjhmODY4Y2M2M2Y2MDM3M2EyZTg4NWI0ODY2ZWRhZGIyN2JjMDc0ZDdlODE) si te interesa contribuir.
+Contacta con nostras a través de twitter: [@geochicasosm](https://twitter.com/GeochicasOSM).
 
 
 ## Coordinadoras

@@ -1,7 +1,7 @@
 function ChartService(){
 
 
-    this.loadChart = function(datos, ciudad){
+    this.loadChart = function(datos, ciudad, text){
 
         const panelChart = document.getElementById("panel-chart");
         panelChart.classList.remove("invisible");
@@ -20,7 +20,7 @@ function ChartService(){
                     ],
                     label: 'label'
                 }],
-                labels: [ `${datos.pcMale}% Hombres`,`${datos.pcFemale}% Mujeres` ]
+                labels: [ `${datos.pcMale}% ${text.chartMen}`,`${datos.pcFemale}% ${text.chartWomen}` ]
             },
             options: {
                 responsive: true,
@@ -31,7 +31,7 @@ function ChartService(){
                 },
                 title: {
                     display: true,
-                    text: `Calles de ${ciudad}`,
+                    text: `${text.chartStreetsOf} ${ciudad}`,
                     position: 'top',
                     fontFamily: 'Roboto',
                     fontSize: 14
@@ -55,7 +55,7 @@ function ChartService(){
                     ],
                     label: 'label'
                 }],
-                labels: [ datos.pcLink+'% tiene', datos.pcNoLink+'% no tiene' ]
+                labels: [ `${datos.pcLink}% ${text.chartHave}`, `${datos.pcNoLink}% ${text.chartNotHave}`]
             },
             options: {
                 responsive: true,
@@ -66,7 +66,7 @@ function ChartService(){
                 },
                 title: {
                     display: true,
-                    text: 'Mujeres con artículo en Wikipedia',
+                    text: `${text.chartText1}`,
                     position: 'top',
                     fontFamily: 'Roboto',
                     fontSize: 14
