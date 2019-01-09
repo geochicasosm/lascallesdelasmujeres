@@ -36,7 +36,6 @@ function initApp(){
         const elemC = document.createElement("DIV");
         const elemMenuC = document.createElement("A");
 
-        myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, city.id, isMobile, city.center, currentLang, constants.lang[currentLang].popupText));
 
         elemC.setAttribute("id",country.id);
         elemC.classList.add("nombre-pais");
@@ -66,7 +65,7 @@ function initApp(){
 
             const city = country.citiesList[i];
 
-            myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, city.id, isMobile, city.center));
+            myMap.map.on('load', geojsonMapService.loadGeojson(myMap.map, city.id, isMobile, city.center, currentLang, constants.lang[currentLang].popupText));
 
             const elem = document.createElement("DIV");
             const elemMenu = document.createElement("A");
@@ -137,7 +136,7 @@ function initApp(){
                 elemMenu.classList.add("menu-selected");
                 // Load the selected city
                 myMap.mapTo(city.center);
-                chartService.loadChart(city.datos, city.name, constants.lang[currentLang].chartTxt); 
+                chartService.loadChart(city.datos, city.name, constants.lang[currentLang].chartTxt);
                 showChart();
             }
 
