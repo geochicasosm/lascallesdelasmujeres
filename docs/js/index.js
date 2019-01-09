@@ -61,11 +61,6 @@ function initApp(){
           return 0;
           });
 
-            myMap.mapTo(country.center);        
-            chartService.loadChart(country.datos, country.name, constants.lang[currentLang].chartTxt); 
-            showChart();
-        }
-
         // Create an HTML node for every city and load its data
         for(let i= 0; i<country.citiesList.length; i++){
 
@@ -103,7 +98,7 @@ function initApp(){
                 elem.classList.add("selected");
 
                 myMap.mapTo(city.center);
-                chartService.loadChart(city.datos, city.name, constants.lang[currentLang].chartTxt); 
+                chartService.loadChart(city.datos, city.name, constants.lang[currentLang].chartTxt);
                 showChart();
             }
 
@@ -142,7 +137,7 @@ function initApp(){
                 elemMenu.classList.add("menu-selected");
                 // Load the selected city
                 myMap.mapTo(city.center);
-                chartService.loadChart(city.datos, city.name);
+                chartService.loadChart(city.datos, city.name, constants.lang[currentLang].chartTxt); 
                 showChart();
             }
 
@@ -213,8 +208,8 @@ function initApp(){
             userLang = "es";
         } else {
             userLang = userLang.split("-")[0];
-        }              
-                 
+        }
+
         if (!constants.lang[userLang]) {
             userLang = "es";
         }
@@ -224,7 +219,7 @@ function initApp(){
             const textElem = document.getElementById(key);
             if (textElem) {
                 textElem.innerHTML = value;
-            }            
+            }
         });
 
         return userLang;

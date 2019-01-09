@@ -57,10 +57,10 @@ function Constants(){
                 chartStreetsOf: 'Carrers de',
                 chartHave: 'en té',
                 chartNotHave: 'no en té',
-                chartText1: 'Dones amb article a Wikipedia'               
+                chartText1: 'Dones amb article a Wikipedia'
             },
-            popupText: 'Carrer sense article'        
-        },        
+            popupText: 'Carrer sense article'
+        }        
 /*         "en" : {
             panelDescriptionText1 : 'Mapa generat a partir dels carrers amb nom de dones, a diferents ciutats de parla hispana (Llatinoamèrica i Espanya).',
             panelDescriptionText2 : 'L\'objectiu és visibilitzar la bretxa que existeix històricament en la representació de figures femenines en els carrers de les ciutats.',
@@ -74,8 +74,8 @@ function Constants(){
                 chartStreetsOf: 'Carrers de',
                 chartHave: 'té',
                 chartNotHave: 'no té',
-                chartText1: 'Dones amb article a Wikipedia'               
-            }           
+                chartText1: 'Dones amb article a Wikipedia'
+            }
         } */
     }
 }
