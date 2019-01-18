@@ -124,7 +124,7 @@ function initApp(){
                 openToggleMenu = false;
 
                 myMap.mapTo(city.center);
-                chartService.loadChart(city.datos, city.name);
+                chartService.loadChart(city.datos, city.name, constants.lang[currentLang].chartTxt);
                 showChart();
             }
 
