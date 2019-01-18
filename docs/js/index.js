@@ -15,12 +15,39 @@ function initApp(){
     const menuListELem = document.getElementById("menu-list");
     const panelListELem = document.getElementById("ciudades-list");
 
-    let selectedCity = '';
+    let selectedCity = "";
 
     if (window.location.hash) {
         // A city was linked throught URL
         selectedCity = window.location.hash.replace('#', '');
     }
+
+    //** CHART display*/
+    const closeChartBtn = document.getElementById('close-chart-btn');
+    const openChartBtn = document.getElementById('open-chart-btn');
+    const panelChart = document.getElementById("panel-chart");
+
+    closeChartBtn.onclick = hideChart;
+    openChartBtn.onclick = showChart;
+
+    function hideChart(){
+
+        panelChart.classList.add("animated", "fadeOut");
+        panelChart.style.zIndex = "-1";
+        openChartBtn.classList.remove("invisible", "animated", "fadeOut");
+        openChartBtn.classList.add("animated", "fadeIn");
+
+    }
+
+    function showChart(){
+
+        panelChart.classList.remove("animated", "fadeOut");
+        panelChart.classList.add("animated", "fadeIn");
+        panelChart.style.zIndex = "999";
+        openChartBtn.classList.add("animated", "fadeOut");
+
+    }    
+
     // Sort countries alphabetically
     constants.countriesList.sort(function (a, b) {
         let nameA = a.name.toLowerCase();
@@ -36,13 +63,10 @@ function initApp(){
         const elemC = document.createElement("DIV");
         const elemMenuC = document.createElement("A");
 
-
         elemC.setAttribute("id",country.id);
         elemC.classList.add("div-pais");
-        /* elemC.setAttribute("href", "#" + country.id); */
 
         elemMenuC.setAttribute("id", "menu-"+ country.id);
-        /* elemMenuC.setAttribute("href", "#" + country.id); */
         elemMenuC.classList.add("menu-div-pais");
 
         const elemCountryName = document.createElement("DIV");
@@ -149,8 +173,7 @@ function initApp(){
 
         }
 
-
-      }
+    }
 
     function addBackgroundColor(event){
         event.target.style.backgroundColor = "#243342";
@@ -162,32 +185,6 @@ function initApp(){
     const toggleMenu = document.getElementById("my-toggle-menu");
     toggleMenu.addEventListener("click", updateToggleMenuIcon);
 
-
-    //** CHART display*/
-    const closeChartBtn = document.getElementById('close-chart-btn');
-    const openChartBtn = document.getElementById('open-chart-btn');
-    const panelChart = document.getElementById("panel-chart");
-
-    closeChartBtn.onclick = hideChart;
-    openChartBtn.onclick = showChart;
-
-    function hideChart(){
-
-        panelChart.classList.add("animated", "fadeOut");
-        panelChart.style.zIndex = "-1";
-        openChartBtn.classList.remove("invisible", "animated", "fadeOut");
-        openChartBtn.classList.add("animated", "fadeIn");
-
-    }
-
-    function showChart(){
-
-        panelChart.classList.remove("animated", "fadeOut");
-        panelChart.classList.add("animated", "fadeIn");
-        panelChart.style.zIndex = "999";
-        openChartBtn.classList.add("animated", "fadeOut");
-
-    }
 
     function isMobileDevice() {
         return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
