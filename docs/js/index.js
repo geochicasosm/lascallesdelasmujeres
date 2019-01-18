@@ -38,16 +38,23 @@ function initApp(){
 
 
         elemC.setAttribute("id",country.id);
-        elemC.classList.add("nombre-pais");
-        elemC.setAttribute("href", "#" + country.id);
+        elemC.classList.add("div-pais");
+        /* elemC.setAttribute("href", "#" + country.id); */
 
         elemMenuC.setAttribute("id", "menu-"+ country.id);
-        elemMenuC.setAttribute("href", "#" + country.id);
-        elemMenuC.classList.add("nav-item", "nav-link",  "my-menu-item");
+        /* elemMenuC.setAttribute("href", "#" + country.id); */
+        elemMenuC.classList.add("menu-div-pais");
 
+        const elemCountryName = document.createElement("DIV");
+        elemCountryName.classList.add("nombre-pais");
+        const elemMenuCountryName = document.createElement("DIV");
+        elemMenuCountryName.classList.add("menu-nombre-pais");
 
-        elemC.appendChild(document.createTextNode(country.name.toLocaleUpperCase()));
-        elemMenuC.appendChild(document.createTextNode(country.name.toLocaleUpperCase()));
+        elemCountryName.appendChild(document.createTextNode(country.name.toLocaleUpperCase()));
+        elemMenuCountryName.appendChild(document.createTextNode(country.name.toLocaleUpperCase()));
+
+        elemC.appendChild(elemCountryName);
+        elemMenuC.appendChild(elemMenuCountryName);        
 
         panelListELem.appendChild(elemC);
         menuListELem.appendChild(elemMenuC);

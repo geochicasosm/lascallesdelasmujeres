@@ -6,7 +6,6 @@
     --male-color: #00b99e;
     --primary-color: red;
     --secondary-color: blue;
-
     --popup-female-text: #686868;
   }
 
@@ -87,7 +86,7 @@ body {
 }
 
 .my-navbar{
-    background-color: rgba(25,83,95,0.4);
+    background-color: rgba(25,83,95,0.6);
     color: white;
     text-align: center;
     padding: .5rem 0rem;
@@ -173,16 +172,21 @@ body {
     margin-top: 20px;
 }
 
-.nombre-pais{
-  text-align: left;
-  color: #ffffff;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 15px;
-  cursor: pointer;
-  /*border-top: 0.25px solid #0e968675;*/
-  border-bottom: 0.25px solid #0e968675;
-  display: block;
+.div-pais {
+    margin: 1rem 0;
+    border-bottom: 1px solid #00b99e40;
+}
+.menu-div-pais {
+    border-bottom: 5px solid #00b99e40;
+    padding-top: 0.5rem;
+}
+
+.nombre-pais, .menu-nombre-pais {
+    color: var(--male-color);
+    font-weight: bold;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    text-align: justify;
 }
 
 .nombre-ciudad{
@@ -190,16 +194,15 @@ body {
     color: #ffffff;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-left: 15px;
     cursor: pointer;
-    /*border-top: 0.25px solid #0e968675;
-    border-bottom: 0.25px solid #0e968675;*/
+    border-top: 0.25px solid #0e968675;
+    border-bottom: 0.25px solid #0e968675;
     display: block;
     background-color: rgba(36, 51, 66, 0.4);
 }
 
 .nombre-ciudad:hover {
-    color: yellow;
+    color: var(--female-color);
     background-color: rgba(36, 51, 66, 0.4);
 }
 
@@ -215,9 +218,8 @@ body {
 .selected{
     font-weight: bold;
     background-color: rgba(36, 51, 66, 0.4);
-    color: yellow;
+    color: var(--female-color);
     border-right: 5px solid #00B99E;
-
 }
 
 
@@ -226,6 +228,7 @@ body {
     background-color: rgba(36, 51, 66, 0.4);
     border-right: 5px solid #00B99E;
     border-left: 5px solid #00B99E;
+    color: var(--female-color) !important;
 }
 
 #my-toggle-menu{
