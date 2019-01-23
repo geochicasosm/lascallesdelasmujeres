@@ -50,7 +50,7 @@ function Constants(){
             panelDescriptionTextShort: 'Mapa dels carrers amb nom de dona en ciutats de Llatinoamèrica i Espanya, per visibilitzar la bretxa que existeix en la representació de figures femenines a les ciutats.',
             panelProjectBy: 'Un projecte de',
             panelProjectBy2: 'Projecte de',
-            menuTitle: 'Las calles de las mujeres',
+            menuTitle: 'Els carrers de les dones',
             chartTxt: {
                 chartMen: 'Homes',
                 chartWomen: 'Dones',
