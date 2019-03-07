@@ -63,22 +63,24 @@ function Constants(){
                 chartText1: 'Dones amb article a Wikipedia'
             },
             popupText: 'Carrer sense article'
-        }        
-/*         "en" : {
-            panelDescriptionText1 : 'Mapa generat a partir dels carrers amb nom de dones, a diferents ciutats de parla hispana (Llatinoamèrica i Espanya).',
-            panelDescriptionText2 : 'L\'objectiu és visibilitzar la bretxa que existeix històricament en la representació de figures femenines en els carrers de les ciutats.',
-            panelDescriptionTextShort: 'Mapa dels carrers amb nom de dona en ciutats de Llatinoamèrica i Espanya, per visibilitzar la bretxa que existeix en la representació de figures femenines a les ciutats.',
-            panelProjectBy: 'Un projecte de',
-            panelProjectBy2: 'Projecte de',
-            menuTitle: 'Las calles de las mujeres',
-            chartTxt: {
-                chartMen: 'Homes',
-                chartWomen: 'Dones',
-                chartStreetsOf: 'Carrers de',
-                chartHave: 'té',
-                chartNotHave: 'no té',
-                chartText1: 'Dones amb article a Wikipedia'
-            }
-        } */
+        },       
+        "en" : {
+	
+          panelDescriptionText1 : "Map generated from the data obtained of Women Street names in Spanish speaking cities (Latin America and Spain).", 
+          panelDescriptionText2 : "The objective is visualize the historic gap representing women figures in the streets of the cities.", 
+          panelDescriptionTextShort: "Map of the streets containing women's names in cities of Latin America and Spain, visualizing the gap representing women figures in the cities.",
+          panelProjectBy: "A project from",
+          panelProjectBy2: "Project from",       
+          menuTitle: "The street of the women",
+          chartTxt: {
+            chartMen: "Men", 
+            chartWomen: "Women", 
+            chartStreetsOf: "The street of",
+            chartHave: "have",
+            chartNotHave: "doesn't have",
+            chartText1: "Women having a Wikipedia article"
+          },        
+          popupText: "Street without article"
+        }
     }
 }
