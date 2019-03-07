@@ -1,7 +1,7 @@
 function GeojsonMapService(){
 
     //this.map = map;
-    this.urlData = 'https://raw.githubusercontent.com/labexp/lascallesdelasmujeres/develop';
+    this.urlData = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
 
     this.loadGeojson = function(map, folder, isMobile, coords, lang, popupText){    
     
