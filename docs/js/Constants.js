@@ -25,7 +25,12 @@ function Constants(){
         {id: 'peru', name: 'Perú', citiesList:[
           {id: 'lima', name: 'Lima', datos: {numLink:155,pcLink:58.1,numNoLink:112,pcNoLink:41.9,numMale:2881,numFemale:267,pcMale:91.5,pcFemale:8.5,totalNames:3148}, center: [ -77.02824, -12.04318]}]},
         {id: 'uruguay', name: 'Uruguay', citiesList:[
-          {id: 'montevideo', name: 'Montevideo', datos: {numLink:78,pcLink:47.9,numNoLink:85,pcNoLink:52.1,numMale:1875,numFemale:163,pcMale:92.0,pcFemale:8.0,totalNames:2038}, center: [ -56.18816, -34.90328]}]}
+          {id: 'montevideo', name: 'Montevideo', datos: {numLink:78,pcLink:47.9,numNoLink:85,pcNoLink:52.1,numMale:1875,numFemale:163,pcMale:92.0,pcFemale:8.0,totalNames:2038}, center: [ -56.18816, -34.90328]}]},
+        {id: 'costarica', name: 'Costa Rica', citiesList:[
+          {id: 'heredia', name: 'Heredia', datos: {numLink:14,pcLink:19.7,numNoLink:57,pcNoLink:80.3,numMale:132,numFemale:71,pcMale:65.0,pcFemale:35.0,totalNames:203}, center: [ -84.115938,9.997433]},
+
+          {id: 'alajuela', name: 'Alajuela', datos: {numLink:14,pcLink:21.5,numNoLink:51,pcNoLink:78.5,numMale:143,numFemale:65,pcMale:68.8,pcFemale:31.3,totalNames:208}, center: [-84.198235,10.009604]}]}
+
     ];
 
     this.lang = {
@@ -63,23 +68,23 @@ function Constants(){
                 chartText1: 'Dones amb article a Wikipedia'
             },
             popupText: 'Carrer sense article'
-        },       
+        },
         "en" : {
-	
-          panelDescriptionText1 : "Map generated from the data obtained of Women Street names in Spanish speaking cities (Latin America and Spain).", 
-          panelDescriptionText2 : "The objective is visualize the historic gap representing women figures in the streets of the cities.", 
+
+          panelDescriptionText1 : "Map generated from the data obtained of Women Street names in Spanish speaking cities (Latin America and Spain).",
+          panelDescriptionText2 : "The objective is visualize the historic gap representing women figures in the streets of the cities.",
           panelDescriptionTextShort: "Map of the streets containing women's names in cities of Latin America and Spain, visualizing the gap representing women figures in the cities.",
           panelProjectBy: "A project from",
-          panelProjectBy2: "Project from",       
+          panelProjectBy2: "Project from",
           menuTitle: "The street of the women",
           chartTxt: {
-            chartMen: "Men", 
-            chartWomen: "Women", 
+            chartMen: "Men",
+            chartWomen: "Women",
             chartStreetsOf: "The street of",
             chartHave: "have",
             chartNotHave: "doesn't have",
             chartText1: "Women having a Wikipedia article"
-          },        
+          },
           popupText: "Street without article"
         }
     }
