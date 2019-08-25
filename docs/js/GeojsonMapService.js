@@ -1,10 +1,10 @@
 function GeojsonMapService(){
 
     //this.map = map;
-    this.urlData = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
+    this.urlData = 'https://raw.githubusercontent.com/samsaurio/lascallesdelasmujeres/master';
 
-    this.loadGeojson = function(map, folder, isMobile, coords, lang, popupText){    
-    
+    this.loadGeojson = function(map, folder, isMobile, coords, lang, popupText){
+
         fetch(this.urlData+ '/data/'+folder+'/final_tile.geojson').then(function(res){
             return res.json();
         }).then(addGeojsonSource.bind(this, map, isMobile, lang, popupText, coords));
@@ -54,7 +54,7 @@ function GeojsonMapService(){
         map.on('click', `${sourcename}`, function (e) {
 
             popupHover.remove();
-            
+
             var link = e.features[0].properties.wikipedia_link; //.replace("es.wiki", lang+".wiki");
             var name = e.features[0].properties.name;
             var gender = e.features[0].properties.gender;
@@ -100,7 +100,7 @@ function GeojsonMapService(){
             map.on('mouseenter', `${sourcename}`, function(e) {
 
                 popupClick.remove();
-                map.getCanvas().style.cursor = 'pointer';    
+                map.getCanvas().style.cursor = 'pointer';
                 var link = e.features[0].properties.wikipedia_link; //.replace("es.wiki", lang+".wiki");;
                 var name = e.features[0].properties.name;
                 var gender = e.features[0].properties.gender;
