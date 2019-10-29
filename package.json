@@ -1,0 +1,31 @@
+{
+  "name": "lascallesdelasmujeres",
+  "version": "1.0.0",
+  "description": "#LasCallesDeLasMujeres",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "parcel src/index.html --open",
+    "build": "parcel build src/index.html --out-dir docs --public-url ./",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "deploy": "npm run build && git add . && git commit -m 'latest build' && git push origin master"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "animate.css": "^3.7.2",
+    "chart.js": "^2.8.0",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0",
+    "@geostarters/eslint-config": "0.0.3",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "parcel-bundler": "^1.6.1",
+    "parcel-plugin-eslint": "^1.0.7"
+  }
+}
