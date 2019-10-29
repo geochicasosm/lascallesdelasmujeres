@@ -12,7 +12,6 @@ export default class MyMap {
       zoom: 1,
     });
 
-    console.log(this.map);
   }
 
   mapTo(center, zoom = 13) {
