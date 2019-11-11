@@ -10,8 +10,8 @@ export const maxRadius = 18;
 
 export const FEMALE = 'Female';
 export const MALE = 'Male';
-export const URL_DATA_GITHUB = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
-export const URL_DATA = 'https://gitlab.com/jessisena/lascallesdelasmujeres/raw/master';
+export const URL_DATA = 'http://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
+export const URL_DATA_GITLAB = 'https://gitlab.com/jessisena/lascallesdelasmujeres/raw/master';
 
 
 export const countriesList = [
