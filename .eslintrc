@@ -9,5 +9,8 @@
   "parserOptions": {
     "sourceType": "module",
     "allowImportExportEverywhere": true
+  },
+  "rules": {
+    "linebreak-style": "off",
   }
 }

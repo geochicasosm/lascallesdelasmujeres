@@ -5,12 +5,12 @@ import {
 
 export default class GeojsonMapService {
   static loadGeojson(map, folder, isMobile, coords, lang, popupText) {
-    fetch(`${URL_DATA}/data/${folder}/final_tile.geojson`).then((res) => res.json()).then(this.addGeojsonSource.bind(this, map, isMobile, lang, popupText, coords));
+    fetch(`${URL_DATA}/data/${folder}/final_tile.geojson`, { mode: 'cors' }).then((res) => res.json()).then(this.addGeojsonSource.bind(this, map, isMobile, lang, popupText, coords));
   }
 
   static loadGeojsonTiles(map, tilecount, folder) {
     for (let i = 0; i < tilecount; i++) {
-      fetch(`${URL_DATA}/data/${folder}/final_tile${i}.geojson`).then((res) => res.json()).then(this.addGeojsonSource.bind(this, map));
+      fetch(`${URL_DATA}/data/${folder}/final_tile${i}.geojson`, { mode: 'cors' }).then((res) => res.json()).then(this.addGeojsonSource.bind(this, map));
     }
   }
 
