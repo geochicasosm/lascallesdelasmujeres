@@ -34,6 +34,7 @@ The project is still under development. The idea is to gradually expand the numb
 
 Work in progress:
 - Santa Fe, Argentina
+- Salta, Argentina
 
 
 ## Built with:
@@ -75,6 +76,8 @@ Join our slack channel [#lascallesdelasmujeres](https://join.slack.com/t/geochic
 * **Carina Córdoba** (*Argentina*)
 
 * **Noe Ortiz** (*México*)
+
+* **Horacio Castellaro** (*Argentina*)
 
 
 ## Allied organizations
