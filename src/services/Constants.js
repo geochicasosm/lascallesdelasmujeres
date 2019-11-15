@@ -219,6 +219,22 @@ export const countriesList = [
           totalNames: 1035,
         },
         center: [-57.63591, -25.30066],
+      },
+      {
+        id: 'encarnacion',
+        name: 'Encarnación',
+        datos: {
+          numLink: 11,
+          pcLink: 45.8,
+          numNoLink: 13,
+          pcNoLink: 54.2,
+          numMale: 98,
+          numFemale: 24,
+          pcMale: 80.3,
+          pcFemale: 19.7,
+          totalNames: 122,
+        },
+        center: [-55.86667, -27.33056],
       }],
   },
   {
