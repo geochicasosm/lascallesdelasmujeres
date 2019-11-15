@@ -78,6 +78,8 @@ Contacta con nostras a través de twitter: [@geochicasosm](https://twitter.com/G
 
 * **Noe Ortiz** (*México*)
 
+* **Horacio Castellaro** (*Argentina*)
+
 
 ## Organizaciones Aliadas
 
