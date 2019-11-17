@@ -65,6 +65,23 @@ export const countriesList = [
           totalNames: 568,
         },
         center: [-60.6553737, -32.9427715],
+        },
+      {
+        id: 'chajari',
+        name: 'Chajarí',
+        datos: {
+          numLink: 7,
+          pcLink: 53.8,
+          numNoLink: 6,
+          pcNoLink: 46.2,
+          numMale: 98,
+          numFemale: 13,
+          pcMale: 88.3,
+          pcFemale: 11.7,
+          totalNames: 111
+      }
+        },
+        center: [-58,-30.75],      
       }],
   },
   {
