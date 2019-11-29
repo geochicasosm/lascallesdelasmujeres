@@ -12,7 +12,9 @@ export default class MyApp {
     this.isMobile = this.isMobileDevice();
     this.currentLang = this.addText();
     this.openToggleMenu = false;
-    this.selectedCity = window.location.hash ? window.location.hash.replace('#', '') : '';
+    this.selectedCity = window.location.hash
+      ? window.location.hash.replace('#', '')
+      : '';
 
     this.menuListELem = document.getElementById('menu-list');
     this.panelListELem = document.getElementById('ciudades-list');
@@ -44,8 +46,12 @@ export default class MyApp {
       const elemMenuCountryName = document.createElement('DIV');
       elemMenuCountryName.classList.add('menu-nombre-pais');
 
-      elemCountryName.appendChild(document.createTextNode(country.name.toLocaleUpperCase()));
-      elemMenuCountryName.appendChild(document.createTextNode(country.name.toLocaleUpperCase()));
+      elemCountryName.appendChild(
+        document.createTextNode(country.name.toLocaleUpperCase()),
+      );
+      elemMenuCountryName.appendChild(
+        document.createTextNode(country.name.toLocaleUpperCase()),
+      );
 
       elemC.appendChild(elemCountryName);
       elemMenuC.appendChild(elemMenuCountryName);
@@ -53,12 +59,21 @@ export default class MyApp {
       this.panelListELem.appendChild(elemC);
       this.menuListELem.appendChild(elemMenuC);
 
-
       // Create an HTML node for every city and load its data
       for (let i = 0; i < country.citiesList.length; i++) {
         const city = country.citiesList[i];
 
-        this.myMap.map.on('load', GeojsonService.loadGeojson(this.myMap.map, city.id, this.isMobile, city.center, this.currentLang, constants.lang[this.currentLang].popupText));
+        this.myMap.map.on(
+          'load',
+          GeojsonService.loadGeojson(
+            this.myMap.map,
+            city.id,
+            this.isMobile,
+            city.center,
+            this.currentLang,
+            constants.lang[this.currentLang].popupText,
+          ),
+        );
 
         const elem = document.createElement('DIV');
         const elemMenu = document.createElement('A');
@@ -75,10 +90,18 @@ export default class MyApp {
         elemMenu.addEventListener('mouseenter', this.addBackgroundColor);
 
         elem.addEventListener('mouseout', this.removeBackgroundColor, false);
-        elemMenu.addEventListener('mouseout', this.removeBackgroundColor, false);
+        elemMenu.addEventListener(
+          'mouseout',
+          this.removeBackgroundColor,
+          false,
+        );
 
-        elem.appendChild(document.createTextNode(city.name.toLocaleUpperCase()));
-        elemMenu.appendChild(document.createTextNode(city.name.toLocaleUpperCase()));
+        elem.appendChild(
+          document.createTextNode(city.name.toLocaleUpperCase()),
+        );
+        elemMenu.appendChild(
+          document.createTextNode(city.name.toLocaleUpperCase()),
+        );
 
         /* CLICK EVENTS */
 
@@ -89,14 +112,20 @@ export default class MyApp {
           elem.classList.add('selected');
 
           this.myMap.mapTo(city.center);
-          this.chartService.loadChart(city.datos, city.name, constants.lang[this.currentLang].chartTxt);
+          this.chartService.loadChart(
+            city.datos,
+            city.name,
+            constants.lang[this.currentLang].chartTxt,
+          );
           this.chartService.showChart();
         };
 
         // elemMenu.onclick = this.doElemMenuClick.bind(elemMenu, city);
         elemMenu.onclick = () => {
           const prevElemMenu = document.getElementsByClassName('menu-selected');
-          if (prevElemMenu.length !== 0) prevElemMenu[0].classList.remove('menu-selected');
+          if (prevElemMenu.length !== 0) {
+            prevElemMenu[0].classList.remove('menu-selected');
+          }
           elemMenu.classList.add('menu-selected');
 
           const navBar = document.getElementsByClassName('navbar-collapse');
@@ -108,7 +137,11 @@ export default class MyApp {
           this.openToggleMenu = false;
 
           this.myMap.mapTo(city.center);
-          this.chartService.loadChart(city.datos, city.name, constants.lang[this.currentLang].chartTxt);
+          this.chartService.loadChart(
+            city.datos,
+            city.name,
+            constants.lang[this.currentLang].chartTxt,
+          );
           this.chartService.showChart();
         };
 
@@ -116,7 +149,11 @@ export default class MyApp {
         elemMenu.addEventListener('mouseenter', this.addBackgroundColor);
 
         elem.addEventListener('mouseout', this.removeBackgroundColor, false);
-        elemMenu.addEventListener('mouseout', this.removeBackgroundColor, false);
+        elemMenu.addEventListener(
+          'mouseout',
+          this.removeBackgroundColor,
+          false,
+        );
 
         // Add elem to the panel and menu list
         elemC.appendChild(elem);
@@ -127,13 +164,16 @@ export default class MyApp {
           elemMenu.classList.add('menu-selected');
           // Load the selected city
           this.myMap.mapTo(city.center);
-          this.chartService.loadChart(city.datos, city.name, constants.lang[this.currentLang].chartTxt);
+          this.chartService.loadChart(
+            city.datos,
+            city.name,
+            constants.lang[this.currentLang].chartTxt,
+          );
           this.chartService.showChart();
         }
       }
     }
   }
-
 
   addBackgroundColor(event) {
     event.target.style.backgroundColor = '#243342';
@@ -143,9 +183,11 @@ export default class MyApp {
     event.target.style.backgroundColor = '';
   }
 
-
   isMobileDevice() {
-    return (typeof window.orientation !== 'undefined') || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    return (
+      typeof window.orientation !== 'undefined'
+      || navigator.userAgent.indexOf('IEMobile') !== -1
+    );
   }
 
   updateToggleMenuIcon() {
@@ -162,7 +204,7 @@ export default class MyApp {
   }
 
   isBlank(str) {
-    return (!str || /^\s*$/.test(str));
+    return !str || /^\s*$/.test(str);
   }
 
   addText() {

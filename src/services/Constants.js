@@ -1,4 +1,3 @@
-
 export const mapDarkStyle = 'mapbox://styles/mapbox/dark-v9';
 
 export const initCenter = [-39.11133, 36.66842];
@@ -10,8 +9,7 @@ export const maxRadius = 18;
 
 export const FEMALE = 'Female';
 export const MALE = 'Male';
-export const URL_DATA = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
-
+export const URL_DATA =  'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
 
 export const countriesList = [
   {
@@ -65,7 +63,7 @@ export const countriesList = [
           totalNames: 568,
         },
         center: [-60.6553737, -32.9427715],
-        },
+      },
       {
         id: 'chajari',
         name: 'Chajarí',
@@ -78,11 +76,11 @@ export const countriesList = [
           numFemale: 13,
           pcMale: 88.3,
           pcFemale: 11.7,
-          totalNames: 111
-      }
+          totalNames: 111,
         },
-        center: [-58,-30.75],      
-      }],
+        center: [-58, -30.75],
+      },
+    ],
   },
   {
     id: 'bolivia',
@@ -103,7 +101,8 @@ export const countriesList = [
           totalNames: 663,
         },
         center: [-66.1568, -17.3895],
-      }],
+      },
+    ],
   },
   /*   {
     id: 'costarica',
@@ -162,7 +161,8 @@ export const countriesList = [
           totalNames: 307,
         },
         center: [-82.366592, 23.113592],
-      }],
+      },
+    ],
   },
   {
     id: 'espana',
@@ -172,7 +172,15 @@ export const countriesList = [
         id: 'badalona',
         name: 'Badalona',
         datos: {
-          numLink: 37, pcLink: 94.9, numNoLink: 2, pcNoLink: 5.1, numMale: 305, numFemale: 39, pcMale: 88.7, pcFemale: 11.3, totalNames: 344,
+          numLink: 37,
+          pcLink: 94.9,
+          numNoLink: 2,
+          pcNoLink: 5.1,
+          numMale: 305,
+          numFemale: 39,
+          pcMale: 88.7,
+          pcFemale: 11.3,
+          totalNames: 344,
         },
         center: [2.24741, 41.45004],
       },
@@ -192,7 +200,6 @@ export const countriesList = [
         },
         center: [2.154007, 41.390205],
       },
-
     ],
   },
   {
@@ -214,7 +221,8 @@ export const countriesList = [
           totalNames: 2914,
         },
         center: [-99.133205, 19.432608],
-      }],
+      },
+    ],
   },
 
   {
@@ -252,7 +260,8 @@ export const countriesList = [
           totalNames: 122,
         },
         center: [-55.86667, -27.33056],
-      }],
+      },
+    ],
   },
   {
     id: 'peru',
@@ -273,7 +282,8 @@ export const countriesList = [
           totalNames: 3148,
         },
         center: [-77.02824, -12.04318],
-      }],
+      },
+    ],
   },
   {
     id: 'uruguay',
@@ -294,15 +304,19 @@ export const countriesList = [
           totalNames: 2038,
         },
         center: [-56.18816, -34.90328],
-      }],
+      },
+    ],
   },
 ];
 
 export const lang = {
   es: {
-    panelDescriptionText1: 'Mapa generado a partir de las calles con nombre de mujeres, en diferentes ciudades de habla hispana (Latinoamérica y España).',
-    panelDescriptionText2: 'El objetivo es visibilizar la brecha que existe históricamente en la representación de figuras femeninas en las calles de las ciudades.',
-    panelDescriptionTextShort: 'Mapa de las calles con nombre de mujer en ciudades de Latinoamérica y España, para visibilizar la brecha que existe en la representación de figuras femeninas en las ciudades.',
+    panelDescriptionText1:
+      'Mapa generado a partir de las calles con nombre de mujeres, en diferentes ciudades de habla hispana (Latinoamérica y España).',
+    panelDescriptionText2:
+      'El objetivo es visibilizar la brecha que existe históricamente en la representación de figuras femeninas en las calles de las ciudades.',
+    panelDescriptionTextShort:
+      'Mapa de las calles con nombre de mujer en ciudades de Latinoamérica y España, para visibilizar la brecha que existe en la representación de figuras femeninas en las ciudades.',
     panelProjectBy: 'Un proyecto de',
     panelProjectBy2: 'Proyecto de',
     menuTitle: 'Las calles de las mujeres',
@@ -318,9 +332,12 @@ export const lang = {
   },
 
   ca: {
-    panelDescriptionText1: 'Mapa generat a partir dels carrers amb nom de dones, a diferents ciutats de parla hispana (Llatinoamèrica i Espanya).',
-    panelDescriptionText2: "L'objectiu és visibilitzar la bretxa que existeix històricament en la representació de figures femenines als carrers de les ciutats.",
-    panelDescriptionTextShort: 'Mapa dels carrers amb nom de dona en ciutats de Llatinoamèrica i Espanya, per visibilitzar la bretxa que existeix en la representació de figures femenines a les ciutats.',
+    panelDescriptionText1:
+      'Mapa generat a partir dels carrers amb nom de dones, a diferents ciutats de parla hispana (Llatinoamèrica i Espanya).',
+    panelDescriptionText2:
+      "L'objectiu és visibilitzar la bretxa que existeix històricament en la representació de figures femenines als carrers de les ciutats.",
+    panelDescriptionTextShort:
+      'Mapa dels carrers amb nom de dona en ciutats de Llatinoamèrica i Espanya, per visibilitzar la bretxa que existeix en la representació de figures femenines a les ciutats.',
     panelProjectBy: 'Un projecte de',
     panelProjectBy2: 'Projecte de',
     menuTitle: 'Els carrers de les dones',
@@ -335,10 +352,12 @@ export const lang = {
     popupText: 'Carrer sense article',
   },
   en: {
-
-    panelDescriptionText1: 'Map generated from the data obtained of Women Street names in Spanish speaking cities (Latin America and Spain).',
-    panelDescriptionText2: 'The objective is visualize the historic gap representing women figures in the streets of the cities.',
-    panelDescriptionTextShort: "Map of the streets containing women's names in cities of Latin America and Spain, visualizing the gap representing women figures in the cities.",
+    panelDescriptionText1:
+      'Map generated from the data obtained of Women Street names in Spanish speaking cities (Latin America and Spain).',
+    panelDescriptionText2:
+      'The objective is visualize the historic gap representing women figures in the streets of the cities.',
+    panelDescriptionTextShort:
+      "Map of the streets containing women's names in cities of Latin America and Spain, visualizing the gap representing women figures in the cities.",
     panelProjectBy: 'A project from',
     panelProjectBy2: 'Project from',
     menuTitle: 'The street of the women',
