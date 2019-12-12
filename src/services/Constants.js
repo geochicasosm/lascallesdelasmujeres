@@ -80,6 +80,22 @@ export const countriesList = [
         },
         center: [-58, -30.75],
       },
+      {
+        id: 'salta',
+        name: 'Salta',
+        datos: {
+          numLink:89,
+          pcLink:47.1,
+          numNoLink:100,
+          pcNoLink:52.9,
+          numMale:1213,
+          numFemale:189,
+          pcMale:86.5,
+          pcFemale:13.5,
+          totalNames:1402,
+        },
+        center: [-65.410, -24.789],
+      },      
     ],
   },
   {
