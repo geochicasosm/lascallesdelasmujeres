@@ -9,7 +9,9 @@ export const maxRadius = 18;
 
 export const FEMALE = 'Female';
 export const MALE = 'Male';
-export const URL_DATA =  'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
+export const URL_DATA = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
+export const SOURCE_TYPES_LIST = ['line', 'fill'];
+
 
 export const countriesList = [
   {
@@ -216,6 +218,22 @@ export const countriesList = [
           totalNames: 1089,
         },
         center: [2.154007, 41.390205],
+      },
+      {
+        id: 'huesca',
+        name: 'Huesca',
+        datos: {
+          numLink: 67,
+          pcLink: 100.0,
+          numNoLink: 0,
+          pcNoLink: 0.0,
+          numMale: 108,
+          numFemale: 67,
+          pcMale: 61.7,
+          pcFemale: 38.3,
+          totalNames: 175,
+        },
+        center: [-0.4087, 42.13615],
       },
     ],
   },
