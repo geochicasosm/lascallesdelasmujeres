@@ -5,6 +5,7 @@ import {
   maxRadius,
   FEMALE,
   URL_DATA,
+  SOURCE_TYPES_LIST,
 } from './Constants';
 
 export default class GeojsonMapService {
@@ -12,7 +13,7 @@ export default class GeojsonMapService {
     fetch(`${URL_DATA}/data/${folder}/final_tile.geojson`)
       .then((res) => res.json())
       .then(
-        this.addGeojsonSource.bind(this, map, isMobile, lang, popupText, coords),
+        this.addGeojsonSource.bind(this, map, isMobile, lang, popupText, coords, folder),
       );
   }
 
@@ -39,14 +40,14 @@ export default class GeojsonMapService {
     lang,
     popupText,
     coords,
+    sourcename,
     geojson,
-    sourcename = Date.now(),
   ) {
     const widthFemale = isMobile ? 5 : 4;
     const widthMale = isMobile ? 4 : 3;
 
     map.addLayer({
-      id: `${sourcename}`,
+      id: `${sourcename}-line`,
       type: 'line',
       source: {
         type: 'geojson',
@@ -73,73 +74,85 @@ export default class GeojsonMapService {
       },
     });
 
-    const popupClick = new mapboxgl.Popup();
-    const popupHover = new mapboxgl.Popup({
-      closeButton: false,
-      closeOnClick: false,
+    map.addLayer({
+      id: `${sourcename}-fill`,
+      type: 'fill',
+      source: {
+        type: 'geojson',
+        data: geojson,
+      },
+      layout: {},
+      paint: {
+        'fill-color': ['case', ['==', ['get', 'gender'], FEMALE], '#ffca3a', '#00B99E'],
+        'fill-opacity': ['case', ['==', ['get', 'wikipedia_link'], ''], 0.2, 0.6],
+      },
+      filter: ['==', '$type', 'Polygon'],
     });
 
-    map.on('click', `${sourcename}`, (e) => {
-      popupHover.remove();
+    this.addPopupEvents(map, sourcename, isMobile, popupText);
 
-      const link = e.features[0].properties.wikipedia_link; // .replace("es.wiki", lang+".wiki");
-      const { name, gender } = e.features[0].properties;
-      const color = gender === FEMALE ? '#ffca3af2' : '#0e9686f2';
-      const popupType = gender === FEMALE ? 'popup-female' : 'popup-male';
+    this.addAnimatedPoint(map, `${sourcename}-point`, `${sourcename}-point`, coords);
+  }
 
-      const html = `<div class="row"><div class="col-sm"><div class="${popupType}"><p>${name}</p>${
-        gender === FEMALE ? this.getHTMLWikipediaLink(link, popupText) : ''
-      }</div></div></div>`;
+  static addPopupEvents(map, sourcename, isMobile, popupText) {
+    SOURCE_TYPES_LIST.forEach((type) => {
+      const popupClick = new mapboxgl.Popup();
+      const popupHover = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false,
+      });
 
-      popupClick
-        .setLngLat(e.lngLat)
-        .setHTML(html)
-        .addTo(map);
-      const popUpContent = document.getElementsByClassName(
-        'mapboxgl-popup-content',
-      );
-      if (popUpContent.length !== 0) {
-        popUpContent[0].style.backgroundColor = color;
-      }
-    });
+      map.on('click', `${sourcename}-${type}`, (e) => {
+        popupHover.remove();
 
-    if (!isMobile) {
-      map.on('mouseenter', `${sourcename}`, (e) => {
-        popupClick.remove();
-        map.getCanvas().style.cursor = 'pointer';
-        const link = e.features[0].properties.wikipedia_link; // .replace("es.wiki", lang+".wiki");;
+        const link = e.features[0].properties.wikipedia_link; // .replace("es.wiki", lang+".wiki");
         const { name, gender } = e.features[0].properties;
         const color = gender === FEMALE ? '#ffca3af2' : '#0e9686f2';
         const popupType = gender === FEMALE ? 'popup-female' : 'popup-male';
 
-        const html = `<div class="row"><div class="col-sm"><div class="${popupType}"><p>${name}</p>${
-          gender === FEMALE ? this.getHTMLWikipediaLink(link, popupText) : ''
-        }</div></div></div>`;
+        const html = `<div class="row"><div class="col-sm"><div class="${popupType}"><p>${name}</p>
+          ${gender === FEMALE ? this.getHTMLWikipediaLink(link, popupText) : ''}</div></div></div>`;
 
-        popupHover
-          .setLngLat(e.lngLat)
+        popupClick.setLngLat(e.lngLat)
           .setHTML(html)
           .addTo(map);
-        const popUpContent = document.getElementsByClassName(
-          'mapboxgl-popup-content',
-        );
+        const popUpContent = document.getElementsByClassName('mapboxgl-popup-content');
         if (popUpContent.length !== 0) {
           popUpContent[0].style.backgroundColor = color;
         }
       });
 
-      map.on('mouseleave', `${sourcename}`, () => {
-        map.getCanvas().style.cursor = '';
-        popupHover.remove();
-      });
-    }
 
-    this.addAnimatedPoint(
-      map,
-      `${sourcename}_point`,
-      `${sourcename}_point`,
-      coords,
-    );
+      if (!isMobile) {
+        map.on('mouseenter', `${sourcename}-${type}`, (e) => {
+          popupClick.remove();
+          const mapCanvas = map.getCanvas();
+          mapCanvas.style.cursor = 'pointer';
+          // TODO .replace("es.wiki", lang+".wiki");;
+          const link = e.features[0].properties.wikipedia_link;
+          const { name, gender } = e.features[0].properties;
+          const color = gender === FEMALE ? '#ffca3af2' : '#0e9686f2';
+          const popupType = gender === FEMALE ? 'popup-female' : 'popup-male';
+
+          const html = `<div class="row"><div class="col-sm"><div class="${popupType}"><p>${name}</p>
+            ${gender === FEMALE ? this.getHTMLWikipediaLink(link, popupText) : ''}</div></div></div>`;
+
+          popupHover.setLngLat(e.lngLat)
+            .setHTML(html)
+            .addTo(map);
+          const popUpContent = document.getElementsByClassName('mapboxgl-popup-content');
+          if (popUpContent.length !== 0) {
+            popUpContent[0].style.backgroundColor = color;
+          }
+        });
+
+        map.on('mouseleave', `${sourcename}-${type}`, () => {
+          const mapCanvas = map.getCanvas();
+          mapCanvas.style.cursor = '';
+          popupHover.remove();
+        });
+      }
+    });
   }
 
   static addAnimatedPoint(map, sourcename, layername, coords = [0, 0]) {
@@ -181,7 +194,7 @@ export default class GeojsonMapService {
       maxzoom: 7,
     });
 
-    function animateMarker(timestamp) {
+    function animateMarker() {
       radius += (maxRadius - radius) / framesPerSecond;
       opacity -= 0.9 / framesPerSecond;
 
@@ -200,6 +213,6 @@ export default class GeojsonMapService {
       requestAnimationFrame(animateMarker);
     }
 
-    animateMarker(0);
+    animateMarker();
   }
 }

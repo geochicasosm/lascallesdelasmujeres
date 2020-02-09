@@ -5,6 +5,9 @@
   "env": {
     "browser": true,
   },
+  "globals": {
+    "mapboxgl": true,
+  },
 	"parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",
@@ -12,5 +15,7 @@
   },
   "rules": {
     "linebreak-style": "off",
+    "max-len": ["error", { "code": 150 }],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
   }
 }
