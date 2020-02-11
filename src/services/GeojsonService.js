@@ -72,6 +72,7 @@ export default class GeojsonMapService {
           widthMale,
         ],
       },
+      filter: ['==', '$type', 'LineString'],
     });
 
     map.addLayer({
