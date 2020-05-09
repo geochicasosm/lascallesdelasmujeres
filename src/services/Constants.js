@@ -236,6 +236,22 @@ export const countriesList = [
         center: [2.8239, 41.9842],
       },
       {
+        id: 'madrid',
+        name: 'Madrid',
+        datos: {
+          numLink: 379,
+          pcLink: 52.2,
+          numNoLink: 347,
+          pcNoLink: 47.8,
+          numMale: 2674,
+          numFemale: 726,
+          pcMale: 78.6,
+          pcFemale: 21.4,
+          totalNames: 3400,
+        },
+        center: [-3.7037, 40.41677],
+      },
+      {
         id: 'zaragoza',
         name: 'Zaragoza',
         datos: {
