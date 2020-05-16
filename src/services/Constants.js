@@ -35,6 +35,14 @@ export const countriesList = [
         center: [-58.37723, -34.61315],
       },
       {
+        id: 'cordoba',
+        name: 'Córdoba',
+        datos: {
+          numLink: 95, pcLink: 59.0, numNoLink: 66, pcNoLink: 41.0, numMale: 2096, numFemale: 161, pcMale: 92.9, pcFemale: 7.1, totalNames: 2257,
+        },
+        center: [-64.183334, -31.416668],
+      },
+      {
         id: 'resistencia',
         name: 'Resistencia',
         datos: {
