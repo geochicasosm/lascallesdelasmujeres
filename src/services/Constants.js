@@ -35,6 +35,22 @@ export const countriesList = [
         center: [-58.37723, -34.61315],
       },
       {
+        id: 'chajari',
+        name: 'Chajarí',
+        datos: {
+          numLink: 7,
+          pcLink: 53.8,
+          numNoLink: 6,
+          pcNoLink: 46.2,
+          numMale: 98,
+          numFemale: 13,
+          pcMale: 88.3,
+          pcFemale: 11.7,
+          totalNames: 111,
+        },
+        center: [-58, -30.75],
+      },
+      {
         id: 'cordoba',
         name: 'Córdoba',
         datos: {
@@ -75,22 +91,6 @@ export const countriesList = [
         center: [-60.6553737, -32.9427715],
       },
       {
-        id: 'chajari',
-        name: 'Chajarí',
-        datos: {
-          numLink: 7,
-          pcLink: 53.8,
-          numNoLink: 6,
-          pcNoLink: 46.2,
-          numMale: 98,
-          numFemale: 13,
-          pcMale: 88.3,
-          pcFemale: 11.7,
-          totalNames: 111,
-        },
-        center: [-58, -30.75],
-      },
-      {
         id: 'salta',
         name: 'Salta',
         datos: {
@@ -106,7 +106,22 @@ export const countriesList = [
         },
         center: [-65.410, -24.789],
       },
-
+      {
+        id: 'santafe',
+        name: 'Santa Fe',
+        datos: {
+          numLink: 20,
+          pcLink: 64.5,
+          numNoLink: 11,
+          pcNoLink: 35.5,
+          numMale: 433,
+          numFemale: 31,
+          pcMale: 93.3,
+          pcFemale: 6.7,
+          totalNames: 464,
+        },
+        center: [-60.7077, -31.60135],
+      },
     ],
   },
   {
