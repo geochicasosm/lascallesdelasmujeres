@@ -51,6 +51,14 @@ export const countriesList = [
         center: [-58, -30.75],
       },
       {
+        id: 'ciudaddesanluis',
+        name: 'Ciudad de San Luis',
+        datos: {
+          numLink: 13, pcLink: 50.0, numNoLink: 13, pcNoLink: 50.0, numMale: 165, numFemale: 26, pcMale: 86.4, pcFemale: 13.6, totalNames: 191,
+        },
+        center: [-66.33563, -33.29501],
+      },
+      {
         id: 'cordoba',
         name: 'Córdoba',
         datos: {
