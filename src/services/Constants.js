@@ -67,6 +67,22 @@ export const countriesList = [
         center: [-64.183334, -31.416668],
       },
       {
+        id: 'parana',
+        name: 'Paraná',
+        datos: {
+          numLink:26,
+          pcLink:59.1,
+          numNoLink:18,
+          pcNoLink:40.9,
+          numMale:605,
+          numFemale:44,
+          pcMale:93.2,
+          pcFemale:6.8,
+          totalNames:649
+        },
+        center: [ -60.5238, -31.73197],
+      },
+      {
         id: 'resistencia',
         name: 'Resistencia',
         datos: {
