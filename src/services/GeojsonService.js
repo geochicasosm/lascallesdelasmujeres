@@ -8,6 +8,8 @@ import {
   SOURCE_TYPES_LIST,
 } from './Constants';
 
+import getWikdataDetails from './WikidataService';
+
 export default class GeojsonMapService {
   static loadGeojson(map, folder, isMobile, coords, lang, popupText) {
     fetch(`${URL_DATA}/data/${folder}/final_tile.geojson`)
@@ -25,13 +27,49 @@ export default class GeojsonMapService {
     }
   }
 
-  static getHTMLWikipediaLink(link, popupText) {
-    if (link !== '') {
-      return `<p class=""><a  class="btn btn-light" target="_blank" href='${link}'><i class="fab fa-wikipedia-w"></i></a></p>`;
+  static getHTMLWikipediaLink(link, popupText, data) {
+    if (link === '') {
+      return `<p class=""><a  class="btn btn-light disabled" target="_blank" href='${link}'><i class="fab fa-wikipedia-w"></i></a></p>
+                <span class="badge badge-secondary"><i class="fas fa-exclamation"></i>&nbsp;${popupText}</span>`;
     }
 
-    return `<p class=""><a  class="btn btn-light disabled" target="_blank" href='${link}'><i class="fab fa-wikipedia-w"></i></a></p>
-              <span class="badge badge-secondary"><i class="fas fa-exclamation"></i>&nbsp;${popupText}</span>`;
+    let additionalData = '';
+
+    if (data) {
+      let birth;
+      try {
+        const birthDate = new Date(Date.parse(data.birth));
+        birth = birthDate ? birthDate.getFullYear() : undefined;
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.warn(error);
+      }
+      let death;
+      try {
+        const deathDate = new Date(Date.parse(data.death));
+        death = deathDate ? deathDate.getFullYear() : undefined;
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.warn(error);
+      }
+
+      const picture = data.picture ? ` <p class=""> <img src="${data.picture}"/></p>` : '';
+
+      const birthDates = birth || death ? ` <p class=""> ${birth} - ${death}</p>` : '';
+
+      const description = data.description ? ` <p class=""> ${data.description}</p>` : '';
+
+      const occupations = data.occupations ? ` <p class=""> ${data.occupations}</p>` : '';
+
+      additionalData = picture + birthDates + description + occupations;
+    }
+    return `
+      ${additionalData}
+      <p class="">
+        <a  class="btn btn-light" target="_blank" href='${link}'>
+          <i class="fab fa-wikipedia-w"></i>
+        </a>
+      </p>`;
   }
 
   static addGeojsonSource(
@@ -110,19 +148,30 @@ export default class GeojsonMapService {
         const { name, gender } = e.features[0].properties;
         const color = gender === FEMALE ? '#ffca3af2' : '#0e9686f2';
         const popupType = gender === FEMALE ? 'popup-female' : 'popup-male';
+        const getHTML = this.getHTMLWikipediaLink;
 
-        const html = `<div class="row"><div class="col-sm"><div class="${popupType}"><p>${name}</p>
-          ${gender === FEMALE ? this.getHTMLWikipediaLink(link, popupText) : ''}</div></div></div>`;
+        // eslint-disable-next-line no-console
+        getWikdataDetails(link).then((data) => {
+          const femaleText = gender === FEMALE ? getHTML(link, popupText, data) : '';
+          const html = `
+          <div class="row" >
+            <div class="col-sm">
+              <div class="${popupType}">
+                <p>${name}</p>
+                  ${femaleText}
+              </div>
+            </div>
+          </div>`;
 
-        popupClick.setLngLat(e.lngLat)
-          .setHTML(html)
-          .addTo(map);
-        const popUpContent = document.getElementsByClassName('mapboxgl-popup-content');
-        if (popUpContent.length !== 0) {
-          popUpContent[0].style.backgroundColor = color;
-        }
+          popupClick.setLngLat(e.lngLat)
+            .setHTML(html)
+            .addTo(map);
+          const popUpContent = document.getElementsByClassName('mapboxgl-popup-content');
+          if (popUpContent.length !== 0) {
+            popUpContent[0].style.backgroundColor = color;
+          }
+        });
       });
-
 
       if (!isMobile) {
         map.on('mouseenter', `${sourcename}-${type}`, (e) => {
