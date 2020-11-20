@@ -11,6 +11,7 @@
     "deploy": "npm run build && git add . && git commit -m 'latest build' && git push origin master"
   },
   "dependencies": {
+    "@activejs/core": "^0.2.3",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "animate.css": "^3.7.2",
     "chart.js": "^2.9.4",
