@@ -11,7 +11,7 @@ import {
 
 import {
   mainPopUpTemplate,
-  wikipediaTemplate,
+  contentPopUpTemplate,
 } from './popUpTemplates';
 
 import getWikidataDetails from './WikidataService';
@@ -35,7 +35,7 @@ export default class GeojsonMapService {
 
   static getHTMLWikipediaHTML(name, link, popupText, wikidataDetails, isFemale) {
     if (link === '') {
-      return wikipediaTemplate({
+      return contentPopUpTemplate({
         isFemale,
         name,
         popupText,
@@ -64,7 +64,7 @@ export default class GeojsonMapService {
         console.warn(error);
       }
     }
-    return wikipediaTemplate({
+    return contentPopUpTemplate({
       isFemale,
       name,
       wikidataDetails,

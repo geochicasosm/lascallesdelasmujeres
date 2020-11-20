@@ -9,7 +9,7 @@ export const mainPopUpTemplate = Handlebars.compile(`
   </div>
 </div>`);
 
-export const wikipediaTemplate = Handlebars.compile(`
+export const contentPopUpTemplate = Handlebars.compile(`
 <p>{{name}}</p>
 
 {{#with wikidataDetails}}
