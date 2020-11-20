@@ -8,9 +8,8 @@ import 'animate.css';
 
 import MyApp from './services/MyApp';
 
-
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', () => {
   dotenv.config();
   const myApp = new MyApp();
   myApp.startApp();
-};
+});
