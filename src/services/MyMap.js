@@ -10,6 +10,7 @@ export default class MyMap {
       style,
       center: initCenter, // [lng, lat]
       zoom: 1,
+      hash: true,
     });
   }
 

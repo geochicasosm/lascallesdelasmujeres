@@ -407,7 +407,7 @@ color: #FFFF00;
   background: rgba(36, 51, 66, 0.4);
 }
 
-/**/
+/*Pop up*/
 
 .mapboxgl-popup-content{
   /* background-color: #0e9686f2; */
@@ -434,6 +434,10 @@ color: #FFFF00;
   font-size: 13px;
   margin-top: 5px;
   text-align: center;
+}
+
+.popup-male p{
+  margin: 0;
 }
 
 .img-button{

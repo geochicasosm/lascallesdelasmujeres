@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import {
   framesPerSecond,
   initialOpacity,
@@ -7,6 +8,11 @@ import {
   URL_DATA,
   SOURCE_TYPES_LIST,
 } from './Constants';
+
+import {
+  mainPopUpTemplate,
+  wikipediaTemplate,
+} from './popUpTemplates';
 
 import getWikidataDetails from './WikidataService';
 
@@ -27,49 +33,45 @@ export default class GeojsonMapService {
     }
   }
 
-  static getHTMLWikipediaLink(link, popupText, wikidataDetails) {
+  static getHTMLWikipediaHTML(name, link, popupText, wikidataDetails, isFemale) {
     if (link === '') {
-      return `<p class=""><a  class="btn btn-light disabled" target="_blank" href='${link}'><i class="fab fa-wikipedia-w"></i></a></p>
-                <span class="badge badge-secondary"><i class="fas fa-exclamation"></i>&nbsp;${popupText}</span>`;
+      return wikipediaTemplate({
+        isFemale,
+        name,
+        popupText,
+      });
     }
 
-    let additionalData = '';
-
+    let birthYear;
+    let deathYear;
     if (wikidataDetails) {
-      let birth;
       try {
         const birthDate = new Date(Date.parse(wikidataDetails.birth));
-        birth = birthDate ? birthDate.getFullYear() : undefined;
+        birthYear = birthDate instanceof Date && !isNaN(birthDate)
+          ? birthDate.getFullYear()
+          : undefined;
       } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(error);
       }
-      let death;
       try {
         const deathDate = new Date(Date.parse(wikidataDetails.death));
-        death = deathDate ? deathDate.getFullYear() : undefined;
+        deathYear = deathDate instanceof Date && !isNaN(deathDate)
+          ? deathDate.getFullYear()
+          : undefined;
       } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(error);
       }
-
-      const picture = wikidataDetails.picture ? ` <p class=""> <img src="${wikidataDetails.picture}"/></p>` : '';
-
-      const birthDates = birth || death ? ` <p class=""> ${birth} - ${death}</p>` : '';
-
-      const description = wikidataDetails.description ? ` <p class=""> ${wikidataDetails.description}</p>` : '';
-
-      const occupations = wikidataDetails.occupations ? ` <p class=""> ${wikidataDetails.occupations}</p>` : '';
-
-      additionalData = picture + birthDates + description + occupations;
     }
-    return `
-      ${additionalData}
-      <p class="">
-        <a  class="btn btn-light" target="_blank" href='${link}'>
-          <i class="fab fa-wikipedia-w"></i>
-        </a>
-      </p>`;
+    return wikipediaTemplate({
+      isFemale,
+      name,
+      wikidataDetails,
+      birthYear,
+      deathYear,
+      link,
+    });
   }
 
   static addGeojsonSource(
@@ -148,20 +150,15 @@ export default class GeojsonMapService {
         const { name, gender } = e.features[0].properties;
         const color = gender === FEMALE ? '#ffca3af2' : '#0e9686f2';
         const popupType = gender === FEMALE ? 'popup-female' : 'popup-male';
-        const getHTML = this.getHTMLWikipediaLink;
+        const getHTML = this.getHTMLWikipediaHTML;
 
-        // eslint-disable-next-line no-console
         getWikidataDetails(link).then((wikidataDetails) => {
-          const femaleText = gender === FEMALE ? getHTML(link, popupText, wikidataDetails) : '';
-          const html = `
-          <div class="row" >
-            <div class="col-sm">
-              <div class="${popupType}">
-                <p>${name}</p>
-                  ${femaleText}
-              </div>
-            </div>
-          </div>`;
+          const htmlContent = getHTML(name, link, popupText, wikidataDetails, gender === FEMALE);
+          const html = mainPopUpTemplate({
+            popupType,
+            name,
+            htmlContent,
+          });
 
           popupClick.setLngLat(e.lngLat)
             .setHTML(html)
@@ -174,6 +171,7 @@ export default class GeojsonMapService {
       });
 
       if (!isMobile) {
+        // Hover PopUp
         map.on('mouseenter', `${sourcename}-${type}`, (e) => {
           popupClick.remove();
           const mapCanvas = map.getCanvas();
@@ -181,11 +179,16 @@ export default class GeojsonMapService {
           // TODO .replace("es.wiki", lang+".wiki");;
           const link = e.features[0].properties.wikipedia_link;
           const { name, gender } = e.features[0].properties;
+
           const color = gender === FEMALE ? '#ffca3af2' : '#0e9686f2';
           const popupType = gender === FEMALE ? 'popup-female' : 'popup-male';
+          const htmlContent = this.getHTMLWikipediaHTML(name, link, popupText, undefined, gender === FEMALE);
 
-          const html = `<div class="row"><div class="col-sm"><div class="${popupType}"><p>${name}</p>
-            ${gender === FEMALE ? this.getHTMLWikipediaLink(link, popupText) : ''}</div></div></div>`;
+          const html = mainPopUpTemplate({
+            name,
+            popupType,
+            htmlContent,
+          });
 
           popupHover.setLngLat(e.lngLat)
             .setHTML(html)
