@@ -162,7 +162,7 @@ export default class GeojsonMapService {
 
           popupClick.setLngLat(e.lngLat)
             .setHTML(html)
-            .setMaxWidth(popUpWidths[gender])
+            .setMaxWidth(link !== '' ? popUpWidths[gender] : '240px')
             .addTo(map);
           popupClick.getElement().classList.add(gender);
         });
@@ -192,7 +192,7 @@ export default class GeojsonMapService {
 
             popupHover.setLngLat(e.lngLat)
               .setHTML(html)
-              .setMaxWidth(popUpWidths[gender])
+              .setMaxWidth(link !== '' ? popUpWidths[gender] : '240px')
               .addTo(map);
             popupHover.getElement().classList.add(gender);
           });

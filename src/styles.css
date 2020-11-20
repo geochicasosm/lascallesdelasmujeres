@@ -431,7 +431,6 @@ color: #FFFF00;
 }
 
 .mapboxgl-popup.Female .mapboxgl-popup-content{
-  height: 300px;
   background-color: var(--female-color);
 }
 .mapboxgl-popup-close-button{color: white}
@@ -477,6 +476,7 @@ color: #FFFF00;
 }
 
 .popup-female .picture{
+  min-height: 200px;
   margin: 0;
   padding: 0 0 0 15px;
 }
