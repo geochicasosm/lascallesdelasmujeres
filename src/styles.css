@@ -409,26 +409,32 @@ color: #FFFF00;
 
 /*Pop up*/
 
+.mapboxgl-popup.Male{
+  width: 100px;
+  height: 100px;
+}
+
+
+.mapboxgl-popup.Female{
+  width: 400px;
+}
+
 .mapboxgl-popup-content{
   /* background-color: #0e9686f2; */
   color: white;
   font-weight: bold;
-  max-width: 150px;
   border: 2px solid white;
 }
-.mapboxgl-popup-close-button{color: white}
-.popup-female{
-  min-width: 80px;
-  margin-top: 5px;
-  text-align: center;
-  font-size: 14px;
-  color: var(--popup-female-text);
+
+.mapboxgl-popup.Male .mapboxgl-popup-content{
+  background-color: var(--male-color);
 }
 
-.popup-female img{
-  width: 30px;
-  text-transform: uppercase;
+.mapboxgl-popup.Female .mapboxgl-popup-content{
+  height: 300px;
+  background-color: var(--female-color);
 }
+.mapboxgl-popup-close-button{color: white}
 
 .popup-male{
   font-size: 13px;
@@ -438,6 +444,45 @@ color: #FFFF00;
 
 .popup-male p{
   margin: 0;
+}
+
+.popup-female p{
+  margin: 0 0 8px 0;
+}
+
+.popup-female{
+  margin-top: 5px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--popup-female-text);
+}
+
+
+.popup-female .picture img{
+  width: 100%;
+}
+
+.popup-female .name{
+  text-transform: uppercase;
+}
+
+.popup-female .description{
+  text-transform: capitalize;
+}
+
+.popup-female .dates,
+.popup-female .description,
+.popup-female .occupations {
+  font-weight: 500;
+}
+
+.popup-female .picture{
+  margin: 0;
+  padding: 0 0 0 15px;
+}
+.popup-female .details  {
+  margin: 0;
+  padding: 0 15px;
 }
 
 .img-button{

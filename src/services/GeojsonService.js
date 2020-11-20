@@ -12,6 +12,7 @@ import {
 import {
   mainPopUpTemplate,
   contentPopUpTemplate,
+  popUpWidths,
 } from './popUpTemplates';
 
 import getWikidataDetails from './WikidataService';
@@ -148,7 +149,6 @@ export default class GeojsonMapService {
 
         const link = e.features[0].properties.wikipedia_link; // .replace("es.wiki", lang+".wiki");
         const { name, gender } = e.features[0].properties;
-        const color = gender === FEMALE ? '#ffca3af2' : '#0e9686f2';
         const popupType = gender === FEMALE ? 'popup-female' : 'popup-male';
         const getHTML = this.getHTMLWikipediaHTML;
 
@@ -162,11 +162,9 @@ export default class GeojsonMapService {
 
           popupClick.setLngLat(e.lngLat)
             .setHTML(html)
+            .setMaxWidth(popUpWidths[gender])
             .addTo(map);
-          const popUpContent = document.getElementsByClassName('mapboxgl-popup-content');
-          if (popUpContent.length !== 0) {
-            popUpContent[0].style.backgroundColor = color;
-          }
+          popupClick.getElement().classList.add(gender);
         });
       });
 
@@ -180,23 +178,24 @@ export default class GeojsonMapService {
           const link = e.features[0].properties.wikipedia_link;
           const { name, gender } = e.features[0].properties;
 
-          const color = gender === FEMALE ? '#ffca3af2' : '#0e9686f2';
           const popupType = gender === FEMALE ? 'popup-female' : 'popup-male';
-          const htmlContent = this.getHTMLWikipediaHTML(name, link, popupText, undefined, gender === FEMALE);
 
-          const html = mainPopUpTemplate({
-            name,
-            popupType,
-            htmlContent,
+          const getHTML = this.getHTMLWikipediaHTML;
+
+          getWikidataDetails(link).then((wikidataDetails) => {
+            const htmlContent = getHTML(name, link, popupText, wikidataDetails, gender === FEMALE);
+            const html = mainPopUpTemplate({
+              popupType,
+              name,
+              htmlContent,
+            });
+
+            popupHover.setLngLat(e.lngLat)
+              .setHTML(html)
+              .setMaxWidth(popUpWidths[gender])
+              .addTo(map);
+            popupHover.getElement().classList.add(gender);
           });
-
-          popupHover.setLngLat(e.lngLat)
-            .setHTML(html)
-            .addTo(map);
-          const popUpContent = document.getElementsByClassName('mapboxgl-popup-content');
-          if (popUpContent.length !== 0) {
-            popUpContent[0].style.backgroundColor = color;
-          }
         });
 
         map.on('mouseleave', `${sourcename}-${type}`, () => {
