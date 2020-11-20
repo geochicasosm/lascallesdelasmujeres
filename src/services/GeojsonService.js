@@ -8,7 +8,7 @@ import {
   SOURCE_TYPES_LIST,
 } from './Constants';
 
-import getWikdataDetails from './WikidataService';
+import getWikidataDetails from './WikidataService';
 
 export default class GeojsonMapService {
   static loadGeojson(map, folder, isMobile, coords, lang, popupText) {
@@ -27,7 +27,7 @@ export default class GeojsonMapService {
     }
   }
 
-  static getHTMLWikipediaLink(link, popupText, data) {
+  static getHTMLWikipediaLink(link, popupText, wikidataDetails) {
     if (link === '') {
       return `<p class=""><a  class="btn btn-light disabled" target="_blank" href='${link}'><i class="fab fa-wikipedia-w"></i></a></p>
                 <span class="badge badge-secondary"><i class="fas fa-exclamation"></i>&nbsp;${popupText}</span>`;
@@ -35,10 +35,10 @@ export default class GeojsonMapService {
 
     let additionalData = '';
 
-    if (data) {
+    if (wikidataDetails) {
       let birth;
       try {
-        const birthDate = new Date(Date.parse(data.birth));
+        const birthDate = new Date(Date.parse(wikidataDetails.birth));
         birth = birthDate ? birthDate.getFullYear() : undefined;
       } catch (error) {
         // eslint-disable-next-line no-console
@@ -46,20 +46,20 @@ export default class GeojsonMapService {
       }
       let death;
       try {
-        const deathDate = new Date(Date.parse(data.death));
+        const deathDate = new Date(Date.parse(wikidataDetails.death));
         death = deathDate ? deathDate.getFullYear() : undefined;
       } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(error);
       }
 
-      const picture = data.picture ? ` <p class=""> <img src="${data.picture}"/></p>` : '';
+      const picture = wikidataDetails.picture ? ` <p class=""> <img src="${wikidataDetails.picture}"/></p>` : '';
 
       const birthDates = birth || death ? ` <p class=""> ${birth} - ${death}</p>` : '';
 
-      const description = data.description ? ` <p class=""> ${data.description}</p>` : '';
+      const description = wikidataDetails.description ? ` <p class=""> ${wikidataDetails.description}</p>` : '';
 
-      const occupations = data.occupations ? ` <p class=""> ${data.occupations}</p>` : '';
+      const occupations = wikidataDetails.occupations ? ` <p class=""> ${wikidataDetails.occupations}</p>` : '';
 
       additionalData = picture + birthDates + description + occupations;
     }
@@ -151,8 +151,8 @@ export default class GeojsonMapService {
         const getHTML = this.getHTMLWikipediaLink;
 
         // eslint-disable-next-line no-console
-        getWikdataDetails(link).then((data) => {
-          const femaleText = gender === FEMALE ? getHTML(link, popupText, data) : '';
+        getWikidataDetails(link).then((wikidataDetails) => {
+          const femaleText = gender === FEMALE ? getHTML(link, popupText, wikidataDetails) : '';
           const html = `
           <div class="row" >
             <div class="col-sm">

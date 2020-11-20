@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 export const mapDarkStyle = 'mapbox://styles/mapbox/dark-v9';
 
 export const initCenter = [-39.11133, 36.66842];
@@ -11,7 +12,6 @@ export const FEMALE = 'Female';
 export const MALE = 'Male';
 export const URL_DATA = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
 export const SOURCE_TYPES_LIST = ['line', 'fill'];
-
 
 export const countriesList = [
   {
@@ -70,17 +70,17 @@ export const countriesList = [
         id: 'parana',
         name: 'Paraná',
         datos: {
-          numLink:26,
-          pcLink:59.1,
-          numNoLink:18,
-          pcNoLink:40.9,
-          numMale:605,
-          numFemale:44,
-          pcMale:93.2,
-          pcFemale:6.8,
-          totalNames:649
+          numLink: 26,
+          pcLink: 59.1,
+          numNoLink: 18,
+          pcNoLink: 40.9,
+          numMale: 605,
+          numFemale: 44,
+          pcMale: 93.2,
+          pcFemale: 6.8,
+          totalNames: 649,
         },
-        center: [ -60.5238, -31.73197],
+        center: [-60.5238, -31.73197],
       },
       {
         id: 'resistencia',
@@ -486,3 +486,9 @@ export const lang = {
     popupText: 'Street without article',
   },
 };
+
+/* Wikidata Service Constants */
+export const wikidataAPIEndpointUrl = 'https://query.wikidata.org/sparql?format=json&query=';
+export const wikipediaSPARQLQueryTemplate = `SELECT%20%0A%20%20%3Fid%20%0A%20%20(%3FidLabel%20AS%20%3Fname)%20%0A%20%20(%3Fdesc%20as%20%3Fdescription)%20%0A%20%20(%3FgenderLabel%20AS%20%3Fgender)%0A%20%20(SAMPLE(%3Fbirths)%20AS%20%3Fbirth)%20%0A%20%20(SAMPLE(%3Fdeaths)%20AS%20%3Fdeath)%20%0A%20%20(SAMPLE(%3Fpic)%20AS%20%3Fpicture)%20%0A%20%20(GROUP_CONCAT(DISTINCT%20%3FoccupationsLabel%3B%20SEPARATOR%20%3D%20%22%2C%20%22)%20AS%20%3Foccupations)%20%0AWHERE%20%7B%0A%20%20VALUES%20%3FwikiTitle%20%7B%0A%20%20%20%20%22##NAME##%22%40es%0A%20%20%7D%0A%20%20%3Fwiki%20schema%3Aabout%20%3Fid%3B%0A%20%20%20%20schema%3AisPartOf%20%3Chttps%3A%2F%2Fes.wikipedia.org%2F%3E%3B%0A%20%20%20%20schema%3Aname%20%3FwikiTitle.%0A%20%20%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP21%20%3Fgender.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP569%20%3Fbirths.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP570%20%3Fdeaths.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP106%20%3Foccupations.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP18%20%3Fpic%20%7D.%0A%20%20OPTIONAL%20%7B%20%3Fid%20schema%3Adescription%20%3Fdesc%20%7D.%0A%20%20FILTER%20(LANG(%3Fdesc)%20%3D%20%22es%22)%20%0A%20%20%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%0A%20%20%20%20bd%3AserviceParam%20wikibase%3Alanguage%20%22es%22.%0A%20%20%20%20%3Fid%20rdfs%3Alabel%20%3FidLabel.%0A%20%20%20%20%3Fgender%20rdfs%3Alabel%20%3FgenderLabel.%0A%20%20%20%20%3Foccupations%20rdfs%3Alabel%20%3FoccupationsLabel.%0A%20%20%7D%0A%7D%0AGROUP%20BY%20%3Fid%20%3FidLabel%20%3Fdesc%20%3FgenderLabel%20%3Fwiki%0A%0A
+`;
+export const wikidataExpireCache = 1 * 24 * 3600 * 1000;
