@@ -488,7 +488,45 @@ export const lang = {
 };
 
 /* Wikidata Service Constants */
+export const femalePlaceholderImageId = 'female-placeholder';
 export const wikidataAPIEndpointUrl = 'https://query.wikidata.org/sparql?format=json&query=';
-export const wikipediaSPARQLQueryTemplate = `SELECT%20%0A%20%20%3Fid%20%0A%20%20(%3FidLabel%20AS%20%3Fname)%20%0A%20%20(%3Fdesc%20as%20%3Fdescription)%20%0A%20%20(%3FgenderLabel%20AS%20%3Fgender)%0A%20%20(SAMPLE(%3Fbirths)%20AS%20%3Fbirth)%20%0A%20%20(SAMPLE(%3Fdeaths)%20AS%20%3Fdeath)%20%0A%20%20(SAMPLE(%3Fpic)%20AS%20%3Fpicture)%20%0A%20%20(GROUP_CONCAT(DISTINCT%20%3FoccupationsLabel%3B%20SEPARATOR%20%3D%20%22%2C%20%22)%20AS%20%3Foccupations)%20%0AWHERE%20%7B%0A%20%20VALUES%20%3FwikiTitle%20%7B%0A%20%20%20%20%22##NAME##%22%40es%0A%20%20%7D%0A%20%20%3Fwiki%20schema%3Aabout%20%3Fid%3B%0A%20%20%20%20schema%3AisPartOf%20%3Chttps%3A%2F%2Fes.wikipedia.org%2F%3E%3B%0A%20%20%20%20schema%3Aname%20%3FwikiTitle.%0A%20%20%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP21%20%3Fgender.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP569%20%3Fbirths.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP570%20%3Fdeaths.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP106%20%3Foccupations.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP18%20%3Fpic%20%7D.%0A%20%20OPTIONAL%20%7B%20%3Fid%20schema%3Adescription%20%3Fdesc%20%7D.%0A%20%20FILTER%20(LANG(%3Fdesc)%20%3D%20%22es%22)%20%0A%20%20%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%0A%20%20%20%20bd%3AserviceParam%20wikibase%3Alanguage%20%22es%22.%0A%20%20%20%20%3Fid%20rdfs%3Alabel%20%3FidLabel.%0A%20%20%20%20%3Fgender%20rdfs%3Alabel%20%3FgenderLabel.%0A%20%20%20%20%3Foccupations%20rdfs%3Alabel%20%3FoccupationsLabel.%0A%20%20%7D%0A%7D%0AGROUP%20BY%20%3Fid%20%3FidLabel%20%3Fdesc%20%3FgenderLabel%20%3Fwiki%0A%0A
-`;
+
+export const wikipediaSPARQLQuery = `SELECT 
+?id
+WHERE {
+VALUES ?wikiTitle {
+  "{{name}}"@es
+}
+?wiki schema:about ?id;
+  schema:isPartOf <https://es.wikipedia.org/>;
+  schema:name ?wikiTitle.
+}`;
+
+export const wikidataSPARQLQuery = `SELECT 
+?id 
+(?idLabel AS ?name) 
+(?desc as ?description) 
+(?genderLabel AS ?gender)
+(SAMPLE(?births) AS ?birth) 
+(SAMPLE(?deaths) AS ?death) 
+(SAMPLE(?pic) AS ?picture) 
+(GROUP_CONCAT(DISTINCT ?occupationsLabel; SEPARATOR = ", ") AS ?occupations) 
+WHERE {
+VALUES ?id { wd:{{wikidataId}} }
+OPTIONAL { ?id wdt:P21 ?gender. }
+OPTIONAL { ?id wdt:P569 ?births. }
+OPTIONAL { ?id wdt:P570 ?deaths. }
+OPTIONAL { ?id wdt:P106 ?occupations. }
+OPTIONAL { ?id wdt:P18 ?pic }.
+OPTIONAL { ?id schema:description ?desc }.
+FILTER (LANG(?desc) = "es") 
+
+SERVICE wikibase:label {
+  bd:serviceParam wikibase:language "es".
+  ?id rdfs:label ?idLabel.
+  ?gender rdfs:label ?genderLabel.
+  ?occupations rdfs:label ?occupationsLabel.
+}
+}
+GROUP BY ?id ?idLabel ?desc ?genderLabel ?wiki`;
 export const wikidataExpireCache = 1 * 24 * 3600 * 1000;

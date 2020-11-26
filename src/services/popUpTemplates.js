@@ -19,11 +19,9 @@ export const contentPopUpTemplate = Handlebars.compile(`
 
 {{#if isFemale}}{{#if link}}
 <div class="picture col-6 mx-auto">
-  {{#with wikidataDetails}}
-  {{#if picture}}
-  <img src="{{picture}}"/>
+  {{#if image}}
+  <img src="{{image}}"/>
   {{/if}}
-  {{/with}}
 </div>
 {{/if}}{{/if}}
 

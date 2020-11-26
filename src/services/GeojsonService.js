@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import {
+  femalePlaceholderImageId,
   framesPerSecond,
   initialOpacity,
   initialRadius,
@@ -65,6 +66,11 @@ export default class GeojsonMapService {
         console.warn(error);
       }
     }
+
+    const image = wikidataDetails?.picture
+      ? wikidataDetails.picture
+      : document.getElementById(femalePlaceholderImageId).getAttribute('src');
+
     return contentPopUpTemplate({
       isFemale,
       name,
@@ -72,6 +78,7 @@ export default class GeojsonMapService {
       birthYear,
       deathYear,
       link,
+      image,
     });
   }
 
@@ -147,7 +154,7 @@ export default class GeojsonMapService {
       map.on('click', `${sourcename}-${type}`, (e) => {
         popupHover.remove();
 
-        const link = e.features[0].properties.wikipedia_link; // .replace("es.wiki", lang+".wiki");
+        const link = e.features[0].properties.wikipedia_link || e.features[0].properties.wikidata; // .replace("es.wiki", lang+".wiki");
         const { name, gender } = e.features[0].properties;
         const popupType = gender === FEMALE ? 'popup-female' : 'popup-male';
         const getHTML = this.getHTMLWikipediaHTML;
