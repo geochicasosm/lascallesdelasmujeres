@@ -505,7 +505,7 @@ VALUES ?wikiTitle {
 export const wikidataSPARQLQuery = `SELECT 
 ?id 
 (?idLabel AS ?name) 
-(?desc as ?description) 
+(COALESCE(?desc,"") as ?description)
 (?genderLabel AS ?gender)
 (SAMPLE(?births) AS ?birth) 
 (SAMPLE(?deaths) AS ?death) 
