@@ -154,7 +154,7 @@ export default class GeojsonMapService {
       map.on('click', `${sourcename}-${type}`, (e) => {
         popupHover.remove();
 
-        const link = e.features[0].properties.wikipedia_link || e.features[0].properties.wikidata; // .replace("es.wiki", lang+".wiki");
+        const link = e.features[0].properties.wikidata || e.features[0].properties.wikipedia_link;
         const { name, gender } = e.features[0].properties;
         const popupType = gender === FEMALE ? 'popup-female' : 'popup-male';
         const getHTML = this.getHTMLWikipediaHTML;
@@ -182,7 +182,7 @@ export default class GeojsonMapService {
           const mapCanvas = map.getCanvas();
           mapCanvas.style.cursor = 'pointer';
           // TODO .replace("es.wiki", lang+".wiki");;
-          const link = e.features[0].properties.wikipedia_link;
+          const link = e.features[0].properties.wikidata || e.features[0].properties.wikipedia_link;
           const { name, gender } = e.features[0].properties;
 
           const popupType = gender === FEMALE ? 'popup-female' : 'popup-male';
