@@ -505,7 +505,7 @@ VALUES ?wikiTitle {
 export const wikidataSPARQLQuery = `SELECT 
 ?id 
 (?idLabel AS ?name) 
-(COALESCE(?desc,"") as ?description)
+?description
 (?genderLabel AS ?gender)
 (SAMPLE(?births) AS ?birth) 
 (SAMPLE(?deaths) AS ?death) 
@@ -519,8 +519,8 @@ OPTIONAL { ?id wdt:P570 ?deaths. }
 OPTIONAL { ?id wdt:P106 ?occupations. }
 OPTIONAL { ?id wdt:P18 ?pic }.
 OPTIONAL { ?id schema:description ?desc }.
-FILTER (LANG(?desc) = "es") 
-
+FILTER(LANG(?desc) = "es")
+BIND(COALESCE(?desc, "") AS ?description)
 SERVICE wikibase:label {
   bd:serviceParam wikibase:language "es".
   ?id rdfs:label ?idLabel.
@@ -528,5 +528,6 @@ SERVICE wikibase:label {
   ?occupations rdfs:label ?occupationsLabel.
 }
 }
-GROUP BY ?id ?idLabel ?desc ?genderLabel ?wiki`;
+GROUP BY ?id ?idLabel ?description ?genderLabel ?wiki`;
+
 export const wikidataExpireCache = 1 * 24 * 3600 * 1000;
