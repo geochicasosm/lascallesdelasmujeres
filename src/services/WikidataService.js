@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { DictUnit } from '@activejs/core';
 import Handlebars from 'handlebars';
 
@@ -65,7 +64,6 @@ const getWikidataId = (wikipediaLink) => {
   // Check the cache
   const unit = wikipediaNamesCacheUnit.get(name);
   if (unit && (new Date()) - (new Date(unit.timestamp)) < wikidataExpireCache) {
-    console.log(`Getting ${unit.id} from local storage`);
     return new Promise((resolve) => resolve(unit.id));
   }
 
@@ -81,7 +79,6 @@ const getWikidataId = (wikipediaLink) => {
         const ids = url.match(/Q[0-9]{1,}$/);
         if (ids && ids[0]) {
           const id = ids[0];
-          console.log(`Saving ${id} into local storage`);
           wikipediaNamesCacheUnit.set(name, {
             timestamp: new Date(),
             id,
@@ -101,7 +98,6 @@ const getDetailsFromWikidataId = (wikidataId) => {
   // Check if the id is found in the cache
   const unit = wikidatDetailsCacheUnit.get(wikidataId);
   if (unit && (new Date()) - (new Date(unit.timestamp)) < wikidataExpireCache) {
-    console.log(`Getting ${unit.wikidata.name} from local storage`);
     return new Promise((resolve) => resolve(unit.wikidata));
   }
   // Go for the info to Wikidata
@@ -115,6 +111,7 @@ const getDetailsFromWikidataId = (wikidataId) => {
           Object.keys(binding).forEach((k) => {
             result[k] = binding[k].value;
           });
+          // eslint-disable-next-line no-console
           console.log(`Saving ${result.name} into local storage`);
           wikidatDetailsCacheUnit.set(wikidataId, {
             timestamp: new Date(),
