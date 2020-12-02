@@ -459,6 +459,8 @@ color: #FFFF00;
 
 .popup-female .picture img{
   width: 100%;
+  height: 250px;
+  object-fit: cover;
 }
 
 .popup-female .name{
