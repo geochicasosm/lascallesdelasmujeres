@@ -12,7 +12,6 @@ export const MALE = 'Male';
 export const URL_DATA = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
 export const SOURCE_TYPES_LIST = ['line', 'fill'];
 
-
 export const countriesList = [
   {
     id: 'argentina',
@@ -70,17 +69,17 @@ export const countriesList = [
         id: 'parana',
         name: 'Paraná',
         datos: {
-          numLink:26,
-          pcLink:59.1,
-          numNoLink:18,
-          pcNoLink:40.9,
-          numMale:605,
-          numFemale:44,
-          pcMale:93.2,
-          pcFemale:6.8,
-          totalNames:649
+          numLink: 26,
+          pcLink: 59.1,
+          numNoLink: 18,
+          pcNoLink: 40.9,
+          numMale: 605,
+          numFemale: 44,
+          pcMale: 93.2,
+          pcFemale: 6.8,
+          totalNames: 649,
         },
-        center: [ -60.5238, -31.73197],
+        center: [-60.5238, -31.73197],
       },
       {
         id: 'resistencia',
@@ -316,6 +315,29 @@ export const countriesList = [
       },
     ],
   },
+  {
+    id: 'italia',
+    name: 'Italia',
+    citiesList: [
+      {
+        id: 'breschia',
+        name: 'Breschia',
+        datos: {
+          numLink: 29,
+          pcLink: 76.3,
+          numNoLink: 9,
+          pcNoLink: 23.7,
+          numMale: 673,
+          numFemale: 38,
+          pcMale: 94.7,
+          pcFemale: 5.3,
+          totalNames: 711,
+        },
+        center: [10.21185, 45.5416],
+      },
+    ],
+  },
+
   {
     id: 'mexico',
     name: 'México',
