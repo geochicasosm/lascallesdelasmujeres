@@ -320,8 +320,8 @@ export const countriesList = [
     name: 'Italia',
     citiesList: [
       {
-        id: 'breschia',
-        name: 'Breschia',
+        id: 'brescia',
+        name: 'Brescia',
         datos: {
           numLink: 29,
           pcLink: 76.3,
