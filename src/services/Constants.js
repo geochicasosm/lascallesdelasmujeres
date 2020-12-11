@@ -299,6 +299,22 @@ export const countriesList = [
         center: [-3.7037, 40.41677],
       },
       {
+        id: 'valencia',
+        name: 'València',
+        datos: {
+          numLink: 135,
+          pcLink: 72.2,
+          numNoLink: 52,
+          pcNoLink: 27.8,
+          numMale: 1435,
+          numFemale: 187,
+          pcMale: 88.5,
+          pcFemale: 11.5,
+          totalNames: 1622,
+        },
+        center: [-0.376351, 39.469868],
+      },
+      {
         id: 'zaragoza',
         name: 'Zaragoza',
         datos: {
@@ -316,6 +332,29 @@ export const countriesList = [
       },
     ],
   },
+  {
+    id: 'italia',
+    name: 'Italia',
+    citiesList: [
+      {
+        id: 'brescia',
+        name: 'Brescia',
+        datos: {
+          numLink: 29,
+          pcLink: 76.3,
+          numNoLink: 9,
+          pcNoLink: 23.7,
+          numMale: 673,
+          numFemale: 38,
+          pcMale: 94.7,
+          pcFemale: 5.3,
+          totalNames: 711,
+        },
+        center: [10.21185, 45.5416],
+      },
+    ],
+  },
+
   {
     id: 'mexico',
     name: 'México',
@@ -430,6 +469,7 @@ export const lang = {
     panelDescriptionText2:
       'El objetivo es visibilizar la brecha que existe históricamente en la representación de figuras femeninas en las calles de las ciudades.',
     panelDescriptionTextShort:
+      // eslint-disable-next-line max-len
       'Mapa de las calles con nombre de mujer en ciudades de Latinoamérica y España, para visibilizar la brecha que existe en la representación de figuras femeninas en las ciudades.',
     panelProjectBy: 'Un proyecto de',
     panelProjectBy2: 'Proyecto de',
@@ -451,6 +491,7 @@ export const lang = {
     panelDescriptionText2:
       "L'objectiu és visibilitzar la bretxa que existeix històricament en la representació de figures femenines als carrers de les ciutats.",
     panelDescriptionTextShort:
+      // eslint-disable-next-line max-len
       'Mapa dels carrers amb nom de dona en ciutats de Llatinoamèrica i Espanya, per visibilitzar la bretxa que existeix en la representació de figures femenines a les ciutats.',
     panelProjectBy: 'Un projecte de',
     panelProjectBy2: 'Projecte de',
@@ -471,6 +512,7 @@ export const lang = {
     panelDescriptionText2:
       'The objective is visualize the historic gap representing women figures in the streets of the cities.',
     panelDescriptionTextShort:
+      // eslint-disable-next-line max-len
       "Map of the streets containing women's names in cities of Latin America and Spain, visualizing the gap representing women figures in the cities.",
     panelProjectBy: 'A project from',
     panelProjectBy2: 'Project from',
