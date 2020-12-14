@@ -12,6 +12,8 @@ export const MALE = 'Male';
 export const URL_DATA = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
 export const SOURCE_TYPES_LIST = ['line', 'fill'];
 
+export const OVERLAY_ID = 'admin-2-boundaries-dispute';
+
 export const countriesList = [
   {
     id: 'argentina',
