@@ -505,6 +505,7 @@ export const lang = {
     },
     popupText: 'Carrer sense article',
   },
+
   en: {
     panelDescriptionText1:
       'Map generated from the data obtained of Women Street names in Spanish speaking cities (Latin America and Spain).',
@@ -525,5 +526,28 @@ export const lang = {
       chartText1: 'Women having a Wikipedia article',
     },
     popupText: 'Street without article',
+  },
+
+  it: {
+    panelDescriptionText1:
+      'Mappa generata dai nomi di vie intitolate a donne, in città di lingua spagnola (America latina e Spagna).',
+    panelDescriptionText2:
+      // eslint-disable-next-line max-len
+      "L'obiettivo è di visualizzare la differenza che esiste storicamente nella rappresentazione delle figure di genere femminile nelle vie delle città.",
+    panelDescriptionTextShort:
+      // eslint-disable-next-line max-len
+      "Mappa delle vie intitolate a donne in città dell'America latina e Spagna per visualizzare la differenza che esiste storicamente nella rappresentazione delle figure di genere femminile nelle città.",
+    panelProjectBy: 'Un progetto di',
+    panelProjectBy2: 'Progetto di',
+    menuTitle: 'Le vie delle donne',
+    chartTxt: {
+      chartMen: 'Uomini',
+      chartWomen: 'Donne',
+      chartStreetsOf: 'Le vie di',
+      chartHave: 'non ha',
+      chartNotHave: 'ha',
+      chartText1: 'Donne con articolo di Wikipedia',
+    },
+    popupText: 'Vie senza articolo',
   },
 };
