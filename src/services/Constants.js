@@ -266,6 +266,22 @@ export const countriesList = [
         center: [2.154007, 41.390205],
       },
       {
+        id: 'gijon',
+        name: 'Gijón',
+        datos: {
+          numLink: 103,
+          pcLink: 71.5,
+          numNoLink: 41,
+          pcNoLink: 28.5,
+          numMale: 507,
+          numFemale: 144,
+          pcMale: 77.9,
+          pcFemale: 22.1,
+          totalNames: 651,
+        },
+        center: [-5.66152, 43.53573],
+      },
+      {
         id: 'girona',
         name: 'Girona',
         datos: {
