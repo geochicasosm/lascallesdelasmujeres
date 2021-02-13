@@ -11,13 +11,16 @@
     "deploy": "npm run build && git add . && git commit -m 'latest build' && git push origin master"
   },
   "dependencies": {
+    "@activejs/core": "^0.2.3",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "animate.css": "^3.7.2",
     "chart.js": "^2.9.4",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "handlebars": "^4.7.6"
   },
   "devDependencies": {
     "@babel/core": "7.2.0",
+    "@babel/plugin-syntax-optional-chaining": "^7.8.3",
     "@geostarters/eslint-config": "0.0.3",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
