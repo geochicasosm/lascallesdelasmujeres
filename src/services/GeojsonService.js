@@ -123,7 +123,6 @@ export default class GeojsonMapService {
         }
       });
 
-
       if (!isMobile) {
         map.on('mouseenter', `${sourcename}-${type}`, (e) => {
           popupClick.remove();
