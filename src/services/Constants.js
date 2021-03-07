@@ -233,7 +233,7 @@ export const countriesList = [
     id: 'espana',
     name: 'España',
     citiesList: [
-      {
+       {
         id: 'alaquas',
         name: 'Alaquàs',
         datos: {
@@ -248,6 +248,22 @@ export const countriesList = [
           totalNames: 39,
         },
         center: [-0.460924, 39.457278],
+      },
+      {
+        id: 'aldaia',
+        name: 'Aldaia',
+        datos: {
+          numLink: 19,
+          pcLink: 95.0,
+          numNoLink: 1,
+          pcNoLink: 5.0,
+          numMale: 107,
+          numFemale: 20,
+          pcMale: 84.3,
+          pcFemale: 15.7,
+          totalNames: 127,
+        },
+        center: [-0.461203, 39.464924],
       },
       {
         id: 'badalona',

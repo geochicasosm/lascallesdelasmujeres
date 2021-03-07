@@ -110,7 +110,6 @@ export default class ChartService {
       },
     };
 
-
     window.myDoughnut = new Chart(this.ctx, config);
     window.myBar = new Chart(this.ctxPie, configPie);
   }
