@@ -362,12 +362,22 @@ export const countriesList = [
         },
         center: [-3.7037, 40.41677],
       },
-      /*       {
+      {
         id: "puertodelrosario",
         name: "Puerto del Rosario",
-        datos: {},
+        datos: {
+          numLink: 5,
+          pcLink: 45.5,
+          numNoLink: 6,
+          pcNoLink: 54.5,
+          numMale: 133,
+          numFemale: 11,
+          pcMale: 92.4,
+          pcFemale: 7.6,
+          totalNames: 144,
+        },
         center: [-13.86272, 28.50038],
-      }, */
+      },
       {
         id: "salamanca",
         name: "Salamanca",
