@@ -11,7 +11,6 @@ export default class MyMap {
       center: initCenter, // [lng, lat]
       zoom: 1,
     });
-
   }
 
   mapTo(center, zoom = 13) {
