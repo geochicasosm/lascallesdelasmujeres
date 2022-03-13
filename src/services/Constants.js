@@ -1,4 +1,4 @@
-export const mapDarkStyle = "mapbox://styles/mapbox/dark-v9";
+export const mapDarkStyle = 'mapbox://styles/mapbox/dark-v9';
 
 export const initCenter = [-39.11133, 36.66842];
 
@@ -7,20 +7,19 @@ export const initialOpacity = 1;
 export const initialRadius = 5;
 export const maxRadius = 18;
 
-export const FEMALE = "Female";
-export const MALE = "Male";
-export const URL_DATA =
-  "https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master";
-export const SOURCE_TYPES_LIST = ["line", "fill"];
+export const FEMALE = 'Female';
+export const MALE = 'Male';
+export const URL_DATA = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
+export const SOURCE_TYPES_LIST = ['line', 'fill'];
 
 export const countriesList = [
   {
-    id: "argentina",
-    name: "Argentina",
+    id: 'argentina',
+    name: 'Argentina',
     citiesList: [
       {
-        id: "buenosaires",
-        name: "Buenos Aires",
+        id: 'buenosaires',
+        name: 'Buenos Aires',
         datos: {
           numLink: 86,
           pcLink: 67.7,
@@ -35,8 +34,8 @@ export const countriesList = [
         center: [-58.37723, -34.61315],
       },
       {
-        id: "chajari",
-        name: "Chajarí",
+        id: 'chajari',
+        name: 'Chajarí',
         datos: {
           numLink: 7,
           pcLink: 53.8,
@@ -51,8 +50,8 @@ export const countriesList = [
         center: [-58, -30.75],
       },
       {
-        id: "ciudaddesanluis",
-        name: "Ciudad de San Luis",
+        id: 'ciudaddesanluis',
+        name: 'Ciudad de San Luis',
         datos: {
           numLink: 13,
           pcLink: 50.0,
@@ -67,8 +66,8 @@ export const countriesList = [
         center: [-66.33563, -33.29501],
       },
       {
-        id: "cordoba",
-        name: "Córdoba",
+        id: 'cordoba',
+        name: 'Córdoba',
         datos: {
           numLink: 95,
           pcLink: 59.0,
@@ -83,8 +82,8 @@ export const countriesList = [
         center: [-64.183334, -31.416668],
       },
       {
-        id: "parana",
-        name: "Paraná",
+        id: 'parana',
+        name: 'Paraná',
         datos: {
           numLink: 26,
           pcLink: 59.1,
@@ -99,8 +98,8 @@ export const countriesList = [
         center: [-60.5238, -31.73197],
       },
       {
-        id: "resistencia",
-        name: "Resistencia",
+        id: 'resistencia',
+        name: 'Resistencia',
         datos: {
           numLink: 51,
           pcLink: 75.0,
@@ -115,8 +114,8 @@ export const countriesList = [
         center: [-58.98652, -27.45112],
       },
       {
-        id: "rosario",
-        name: "Rosario",
+        id: 'rosario',
+        name: 'Rosario',
         datos: {
           numLink: 28,
           pcLink: 43.8,
@@ -131,8 +130,8 @@ export const countriesList = [
         center: [-60.6553737, -32.9427715],
       },
       {
-        id: "salta",
-        name: "Salta",
+        id: 'salta',
+        name: 'Salta',
         datos: {
           numLink: 89,
           pcLink: 47.1,
@@ -147,8 +146,8 @@ export const countriesList = [
         center: [-65.41, -24.789],
       },
       {
-        id: "santafe",
-        name: "Santa Fe",
+        id: 'santafe',
+        name: 'Santa Fe',
         datos: {
           numLink: 20,
           pcLink: 64.5,
@@ -165,12 +164,12 @@ export const countriesList = [
     ],
   },
   {
-    id: "bolivia",
-    name: "Bolivia",
+    id: 'bolivia',
+    name: 'Bolivia',
     citiesList: [
       {
-        id: "cochabamba",
-        name: "Cochabamba",
+        id: 'cochabamba',
+        name: 'Cochabamba',
         datos: {
           numLink: 16,
           pcLink: 34.8,
@@ -225,12 +224,12 @@ export const countriesList = [
   }, */
 
   {
-    id: "cuba",
-    name: "Cuba",
+    id: 'cuba',
+    name: 'Cuba',
     citiesList: [
       {
-        id: "habana",
-        name: "La Habana",
+        id: 'habana',
+        name: 'La Habana',
         datos: {
           numLink: 42,
           pcLink: 36.2,
@@ -247,12 +246,12 @@ export const countriesList = [
     ],
   },
   {
-    id: "espana",
-    name: "España",
+    id: 'espana',
+    name: 'España',
     citiesList: [
       {
-        id: "alaquas",
-        name: "Alaquàs",
+        id: 'alaquas',
+        name: 'Alaquàs',
         datos: {
           numLink: 10,
           pcLink: 100.0,
@@ -267,8 +266,8 @@ export const countriesList = [
         center: [-0.460924, 39.457278],
       },
       {
-        id: "aldaia",
-        name: "Aldaia",
+        id: 'aldaia',
+        name: 'Aldaia',
         datos: {
           numLink: 19,
           pcLink: 95.0,
@@ -283,8 +282,8 @@ export const countriesList = [
         center: [-0.461203, 39.464924],
       },
       {
-        id: "badalona",
-        name: "Badalona",
+        id: 'badalona',
+        name: 'Badalona',
         datos: {
           numLink: 37,
           pcLink: 94.9,
@@ -299,8 +298,8 @@ export const countriesList = [
         center: [2.24741, 41.45004],
       },
       {
-        id: "barcelona",
-        name: "Barcelona",
+        id: 'barcelona',
+        name: 'Barcelona',
         datos: {
           numLink: 123,
           pcLink: 69.1,
@@ -315,8 +314,8 @@ export const countriesList = [
         center: [2.154007, 41.390205],
       },
       {
-        id: "gijon",
-        name: "Gijón",
+        id: 'gijon',
+        name: 'Gijón',
         datos: {
           numLink: 103,
           pcLink: 71.5,
@@ -331,8 +330,8 @@ export const countriesList = [
         center: [-5.66152, 43.53573],
       },
       {
-        id: "girona",
-        name: "Girona",
+        id: 'girona',
+        name: 'Girona',
         datos: {
           numLink: 42,
           pcLink: 77.8,
@@ -347,8 +346,25 @@ export const countriesList = [
         center: [2.8239, 41.9842],
       },
       {
-        id: "madrid",
-        name: "Madrid",
+        id: 'huesca',
+        name: 'Huesca',
+        datos: {
+          numLink: 22,
+          pcLink: 78.6,
+          numNoLink: 6,
+          pcNoLink: 21.4,
+          numMale: 147,
+          numFemale: 28,
+          pcMale: 84.0,
+          pcFemale: 16.0,
+          totalNames: 175,
+        },
+
+        center: [-0.4087, 42.13615],
+      },
+      {
+        id: 'madrid',
+        name: 'Madrid',
         datos: {
           numLink: 379,
           pcLink: 52.2,
@@ -363,8 +379,8 @@ export const countriesList = [
         center: [-3.7037, 40.41677],
       },
       {
-        id: "puertodelrosario",
-        name: "Puerto del Rosario",
+        id: 'puertodelrosario',
+        name: 'Puerto del Rosario',
         datos: {
           numLink: 5,
           pcLink: 45.5,
@@ -379,8 +395,8 @@ export const countriesList = [
         center: [-13.86272, 28.50038],
       },
       {
-        id: "salamanca",
-        name: "Salamanca",
+        id: 'salamanca',
+        name: 'Salamanca',
         datos: {
           numLink: 44,
           pcLink: 67.7,
@@ -395,8 +411,8 @@ export const countriesList = [
         center: [-5.667607, 40.961613],
       },
       {
-        id: "santacolomadegramanet",
-        name: "Santa Coloma de Gramanet",
+        id: 'santacolomadegramanet',
+        name: 'Santa Coloma de Gramanet',
         datos: {
           numLink: 11,
           pcLink: 84.6,
@@ -411,8 +427,8 @@ export const countriesList = [
         center: [2.2081, 41.45152],
       },
       {
-        id: "valencia",
-        name: "València",
+        id: 'valencia',
+        name: 'València',
         datos: {
           numLink: 135,
           pcLink: 72.2,
@@ -427,8 +443,8 @@ export const countriesList = [
         center: [-0.376351, 39.469868],
       },
       {
-        id: "valladolid",
-        name: "Valladolid",
+        id: 'valladolid',
+        name: 'Valladolid',
         datos: {
           numLink: 46,
           pcLink: 79.3,
@@ -443,8 +459,8 @@ export const countriesList = [
         center: [-4.72372, 41.65518],
       },
       {
-        id: "zaragoza",
-        name: "Zaragoza",
+        id: 'zaragoza',
+        name: 'Zaragoza',
         datos: {
           numLink: 185,
           pcLink: 77.7,
@@ -461,8 +477,8 @@ export const countriesList = [
     ],
   },
   {
-    id: "italia",
-    name: "Italia",
+    id: 'italia',
+    name: 'Italia',
     citiesList: [
       /*       {
         id: "bergamo",
@@ -471,8 +487,8 @@ export const countriesList = [
         center: [9.67, 45.695],
       }, */
       {
-        id: "brescia",
-        name: "Brescia",
+        id: 'brescia',
+        name: 'Brescia',
         datos: {
           numLink: 29,
           pcLink: 76.3,
@@ -490,12 +506,12 @@ export const countriesList = [
   },
 
   {
-    id: "mexico",
-    name: "México",
+    id: 'mexico',
+    name: 'México',
     citiesList: [
       {
-        id: "cdmx",
-        name: "C. de México",
+        id: 'cdmx',
+        name: 'C. de México',
         datos: {
           numLink: 161,
           pcLink: 47.8,
@@ -513,12 +529,12 @@ export const countriesList = [
   },
 
   {
-    id: "paraguay",
-    name: "Paraguay",
+    id: 'paraguay',
+    name: 'Paraguay',
     citiesList: [
       {
-        id: "asuncion",
-        name: "Asunción",
+        id: 'asuncion',
+        name: 'Asunción',
         datos: {
           numLink: 27,
           pcLink: 44.3,
@@ -533,8 +549,8 @@ export const countriesList = [
         center: [-57.63591, -25.30066],
       },
       {
-        id: "encarnacion",
-        name: "Encarnación",
+        id: 'encarnacion',
+        name: 'Encarnación',
         datos: {
           numLink: 11,
           pcLink: 45.8,
@@ -551,12 +567,12 @@ export const countriesList = [
     ],
   },
   {
-    id: "peru",
-    name: "Perú",
+    id: 'peru',
+    name: 'Perú',
     citiesList: [
       {
-        id: "lima",
-        name: "Lima",
+        id: 'lima',
+        name: 'Lima',
         datos: {
           numLink: 155,
           pcLink: 58.1,
@@ -573,12 +589,12 @@ export const countriesList = [
     ],
   },
   {
-    id: "uruguay",
-    name: "Uruguay",
+    id: 'uruguay',
+    name: 'Uruguay',
     citiesList: [
       {
-        id: "montevideo",
-        name: "Montevideo",
+        id: 'montevideo',
+        name: 'Montevideo',
         datos: {
           numLink: 78,
           pcLink: 47.9,
@@ -599,90 +615,90 @@ export const countriesList = [
 export const lang = {
   es: {
     panelDescriptionText1:
-      "Mapa generado a partir de las calles con nombre de mujeres, en diferentes ciudades de habla hispana (Latinoamérica y España).",
+      'Mapa generado a partir de las calles con nombre de mujeres, en diferentes ciudades de habla hispana (Latinoamérica y España).',
     panelDescriptionText2:
-      "El objetivo es visibilizar la brecha que existe históricamente en la representación de figuras femeninas en las calles de las ciudades.",
+      'El objetivo es visibilizar la brecha que existe históricamente en la representación de figuras femeninas en las calles de las ciudades.',
     panelDescriptionTextShort:
       // eslint-disable-next-line max-len
-      "Mapa de las calles con nombre de mujer en ciudades de Latinoamérica y España, para visibilizar la brecha que existe en la representación de figuras femeninas en las ciudades.",
-    panelProjectBy: "Un proyecto de",
-    panelProjectBy2: "Proyecto de",
-    menuTitle: "Las calles de las mujeres",
+      'Mapa de las calles con nombre de mujer en ciudades de Latinoamérica y España, para visibilizar la brecha que existe en la representación de figuras femeninas en las ciudades.',
+    panelProjectBy: 'Un proyecto de',
+    panelProjectBy2: 'Proyecto de',
+    menuTitle: 'Las calles de las mujeres',
     chartTxt: {
-      chartMen: "Hombres",
-      chartWomen: "Mujeres",
-      chartStreetsOf: "Calles de",
-      chartHave: "tiene",
-      chartNotHave: "no tiene",
-      chartText1: "Mujeres con artículo en Wikipedia",
+      chartMen: 'Hombres',
+      chartWomen: 'Mujeres',
+      chartStreetsOf: 'Calles de',
+      chartHave: 'tiene',
+      chartNotHave: 'no tiene',
+      chartText1: 'Mujeres con artículo en Wikipedia',
     },
-    popupText: "Calle sin artículo",
+    popupText: 'Calle sin artículo',
   },
 
   ca: {
     panelDescriptionText1:
-      "Mapa generat a partir dels carrers amb nom de dones, a diferents ciutats de parla hispana (Llatinoamèrica i Espanya).",
+      'Mapa generat a partir dels carrers amb nom de dones, a diferents ciutats de parla hispana (Llatinoamèrica i Espanya).',
     panelDescriptionText2:
       "L'objectiu és visibilitzar la bretxa que existeix històricament en la representació de figures femenines als carrers de les ciutats.",
     panelDescriptionTextShort:
       // eslint-disable-next-line max-len
-      "Mapa dels carrers amb nom de dona en ciutats de Llatinoamèrica i Espanya, per visibilitzar la bretxa que existeix en la representació de figures femenines a les ciutats.",
-    panelProjectBy: "Un projecte de",
-    panelProjectBy2: "Projecte de",
-    menuTitle: "Els carrers de les dones",
+      'Mapa dels carrers amb nom de dona en ciutats de Llatinoamèrica i Espanya, per visibilitzar la bretxa que existeix en la representació de figures femenines a les ciutats.',
+    panelProjectBy: 'Un projecte de',
+    panelProjectBy2: 'Projecte de',
+    menuTitle: 'Els carrers de les dones',
     chartTxt: {
-      chartMen: "Homes",
-      chartWomen: "Dones",
-      chartStreetsOf: "Carrers de",
-      chartHave: "en té",
-      chartNotHave: "no en té",
-      chartText1: "Dones amb article a Wikipedia",
+      chartMen: 'Homes',
+      chartWomen: 'Dones',
+      chartStreetsOf: 'Carrers de',
+      chartHave: 'en té',
+      chartNotHave: 'no en té',
+      chartText1: 'Dones amb article a Wikipedia',
     },
-    popupText: "Carrer sense article",
+    popupText: 'Carrer sense article',
   },
 
   en: {
     panelDescriptionText1:
-      "Map generated from the data obtained of Women Street names in Spanish speaking cities (Latin America and Spain).",
+      'Map generated from the data obtained of Women Street names in Spanish speaking cities (Latin America and Spain).',
     panelDescriptionText2:
-      "The objective is visualize the historic gap representing women figures in the streets of the cities.",
+      'The objective is visualize the historic gap representing women figures in the streets of the cities.',
     panelDescriptionTextShort:
       // eslint-disable-next-line max-len
       "Map of the streets containing women's names in cities of Latin America and Spain, visualizing the gap representing women figures in the cities.",
-    panelProjectBy: "A project from",
-    panelProjectBy2: "Project from",
-    menuTitle: "The street of the women",
+    panelProjectBy: 'A project from',
+    panelProjectBy2: 'Project from',
+    menuTitle: 'The street of the women',
     chartTxt: {
-      chartMen: "Men",
-      chartWomen: "Women",
-      chartStreetsOf: "The street of",
-      chartHave: "have",
+      chartMen: 'Men',
+      chartWomen: 'Women',
+      chartStreetsOf: 'The street of',
+      chartHave: 'have',
       chartNotHave: "doesn't have",
-      chartText1: "Women having a Wikipedia article",
+      chartText1: 'Women having a Wikipedia article',
     },
-    popupText: "Street without article",
+    popupText: 'Street without article',
   },
 
   it: {
     panelDescriptionText1:
-      "Mappa generata dai nomi di vie intitolate a donne, in città di lingua spagnola (America latina e Spagna).",
+      'Mappa generata dai nomi di vie intitolate a donne, in città di lingua spagnola (America latina e Spagna).',
     panelDescriptionText2:
       // eslint-disable-next-line max-len
       "L'obiettivo è di visualizzare la differenza che esiste storicamente nella rappresentazione delle figure di genere femminile nelle vie delle città.",
     panelDescriptionTextShort:
       // eslint-disable-next-line max-len
       "Mappa delle vie intitolate a donne in città dell'America latina e Spagna per visualizzare la differenza che esiste storicamente nella rappresentazione delle figure di genere femminile nelle città.",
-    panelProjectBy: "Un progetto di",
-    panelProjectBy2: "Progetto di",
-    menuTitle: "Le vie delle donne",
+    panelProjectBy: 'Un progetto di',
+    panelProjectBy2: 'Progetto di',
+    menuTitle: 'Le vie delle donne',
     chartTxt: {
-      chartMen: "Uomini",
-      chartWomen: "Donne",
-      chartStreetsOf: "Le vie di",
-      chartHave: "non ha",
-      chartNotHave: "ha",
-      chartText1: "Donne con articolo di Wikipedia",
+      chartMen: 'Uomini',
+      chartWomen: 'Donne',
+      chartStreetsOf: 'Le vie di',
+      chartHave: 'non ha',
+      chartNotHave: 'ha',
+      chartText1: 'Donne con articolo di Wikipedia',
     },
-    popupText: "Vie senza articolo",
+    popupText: 'Vie senza articolo',
   },
 };
