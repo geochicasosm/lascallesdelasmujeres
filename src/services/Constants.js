@@ -223,6 +223,30 @@ export const countriesList = [
       }],
   }, */
 
+  
+  {
+    id: 'brasil',
+    name: 'Brasil',
+    citiesList: [
+      {
+        id: 'patobranco',
+        name: 'Pato Branco',
+        datos: {
+          numLink:7,
+          pcLink:6.8,
+          numNoLink:96,
+          pcNoLink:93.2,
+          numMale:526,
+          numFemale:103,
+          pcMale:83.6,
+          pcFemale:16.4,
+          totalNames:629,
+        },
+        center: [ -26.2295984, -52.6712474],
+      },
+    ],
+  },
+  
   {
     id: 'cuba',
     name: 'Cuba',
