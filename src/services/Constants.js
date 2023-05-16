@@ -222,14 +222,13 @@ export const countriesList = [
         center: [-84.115938, 9.997433],
       }],
   }, */
-
   {
-    id: 'brasil',
-    name: 'Brasil',
+    id: "brasil",
+    name: "Brasil",
     citiesList: [
       {
-        id: 'patobranco',
-        name: 'Pato Branco',
+        id: "patobranco",
+        name: "Pato Branco",
         datos: {
           numLink: 7,
           pcLink: 6.8,
@@ -239,14 +238,13 @@ export const countriesList = [
           numFemale: 103,
           pcMale: 83.6,
           pcFemale: 16.4,
-          totalNames: 629,
+          totalNames: 629
         },
-        center: [-52.6712474, -26.2295984],
+        center: [-52.6712474, -26.2295984]
       },
-      
       {
-        id: 'curitiba',
-        name: 'Curitiba',
+        id: "curitiba",
+        name: "Curitiba",
         datos: {
           numLink:124,
           pcLink:8.4,
@@ -258,13 +256,10 @@ export const countriesList = [
           pcFemale:17.7,
           totalNames:8355
         },
-        center: [-49.2712724,-25.4295963],
-      },
-      
-      
-    ],
+        center: [-49.2712724,-25.4295963]
+      }
+    ]
   },
-
   {
     id: 'cuba',
     name: 'Cuba',
