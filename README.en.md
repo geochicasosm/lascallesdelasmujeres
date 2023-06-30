@@ -16,7 +16,64 @@ It is intended to make a survey of information on streets, avenues, passages, ro
 
 The project was officially presented within the framework of International Women's Day, on March 8.
 
+## Wikidata
 
+When clicking or hovering the mouse over women streets with Wikipedia or Wikidata details, the application will perform queries to Wikidata. If the streets has only a Wikipedia link, it will first query to get the equivalent Wikidata identifier. When the street has the Wikidata identifier explicitly or through the mentioned query, a segond query to Wikidata will try to get a few details of the women that will show up in the pop-up window.:
+
+* Name
+* Short description
+* Birth and death dates
+* Occupations
+* Link to a picture
+
+## Wikidata identifier from name
+
+This query expects a name of a Wikipedia article as a parameter, and will return the corresponding Wikidata item identifier. [Executing](https://query.wikidata.org/#SELECT%20%3Fid%0AWHERE%20%7B%0A%20%20%20%20VALUES%20%3FwikiTitle%20%7B%22Clara%20Campoamor%22%40es%7D%0A%20%20%20%20%3Fwiki%20schema%3Aabout%20%3Fid%3B%0A%20%20%20%20%20%20%20%20%20%20schema%3AisPartOf%20%3Chttps%3A%2F%2Fes.wikipedia.org%2F%3E%3B%0A%20%20%20%20%20%20%20%20%20%20schema%3Aname%20%3FwikiTitle.%0A%7D) this query with `Clara Campoamor` the Wikidata item [`Q3321142`](https://www.wikidata.org/wiki/Q3321142) is returned.
+
+```sparql
+SELECT ?id
+WHERE {
+    VALUES ?wikiTitle {"Clara Campoamor"@es}
+    ?wiki schema:about ?id;
+          schema:isPartOf <https://es.wikipedia.org/>;
+          schema:name ?wikiTitle.
+}
+```
+
+### Details from Wikidata identifier
+
+This query has a Wikidata identifier as a parameter and will try to get back a few details that are optional for the item (`OPTIONAL`). Sometimes a subject has listed several death or birth dates or pictures, so we pick one of them randomly (`SAMPLE`). Additionally, it will aggregate the different occupations, unfortunately using the Spanish male nouns. When  [executing](https://query.wikidata.org/#SELECT%20%0A%20%20%3Fid%20%28%3FidLabel%20AS%20%3Fname%29%20%0A%20%20%3Fdescription%20%0A%20%20%28%3FgenderLabel%20AS%20%3Fgender%29%20%0A%20%20%28SAMPLE%28%3Fbirths%29%20AS%20%3Fbirth%29%20%0A%20%20%28SAMPLE%28%3Fdeaths%29%20AS%20%3Fdeath%29%20%0A%20%20%28SAMPLE%28%3Fpic%29%20AS%20%3Fpicture%29%20%0A%20%20%28GROUP_CONCAT%28DISTINCT%20%3FoccupationsLabel%3B%20SEPARATOR%20%3D%20%22%2C%20%22%29%20AS%20%3Foccupations%29%20%0AWHERE%20%7B%0A%20%20VALUES%20%3Fid%20%7B%0A%20%20%20%20wd%3AQ3321142%0A%20%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP21%20%3Fgender.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP569%20%3Fbirths.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP570%20%3Fdeaths.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP106%20%3Foccupations.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20wdt%3AP18%20%3Fpic.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fid%20schema%3Adescription%20%3Fdesc.%20%7D%0A%20%20FILTER%28%28LANG%28%3Fdesc%29%29%20%3D%20%22es%22%29%0A%20%20BIND%28COALESCE%28%3Fdesc%2C%20%22%22%29%20AS%20%3Fdescription%29%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%0A%20%20%20%20bd%3AserviceParam%20wikibase%3Alanguage%20%22es%22.%0A%20%20%20%20%3Fid%20rdfs%3Alabel%20%3FidLabel.%0A%20%20%20%20%3Fgender%20rdfs%3Alabel%20%3FgenderLabel.%0A%20%20%20%20%3Foccupations%20rdfs%3Alabel%20%3FoccupationsLabel.%0A%20%20%7D%0A%7D%0AGROUP%20BY%20%3Fid%20%3FidLabel%20%3Fdescription%20%3FgenderLabel%20%3Fwiki) this query with the identifier from the previous example we get all the desired details from Clara Campoamor.
+
+```sparql
+SELECT 
+  ?id (?idLabel AS ?name) 
+  ?description 
+  (?genderLabel AS ?gender) 
+  (SAMPLE(?births) AS ?birth) 
+  (SAMPLE(?deaths) AS ?death) 
+  (SAMPLE(?pic) AS ?picture) 
+  (GROUP_CONCAT(DISTINCT ?occupationsLabel; SEPARATOR = ", ") AS ?occupations) 
+WHERE {
+  VALUES ?id {
+    wd:Q3321142
+  }
+  OPTIONAL { ?id wdt:P21 ?gender. }
+  OPTIONAL { ?id wdt:P569 ?births. }
+  OPTIONAL { ?id wdt:P570 ?deaths. }
+  OPTIONAL { ?id wdt:P106 ?occupations. }
+  OPTIONAL { ?id wdt:P18 ?pic. }
+  OPTIONAL { ?id schema:description ?desc. }
+  FILTER((LANG(?desc)) = "es")
+  BIND(COALESCE(?desc, "") AS ?description)
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "es".
+    ?id rdfs:label ?idLabel.
+    ?gender rdfs:label ?genderLabel.
+    ?occupations rdfs:label ?occupationsLabel.
+  }
+}
+GROUP BY ?id ?idLabel ?description ?genderLabel ?wiki
+```
 ### Current state
 
 The project is still under development. The idea is to gradually expand the number of mapped cities, which so far are:
@@ -78,6 +135,9 @@ Join our slack channel [#lascallesdelasmujeres](https://join.slack.com/t/geochic
 * **Noe Ortiz** (*México*)
 
 * **Horacio Castellaro** (*Argentina*)
+
+* **Jorge Sanz** (*España*)
+
 
 
 ## Allied organizations
