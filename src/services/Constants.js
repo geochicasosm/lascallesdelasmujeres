@@ -657,8 +657,7 @@ export const lang = {
       'Mapa generado a partir de las calles con nombre de mujeres, en diferentes ciudades de habla hispana (Latinoamérica y España).',
     panelDescriptionText2:
       'El objetivo es visibilizar la brecha que existe históricamente en la representación de figuras femeninas en las calles de las ciudades.',
-    panelDescriptionTextShort:
-      // eslint-disable-next-line max-len
+    panelDescriptionTextShort:      
       'Mapa de las calles con nombre de mujer en ciudades de Latinoamérica y España, para visibilizar la brecha que existe en la representación de figuras femeninas en las ciudades.',
     panelProjectBy: 'Un proyecto de',
     panelProjectBy2: 'Proyecto de',
@@ -680,7 +679,6 @@ export const lang = {
     panelDescriptionText2:
       "L'objectiu és visibilitzar la bretxa que existeix històricament en la representació de figures femenines als carrers de les ciutats.",
     panelDescriptionTextShort:
-      // eslint-disable-next-line max-len
       'Mapa dels carrers amb nom de dona en ciutats de Llatinoamèrica i Espanya, per visibilitzar la bretxa que existeix en la representació de figures femenines a les ciutats.',
     panelProjectBy: 'Un projecte de',
     panelProjectBy2: 'Projecte de',
@@ -702,7 +700,6 @@ export const lang = {
     panelDescriptionText2:
       'The objective is visualize the historic gap representing women figures in the streets of the cities.',
     panelDescriptionTextShort:
-      // eslint-disable-next-line max-len
       "Map of the streets containing women's names in cities of Latin America and Spain, visualizing the gap representing women figures in the cities.",
     panelProjectBy: 'A project from',
     panelProjectBy2: 'Project from',
@@ -722,10 +719,8 @@ export const lang = {
     panelDescriptionText1:
       'Mappa generata dai nomi di vie intitolate a donne, in città di lingua spagnola (America latina e Spagna).',
     panelDescriptionText2:
-      // eslint-disable-next-line max-len
       "L'obiettivo è di visualizzare la differenza che esiste storicamente nella rappresentazione delle figure di genere femminile nelle vie delle città.",
     panelDescriptionTextShort:
-      // eslint-disable-next-line max-len
       "Mappa delle vie intitolate a donne in città dell'America latina e Spagna per visualizzare la differenza che esiste storicamente nella rappresentazione delle figure di genere femminile nelle città.",
     panelProjectBy: 'Un progetto di',
     panelProjectBy2: 'Progetto di',

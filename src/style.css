@@ -79,6 +79,7 @@ button:hover {
 }
 button:focus,
 button:focus-visible {
+  /* eslint-disable-next-line css/use-baseline */
   outline: 4px auto -webkit-focus-ring-color;
 }
 
