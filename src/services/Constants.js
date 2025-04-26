@@ -13,6 +13,8 @@ export const MALE = 'Male';
 export const URL_DATA = 'https://raw.githubusercontent.com/geochicasosm/lascallesdelasmujeres/master';
 export const SOURCE_TYPES_LIST = ['line', 'fill'];
 
+export const OVERLAY_ID = 'admin-2-boundaries-dispute';
+
 export const countriesList = [
   {
     id: 'argentina',
@@ -54,7 +56,15 @@ export const countriesList = [
         id: 'ciudaddesanluis',
         name: 'Ciudad de San Luis',
         datos: {
-          numLink: 13, pcLink: 50.0, numNoLink: 13, pcNoLink: 50.0, numMale: 165, numFemale: 26, pcMale: 86.4, pcFemale: 13.6, totalNames: 191,
+          numLink: 13,
+          pcLink: 50.0,
+          numNoLink: 13,
+          pcNoLink: 50.0,
+          numMale: 165,
+          numFemale: 26,
+          pcMale: 86.4,
+          pcFemale: 13.6,
+          totalNames: 191,
         },
         center: [-66.33563, -33.29501],
       },
@@ -62,7 +72,15 @@ export const countriesList = [
         id: 'cordoba',
         name: 'Córdoba',
         datos: {
-          numLink: 95, pcLink: 59.0, numNoLink: 66, pcNoLink: 41.0, numMale: 2096, numFemale: 161, pcMale: 92.9, pcFemale: 7.1, totalNames: 2257,
+          numLink: 95,
+          pcLink: 59.0,
+          numNoLink: 66,
+          pcNoLink: 41.0,
+          numMale: 2096,
+          numFemale: 161,
+          pcMale: 92.9,
+          pcFemale: 7.1,
+          totalNames: 2257,
         },
         center: [-64.183334, -31.416668],
       },
@@ -128,7 +146,7 @@ export const countriesList = [
           pcFemale: 13.5,
           totalNames: 1402,
         },
-        center: [-65.410, -24.789],
+        center: [-65.41, -24.789],
       },
       {
         id: 'santafe',
@@ -207,7 +225,44 @@ export const countriesList = [
         center: [-84.115938, 9.997433],
       }],
   }, */
-
+  {
+    id: 'brasil',
+    name: 'Brasil',
+    citiesList: [
+      {
+        id: 'patobranco',
+        name: 'Pato Branco',
+        datos: {
+          numLink: 7,
+          pcLink: 6.8,
+          numNoLink: 96,
+          pcNoLink: 93.2,
+          numMale: 526,
+          numFemale: 103,
+          pcMale: 83.6,
+          pcFemale: 16.4,
+          totalNames: 629,
+        },
+        center: [-52.6712474, -26.2295984],
+      },
+      {
+        id: 'curitiba',
+        name: 'Curitiba',
+        datos: {
+          numLink: 124,
+          pcLink: 8.4,
+          numNoLink: 1356,
+          pcNoLink: 91.6,
+          numMale: 6875,
+          numFemale: 1480,
+          pcMale: 82.3,
+          pcFemale: 17.7,
+          totalNames: 8355,
+        },
+        center: [-49.2712724, -25.4295963],
+      },
+    ],
+  },
   {
     id: 'cuba',
     name: 'Cuba',
@@ -234,6 +289,38 @@ export const countriesList = [
     id: 'espana',
     name: 'España',
     citiesList: [
+      {
+        id: 'alaquas',
+        name: 'Alaquàs',
+        datos: {
+          numLink: 10,
+          pcLink: 100.0,
+          numNoLink: 0,
+          pcNoLink: 0.0,
+          numMale: 29,
+          numFemale: 10,
+          pcMale: 74.4,
+          pcFemale: 25.6,
+          totalNames: 39,
+        },
+        center: [-0.460924, 39.457278],
+      },
+      {
+        id: 'aldaia',
+        name: 'Aldaia',
+        datos: {
+          numLink: 19,
+          pcLink: 95.0,
+          numNoLink: 1,
+          pcNoLink: 5.0,
+          numMale: 107,
+          numFemale: 20,
+          pcMale: 84.3,
+          pcFemale: 15.7,
+          totalNames: 127,
+        },
+        center: [-0.461203, 39.464924],
+      },
       {
         id: 'badalona',
         name: 'Badalona',
@@ -267,6 +354,22 @@ export const countriesList = [
         center: [2.154007, 41.390205],
       },
       {
+        id: 'gijon',
+        name: 'Gijón',
+        datos: {
+          numLink: 103,
+          pcLink: 71.5,
+          numNoLink: 41,
+          pcNoLink: 28.5,
+          numMale: 507,
+          numFemale: 144,
+          pcMale: 77.9,
+          pcFemale: 22.1,
+          totalNames: 651,
+        },
+        center: [-5.66152, 43.53573],
+      },
+      {
         id: 'girona',
         name: 'Girona',
         datos: {
@@ -283,6 +386,23 @@ export const countriesList = [
         center: [2.8239, 41.9842],
       },
       {
+        id: 'huesca',
+        name: 'Huesca',
+        datos: {
+          numLink: 22,
+          pcLink: 78.6,
+          numNoLink: 6,
+          pcNoLink: 21.4,
+          numMale: 147,
+          numFemale: 28,
+          pcMale: 84.0,
+          pcFemale: 16.0,
+          totalNames: 175,
+        },
+
+        center: [-0.4087, 42.13615],
+      },
+      {
         id: 'madrid',
         name: 'Madrid',
         datos: {
@@ -297,6 +417,86 @@ export const countriesList = [
           totalNames: 3400,
         },
         center: [-3.7037, 40.41677],
+      },
+      {
+        id: 'puertodelrosario',
+        name: 'Puerto del Rosario',
+        datos: {
+          numLink: 5,
+          pcLink: 45.5,
+          numNoLink: 6,
+          pcNoLink: 54.5,
+          numMale: 133,
+          numFemale: 11,
+          pcMale: 92.4,
+          pcFemale: 7.6,
+          totalNames: 144,
+        },
+        center: [-13.86272, 28.50038],
+      },
+      {
+        id: 'salamanca',
+        name: 'Salamanca',
+        datos: {
+          numLink: 44,
+          pcLink: 67.7,
+          numNoLink: 21,
+          pcNoLink: 32.3,
+          numMale: 572,
+          numFemale: 65,
+          pcMale: 89.8,
+          pcFemale: 10.2,
+          totalNames: 637,
+        },
+        center: [-5.667607, 40.961613],
+      },
+      {
+        id: 'santacolomadegramanet',
+        name: 'Santa Coloma de Gramanet',
+        datos: {
+          numLink: 11,
+          pcLink: 84.6,
+          numNoLink: 2,
+          pcNoLink: 15.4,
+          numMale: 68,
+          numFemale: 13,
+          pcMale: 84.0,
+          pcFemale: 16.0,
+          totalNames: 81,
+        },
+        center: [2.2081, 41.45152],
+      },
+      {
+        id: 'valencia',
+        name: 'València',
+        datos: {
+          numLink: 135,
+          pcLink: 72.2,
+          numNoLink: 52,
+          pcNoLink: 27.8,
+          numMale: 1435,
+          numFemale: 187,
+          pcMale: 88.5,
+          pcFemale: 11.5,
+          totalNames: 1622,
+        },
+        center: [-0.376351, 39.469868],
+      },
+      {
+        id: 'valladolid',
+        name: 'Valladolid',
+        datos: {
+          numLink: 46,
+          pcLink: 79.3,
+          numNoLink: 12,
+          pcNoLink: 20.7,
+          numMale: 369,
+          numFemale: 58,
+          pcMale: 86.4,
+          pcFemale: 13.6,
+          totalNames: 427,
+        },
+        center: [-4.72372, 41.65518],
       },
       {
         id: 'zaragoza',
@@ -316,6 +516,35 @@ export const countriesList = [
       },
     ],
   },
+  {
+    id: 'italia',
+    name: 'Italia',
+    citiesList: [
+      /*       {
+        id: "bergamo",
+        name: "Bergamo",
+        datos: {},
+        center: [9.67, 45.695],
+      }, */
+      {
+        id: 'brescia',
+        name: 'Brescia',
+        datos: {
+          numLink: 29,
+          pcLink: 76.3,
+          numNoLink: 9,
+          pcNoLink: 23.7,
+          numMale: 673,
+          numFemale: 38,
+          pcMale: 94.7,
+          pcFemale: 5.3,
+          totalNames: 711,
+        },
+        center: [10.21185, 45.5416],
+      },
+    ],
+  },
+
   {
     id: 'mexico',
     name: 'México',
@@ -430,6 +659,7 @@ export const lang = {
     panelDescriptionText2:
       'El objetivo es visibilizar la brecha que existe históricamente en la representación de figuras femeninas en las calles de las ciudades.',
     panelDescriptionTextShort:
+      // eslint-disable-next-line max-len
       'Mapa de las calles con nombre de mujer en ciudades de Latinoamérica y España, para visibilizar la brecha que existe en la representación de figuras femeninas en las ciudades.',
     panelProjectBy: 'Un proyecto de',
     panelProjectBy2: 'Proyecto de',
@@ -451,6 +681,7 @@ export const lang = {
     panelDescriptionText2:
       "L'objectiu és visibilitzar la bretxa que existeix històricament en la representació de figures femenines als carrers de les ciutats.",
     panelDescriptionTextShort:
+      // eslint-disable-next-line max-len
       'Mapa dels carrers amb nom de dona en ciutats de Llatinoamèrica i Espanya, per visibilitzar la bretxa que existeix en la representació de figures femenines a les ciutats.',
     panelProjectBy: 'Un projecte de',
     panelProjectBy2: 'Projecte de',
@@ -465,12 +696,14 @@ export const lang = {
     },
     popupText: 'Carrer sense article',
   },
+
   en: {
     panelDescriptionText1:
       'Map generated from the data obtained of Women Street names in Spanish speaking cities (Latin America and Spain).',
     panelDescriptionText2:
       'The objective is visualize the historic gap representing women figures in the streets of the cities.',
     panelDescriptionTextShort:
+      // eslint-disable-next-line max-len
       "Map of the streets containing women's names in cities of Latin America and Spain, visualizing the gap representing women figures in the cities.",
     panelProjectBy: 'A project from',
     panelProjectBy2: 'Project from',
@@ -484,6 +717,29 @@ export const lang = {
       chartText1: 'Women having a Wikipedia article',
     },
     popupText: 'Street without article',
+  },
+
+  it: {
+    panelDescriptionText1:
+      'Mappa generata dai nomi di vie intitolate a donne, in città di lingua spagnola (America latina e Spagna).',
+    panelDescriptionText2:
+      // eslint-disable-next-line max-len
+      "L'obiettivo è di visualizzare la differenza che esiste storicamente nella rappresentazione delle figure di genere femminile nelle vie delle città.",
+    panelDescriptionTextShort:
+      // eslint-disable-next-line max-len
+      "Mappa delle vie intitolate a donne in città dell'America latina e Spagna per visualizzare la differenza che esiste storicamente nella rappresentazione delle figure di genere femminile nelle città.",
+    panelProjectBy: 'Un progetto di',
+    panelProjectBy2: 'Progetto di',
+    menuTitle: 'Le vie delle donne',
+    chartTxt: {
+      chartMen: 'Uomini',
+      chartWomen: 'Donne',
+      chartStreetsOf: 'Le vie di',
+      chartHave: 'non ha',
+      chartNotHave: 'ha',
+      chartText1: 'Donne con articolo di Wikipedia',
+    },
+    popupText: 'Vie senza articolo',
   },
 };
 

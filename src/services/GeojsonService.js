@@ -8,6 +8,7 @@ import {
   FEMALE,
   URL_DATA,
   SOURCE_TYPES_LIST,
+  OVERLAY_ID,
 } from './Constants';
 
 import {
@@ -121,7 +122,7 @@ export default class GeojsonMapService {
         ],
       },
       filter: ['==', '$type', 'LineString'],
-    });
+    }, OVERLAY_ID);
 
     map.addLayer({
       id: `${sourcename}-fill`,
@@ -136,7 +137,7 @@ export default class GeojsonMapService {
         'fill-opacity': ['case', ['==', ['get', 'wikipedia_link'], ''], 0.2, 0.6],
       },
       filter: ['==', '$type', 'Polygon'],
-    });
+    }, OVERLAY_ID);
 
     this.addPopupEvents(map, sourcename, isMobile, popupText);
 
@@ -239,7 +240,7 @@ export default class GeojsonMapService {
       },
       minzoom: 1,
       maxzoom: 7,
-    });
+    }, OVERLAY_ID);
 
     map.addLayer({
       id: `${layername}1`,
@@ -251,7 +252,7 @@ export default class GeojsonMapService {
       },
       minzoom: 1,
       maxzoom: 7,
-    });
+    }, OVERLAY_ID);
 
     function animateMarker() {
       radius += (maxRadius - radius) / framesPerSecond;
