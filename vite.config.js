@@ -1,13 +1,8 @@
 /** @type {import('vite').UserConfig} */
 export default {
-    root: './src',
+    root: '.',
     build: {
-        outDir: '../docs/',
-        emptyOutDir: true,
-        rollupOptions: {
-            input: {
-                main: './src/index.html',
-            }
-        }
+        outDir: 'docs',
+        emptyOutDir: true
     },
 }
