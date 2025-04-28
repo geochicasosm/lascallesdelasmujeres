@@ -1,5 +1,3 @@
-/* eslint-disable no-loop-func */
-
 import MyMap from './MyMap';
 import GeojsonService from './GeojsonService';
 import ChartService from './ChartService';
@@ -193,14 +191,14 @@ export default class MyApp {
   updateToggleMenuIcon() {
     const icon = document.getElementById('menu-toggle-icon');
 
-    if (!openToggleMenu) {
+    if (!this.openToggleMenu) {
       icon.classList.remove('fa-chevron-circle-down');
       icon.classList.add('fa-chevron-circle-right');
     } else {
       icon.classList.remove('fa-chevron-circle-right');
       icon.classList.add('fa-chevron-circle-down');
     }
-    openToggleMenu = !openToggleMenu;
+    this.openToggleMenu = !this.openToggleMenu;
   }
 
   isBlank(str) {

@@ -8,5 +8,5 @@ function gtag() {
 
 gtag('js', new Date());
 
-gtag('config', process.env.GA_UID || 'GA_UID');
+gtag('config', import.meta.env.VITE_GA_UID || 'GA_UID');
 gtag('set', 'anonymizeIp', true);

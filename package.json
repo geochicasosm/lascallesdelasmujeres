@@ -1,34 +1,26 @@
 {
-  "name": "lascallesdelasmujeres",
-  "version": "1.0.0",
-  "description": "#LasCallesDeLasMujeres",
-  "main": "src/index.html",
+  "name": "lascallesdelasmujeres-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "parcel src/index.html --open",
-    "build": "parcel build src/index.html --out-dir docs --public-url ./",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "deploy": "npm run build && git add . && git commit -m 'latest build' && git push origin master"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/css": "^0.7.0",
+    "@eslint/js": "^9.25.1",
+    "eslint": "^9.25.1",
+    "globals": "^16.0.0",
+    "vite": "^6.3.1"
   },
   "dependencies": {
     "@activejs/core": "^0.2.3",
-    "@fortawesome/fontawesome-free": "^5.15.1",
-    "animate.css": "^3.7.2",
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "animate.css": "^4.1.1",
     "chart.js": "^2.9.4",
-    "dotenv": "^8.2.0",
-    "handlebars": "^4.7.6"
-  },
-  "devDependencies": {
-    "@babel/core": "7.2.0",
-    "@babel/plugin-syntax-optional-chaining": "^7.8.3",
-    "@geostarters/eslint-config": "0.0.3",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "parcel-bundler": "^1.6.1",
-    "parcel-plugin-eslint": "^1.0.7"
+    "handlebars": "^4.7.8"
   }
 }
