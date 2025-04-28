@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import {
   femalePlaceholderImageId,
   framesPerSecond,
@@ -54,7 +53,6 @@ export default class GeojsonMapService {
           ? birthDate.getFullYear()
           : undefined;
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.warn(error);
       }
       try {
@@ -63,7 +61,6 @@ export default class GeojsonMapService {
           ? deathDate.getFullYear()
           : undefined;
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.warn(error);
       }
     }

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 export const mapDarkStyle = 'mapbox://styles/mapbox/dark-v9';
 
 export const initCenter = [-39.11133, 36.66842];

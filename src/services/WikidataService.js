@@ -111,7 +111,6 @@ const getDetailsFromWikidataId = (wikidataId) => {
           Object.keys(binding).forEach((k) => {
             result[k] = binding[k].value;
           });
-          // eslint-disable-next-line no-console
           console.log(`Saving ${result.name} into local storage`);
           wikidatDetailsCacheUnit.set(wikidataId, {
             timestamp: new Date(),
