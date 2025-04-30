@@ -35,7 +35,6 @@ jobs:
           echo VITE_GA_UID=${{ secrets.GA_UID }} >> .env
 
       - name: "Build & test"
-        working-directory: ./main/front
         run: |
           npm run build
 
