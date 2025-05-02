@@ -736,3 +736,48 @@ export const lang = {
     popupText: 'Vie senza articolo',
   },
 };
+
+/* Wikidata Service Constants */
+export const femalePlaceholderImageId = 'female-placeholder';
+export const wikidataAPIEndpointUrl = 'https://query.wikidata.org/sparql?format=json&query=';
+
+export const wikipediaSPARQLQuery = `SELECT 
+?id
+WHERE {
+VALUES ?wikiTitle {
+  "{{name}}"@es
+}
+?wiki schema:about ?id;
+  schema:isPartOf <https://es.wikipedia.org/>;
+  schema:name ?wikiTitle.
+}`;
+
+export const wikidataSPARQLQuery = `SELECT 
+?id 
+(?idLabel AS ?name) 
+?description
+(?genderLabel AS ?gender)
+(SAMPLE(?births) AS ?birth) 
+(SAMPLE(?deaths) AS ?death) 
+(SAMPLE(?pic) AS ?picture) 
+(GROUP_CONCAT(DISTINCT ?occupationsLabel; SEPARATOR = ", ") AS ?occupations) 
+WHERE {
+VALUES ?id { wd:{{wikidataId}} }
+OPTIONAL { ?id wdt:P21 ?gender. }
+OPTIONAL { ?id wdt:P569 ?births. }
+OPTIONAL { ?id wdt:P570 ?deaths. }
+OPTIONAL { ?id wdt:P106 ?occupations. }
+OPTIONAL { ?id wdt:P18 ?pic }.
+OPTIONAL { ?id schema:description ?desc }.
+FILTER(LANG(?desc) = "es")
+BIND(COALESCE(?desc, "") AS ?description)
+SERVICE wikibase:label {
+  bd:serviceParam wikibase:language "es".
+  ?id rdfs:label ?idLabel.
+  ?gender rdfs:label ?genderLabel.
+  ?occupations rdfs:label ?occupationsLabel.
+}
+}
+GROUP BY ?id ?idLabel ?description ?genderLabel ?wiki`;
+
+export const wikidataExpireCache = 1 * 24 * 3600 * 1000;
