@@ -1,8 +1,9 @@
 /** @type {import('vite').UserConfig} */
 export default {
     root: '.',
+    base: './',
     build: {
-        outDir: 'docs',
+        outDir: 'dist',
         emptyOutDir: true
     },
 }
