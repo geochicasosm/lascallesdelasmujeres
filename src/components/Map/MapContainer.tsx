@@ -53,7 +53,7 @@ export const MapContainer = () => {
         onClick={handleMapClick}
         interactiveLayerIds={
           selectedCity
-            ? [`${selectedCity.id}-streets-line`, `${selectedCity.id}-streets-fill`]
+            ? ['streets-line', 'streets-fill']
             : []
         }
         mapboxAccessToken={MAPBOX_TOKEN}

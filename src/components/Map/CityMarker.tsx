@@ -59,7 +59,7 @@ export const CityMarker = ({ longitude, latitude, cityId }: CityMarkerProps) => 
   };
 
   const outerLayer: LayerProps = {
-    id: `${cityId}-marker-outer`,
+    id: 'marker-outer',
     type: 'circle',
     paint: {
       'circle-radius': radius,
@@ -71,7 +71,7 @@ export const CityMarker = ({ longitude, latitude, cityId }: CityMarkerProps) => 
   };
 
   const innerLayer: LayerProps = {
-    id: `${cityId}-marker-inner`,
+    id: 'marker-inner',
     type: 'circle',
     paint: {
       'circle-radius': 5,
@@ -82,7 +82,7 @@ export const CityMarker = ({ longitude, latitude, cityId }: CityMarkerProps) => 
   };
 
   return (
-    <Source id={`${cityId}-marker-source`} type="geojson" data={pointData}>
+    <Source id="city-marker-source" type="geojson" data={pointData}>
       <Layer {...outerLayer} />
       <Layer {...innerLayer} />
     </Source>

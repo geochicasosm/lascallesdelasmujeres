@@ -40,7 +40,7 @@ export const StreetLayer = ({ cityId }: StreetLayerProps) => {
   const widthMale = isMobile ? 4 : 3;
 
   const lineLayer: LayerProps = {
-    id: `${cityId}-streets-line`,
+    id: 'streets-line',
     type: 'line',
     paint: {
       'line-color': [
@@ -61,7 +61,7 @@ export const StreetLayer = ({ cityId }: StreetLayerProps) => {
   };
 
   const fillLayer: LayerProps = {
-    id: `${cityId}-streets-fill`,
+    id: 'streets-fill',
     type: 'fill',
     paint: {
       'fill-color': [
@@ -76,7 +76,7 @@ export const StreetLayer = ({ cityId }: StreetLayerProps) => {
   };
 
   return (
-    <Source id={`${cityId}-source`} type="geojson" data={data}>
+    <Source id="streets-source" type="geojson" data={data}>
       <Layer {...lineLayer} />
       <Layer {...fillLayer} />
     </Source>
