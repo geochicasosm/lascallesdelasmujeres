@@ -2,3 +2,4 @@
 export * from './useMap';
 export * from './useGeoJSON';
 export * from './useMediaQuery';
+export * from './useInitialCity';
