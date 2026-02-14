@@ -1,0 +1,25 @@
+{
+    "app": {
+        "title": "Le vie delle donne"
+    },
+    "description": {
+        "text1": "Mappa generata dai nomi di vie intitolate a donne, in città di lingua spagnola (America latina e Spagna).",
+        "text2": "L'obiettivo è di visualizzare la differenza che esiste storicamente nella rappresentazione delle figure di genere femminile nelle vie delle città.",
+        "textShort": "Mappa delle vie intitolate a donne in città dell'America latina e Spagna per visualizzare la differenza che esiste storicamente nella rappresentazione delle figure di genere femminile nelle città."
+    },
+    "chart": {
+        "men": "Uomini",
+        "women": "Donne",
+        "streetsOf": "Le vie di",
+        "have": "ha",
+        "notHave": "non ha",
+        "wikiTitle": "Donne con articolo di Wikipedia"
+    },
+    "popup": {
+        "noArticle": "Vie senza articolo"
+    },
+    "footer": {
+        "projectBy": "Un progetto di",
+        "projectBy2": "Progetto di"
+    }
+}
