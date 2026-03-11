@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
+import { Link, useLocation } from 'react-router-dom';
 import { CityList } from '../CityList';
-import { LanguageSwitcher } from '../UI/LanguageSwitcher';
 
 export const Sidebar = () => {
   const { t } = useTranslation();
+  const location = useLocation();
 
   return (
     <div className="sidebar">
@@ -13,12 +14,6 @@ export const Sidebar = () => {
           alt="Las Calles de las Mujeres"
           className="logo"
         />
-        <LanguageSwitcher />
-      </div>
-
-      <div className="sidebar-description">
-        <p className="description-text">{t('description.text1')}</p>
-        <p className="description-text">{t('description.text2')}</p>
       </div>
 
       <div className="sidebar-footer">
@@ -40,14 +35,18 @@ export const Sidebar = () => {
 
       <div className="separator"></div>
 
-      <div className="sidebar-social">
-        <a
-          href="https://twitter.com/GeochicasOSM"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className="sidebar-nav">
+        <Link
+          to="/stats"
+          className={`sidebar-nav-link ${location.pathname === '/stats' ? 'active' : ''}`}
         >
-          <i className="fab fa-twitter"></i> @GeochicasOSM
-        </a>
+          <i className="fas fa-chart-bar"></i> {t('stats.navLink')}
+        </Link>
+      </div>
+
+      <div className="separator"></div>
+
+      <div className="sidebar-social">
         <a
           href="https://github.com/geochicasosm/lascallesdelasmujeres"
           target="_blank"

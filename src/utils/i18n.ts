@@ -14,12 +14,12 @@ const resources = {
 
 const browserLang = navigator.language.split('-')[0];
 const supportedLangs = ['es', 'en', 'ca', 'it'];
-const supportedLang = supportedLangs.includes(browserLang) ? browserLang : 'es';
+const supportedLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
 
 i18n.use(initReactI18next).init({
   resources,
   lng: supportedLang,
-  fallbackLng: 'es',
+  fallbackLng: 'en',
   interpolation: {
     escapeValue: false,
   },

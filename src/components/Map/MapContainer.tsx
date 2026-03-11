@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import Map, { NavigationControl, ScaleControl } from 'react-map-gl';
 import { useMap } from '../../hooks';
 import { useCityStore } from '../../stores/cityStore';
@@ -22,6 +22,7 @@ export const MapContainer = () => {
   const { viewState, setViewState, flyToCity } = useMap();
   const selectedCity = useCityStore((state) => state.selectedCity);
   const [popupInfo, setPopupInfo] = useState<PopupInfo | null>(null);
+  const [isHoveringStreet, setIsHoveringStreet] = useState(false);
 
   useEffect(() => {
     if (selectedCity) {
@@ -45,12 +46,25 @@ export const MapContainer = () => {
     }
   };
 
+  const handleMouseMove = useCallback((event: any) => {
+    const features = event.features;
+    const hasFeatures = features && features.length > 0;
+    
+    // Only update state if it's actually changing to prevent unnecessary re-renders
+    if (hasFeatures && !isHoveringStreet) {
+      setIsHoveringStreet(true);
+    } else if (!hasFeatures && isHoveringStreet) {
+      setIsHoveringStreet(false);
+    }
+  }, [isHoveringStreet]);
+
   return (
     <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
       <Map
         {...viewState}
         onMove={(evt) => setViewState(evt.viewState)}
         onClick={handleMapClick}
+        onMouseMove={handleMouseMove}
         interactiveLayerIds={
           selectedCity
             ? ['streets-line', 'streets-fill']
@@ -60,7 +74,7 @@ export const MapContainer = () => {
         style={{ width: '100%', height: '100%' }}
         mapStyle={MAP_STYLE}
         attributionControl={false}
-        cursor={popupInfo ? 'pointer' : 'grab'}
+        cursor={isHoveringStreet || popupInfo ? 'pointer' : 'grab'}
       >
         <NavigationControl position="top-right" />
         <ScaleControl position="bottom-right" />

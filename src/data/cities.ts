@@ -178,22 +178,6 @@ export const countriesList: Country[] = [
     name: 'Brasil',
     citiesList: [
       {
-        id: 'patobranco',
-        name: 'Pato Branco',
-        datos: {
-          numLink: 7,
-          pcLink: 6.8,
-          numNoLink: 96,
-          pcNoLink: 93.2,
-          numMale: 526,
-          numFemale: 103,
-          pcMale: 83.6,
-          pcFemale: 16.4,
-          totalNames: 629,
-        },
-        center: [-52.6712474, -26.2295984],
-      },
-      {
         id: 'curitiba',
         name: 'Curitiba',
         datos: {
@@ -208,6 +192,22 @@ export const countriesList: Country[] = [
           totalNames: 8355,
         },
         center: [-49.2712724, -25.4295963],
+      },
+      {
+        id: 'patobranco',
+        name: 'Pato Branco',
+        datos: {
+          numLink: 7,
+          pcLink: 6.8,
+          numNoLink: 96,
+          pcNoLink: 93.2,
+          numMale: 526,
+          numFemale: 103,
+          pcMale: 83.6,
+          pcFemale: 16.4,
+          totalNames: 629,
+        },
+        center: [-52.6712474, -26.2295984],
       },
     ],
   },
