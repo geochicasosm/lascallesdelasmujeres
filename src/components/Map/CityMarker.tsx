@@ -8,7 +8,7 @@ interface CityMarkerProps {
   cityId: string;
 }
 
-export const CityMarker = ({ longitude, latitude, cityId }: CityMarkerProps) => {
+export const CityMarker = ({ longitude, latitude, cityId: _cityId }: CityMarkerProps) => {
   const [radius, setRadius] = useState(5);
   const [opacity, setOpacity] = useState(1);
 
