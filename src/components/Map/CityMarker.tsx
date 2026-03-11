@@ -8,6 +8,7 @@ interface CityMarkerProps {
   cityId: string;
 }
 
+// This component renders an animated marker for a city on the map. It uses two layers: an outer layer that expands and fades out, and an inner layer that remains static. The animation is achieved using requestAnimationFrame to smoothly update the radius and opacity over time.
 export const CityMarker = ({ longitude, latitude, cityId: _cityId }: CityMarkerProps) => {
   const [radius, setRadius] = useState(5);
   const [opacity, setOpacity] = useState(1);
