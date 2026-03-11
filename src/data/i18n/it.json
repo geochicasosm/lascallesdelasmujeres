@@ -16,10 +16,49 @@
         "wikiTitle": "Donne con articolo di Wikipedia"
     },
     "popup": {
-        "noArticle": "Vie senza articolo"
+        "namedAfterWoman": "Intitolata a una donna",
+        "namedAfterMan": "Intitolata a un uomo",
+        "learnMore": "Ulteriori informazioni",
+        "noArticleTooltip": "Articolo non ancora disponibile"
     },
     "footer": {
         "projectBy": "Un progetto di",
         "projectBy2": "Progetto di"
+    },
+    "stats": {
+        "navLink": "Statistiche",
+        "backToMap": "Torna alla mappa",
+        "pageTitle": "Statistiche per città",
+        "pageSubtitle": "Confronta i dati sulla rappresentazione delle donne nelle strade di tutte le città",
+        "filterByCountry": "Filtra per paese",
+        "allCountries": "Tutti i paesi",
+        "sortBy": "Ordina per",
+        "view": "Vista",
+        "viewCharts": "Grafici",
+        "viewTable": "Tabella",
+        "femalePercentageTitle": "% di vie intitolate a donne",
+        "wikiCoverageTitle": "% di vie femminili con articolo Wikipedia",
+        "cityCardsTitle": "Tutte le città",
+        "wikiOf": "Copertura Wikipedia a",
+        "sort": {
+            "pcFemale": "% Donne",
+            "pcLink": "% Wikipedia",
+            "totalNames": "Totale vie",
+            "name": "Nome"
+        },
+        "summary": {
+            "cities": "Città",
+            "totalStreets": "Totale vie",
+            "femaleStreets": "Vie delle donne",
+            "wikiStreets": "Con Wikipedia"
+        },
+        "table": {
+            "city": "Città",
+            "total": "Totale vie",
+            "female": "Donne",
+            "male": "Uomini",
+            "wikiPc": "Wikipedia %",
+            "wikiNum": "Wiki (con / totale)"
+        }
     }
 }

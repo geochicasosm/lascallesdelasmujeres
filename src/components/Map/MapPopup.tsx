@@ -10,6 +10,20 @@ interface MapPopupProps {
   onClose: () => void;
 }
 
+/**
+ * Extracts the person's name from the street name by removing common prefixes
+ * @param streetName - Full street name (e.g., "Calle María Zambrano")
+ * @returns Extracted person name (e.g., "María Zambrano")
+ */
+const extractPersonName = (streetName: string): string => {
+  // Remove common street prefixes in multiple languages
+  const cleaned = streetName.replace(
+    /^(Calle|Avenida|Rua|Rue|Via|Plaza|Paseo|Carrer|Travesía|Ronda|Camino|Alameda)\s+/i,
+    ''
+  );
+  return cleaned.trim();
+};
+
 export const MapPopup = ({
   longitude,
   latitude,
@@ -20,7 +34,8 @@ export const MapPopup = ({
 }: MapPopupProps) => {
   const { t } = useTranslation();
   const isFemale = gender === 'Female';
-  const backgroundColor = isFemale ? '#ffca3af2' : '#0e9686f2';
+  const hasWikipedia = !!wikipediaLink;
+  const personName = extractPersonName(name);
 
   return (
     <Popup
@@ -30,54 +45,40 @@ export const MapPopup = ({
       closeButton={true}
       closeOnClick={false}
       anchor="bottom"
-      style={{ maxWidth: '200px' }}
+      offset={15}
     >
-      <div
-        style={{
-          backgroundColor,
-          color: 'white',
-          padding: '10px',
-          borderRadius: '4px',
-          border: '2px solid white',
-        }}
-      >
-        <div className={isFemale ? 'popup-female' : 'popup-male'}>
-          <p style={{ margin: '0 0 8px 0', fontWeight: 'bold' }}>{name}</p>
-          {isFemale && (
-            <>
-              {wikipediaLink ? (
-                <a
-                  href={wikipediaLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-light"
-                  style={{
-                    display: 'inline-block',
-                    padding: '5px 10px',
-                    backgroundColor: 'white',
-                    color: '#333',
-                    textDecoration: 'none',
-                    borderRadius: '4px',
-                    fontSize: '14px',
-                  }}
-                >
-                  <i className="fab fa-wikipedia-w"></i>
-                </a>
-              ) : (
-                <span
-                  style={{
-                    fontSize: '12px',
-                    display: 'block',
-                    marginTop: '5px',
-                    opacity: 0.9,
-                  }}
-                >
-                  <i className="fas fa-exclamation"></i> {t('popup.noArticle')}
-                </span>
-              )}
-            </>
-          )}
-        </div>
+      <div className={isFemale ? 'popup-female-card' : 'popup-male-card'}>
+        <h3 className="popup-person-name">{personName}</h3>
+        <p className="popup-subtitle">
+          {t(isFemale ? 'popup.namedAfterWoman' : 'popup.namedAfterMan')}
+        </p>
+
+        {isFemale && (
+          <>
+            {hasWikipedia ? (
+              <a
+                href={wikipediaLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="popup-button"
+                aria-label={`${t('popup.learnMore')} ${personName}`}
+              >
+                <i className="fab fa-wikipedia-w popup-button-icon"></i>
+                {t('popup.learnMore')}
+              </a>
+            ) : (
+              <button
+                disabled
+                className="popup-button"
+                title={t('popup.noArticleTooltip')}
+                aria-label={`${t('popup.noArticleTooltip')}: ${personName}`}
+              >
+                <i className="fab fa-wikipedia-w popup-button-icon"></i>
+                {t('popup.learnMore')}
+              </button>
+            )}
+          </>
+        )}
       </div>
     </Popup>
   );
