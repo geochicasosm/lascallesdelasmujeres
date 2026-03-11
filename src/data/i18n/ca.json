@@ -1,0 +1,25 @@
+{
+    "app": {
+        "title": "Els carrers de les dones"
+    },
+    "description": {
+        "text1": "Mapa generat a partir dels carrers amb nom de dones, a diferents ciutats de parla hispana (Llatinoamèrica i Espanya).",
+        "text2": "L'objectiu és visibilitzar la bretxa que existeix històricament en la representació de figures femenines als carrers de les ciutats.",
+        "textShort": "Mapa dels carrers amb nom de dona en ciutats de Llatinoamèrica i Espanya, per visibilitzar la bretxa que existeix en la representació de figures femenines a les ciutats."
+    },
+    "chart": {
+        "men": "Homes",
+        "women": "Dones",
+        "streetsOf": "Carrers de",
+        "have": "en té",
+        "notHave": "no en té",
+        "wikiTitle": "Dones amb article a Wikipedia"
+    },
+    "popup": {
+        "noArticle": "Carrer sense article"
+    },
+    "footer": {
+        "projectBy": "Un projecte de",
+        "projectBy2": "Projecte de"
+    }
+}
