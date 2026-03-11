@@ -35,14 +35,14 @@ export const Sidebar = () => {
 
       <div className="separator"></div>
 
-      {/* <div className="sidebar-nav">
+      <div className="sidebar-nav">
         <Link
           to="/stats"
           className={`sidebar-nav-link ${location.pathname === '/stats' ? 'active' : ''}`}
         >
           <i className="fas fa-chart-bar"></i> {t('stats.navLink')}
         </Link>
-      </div> */}
+      </div>
 
       <div className="separator"></div>
 
