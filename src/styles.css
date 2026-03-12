@@ -408,112 +408,13 @@ color: #FFFF00;
 /**/
 
 .mapboxgl-popup-content{
-  background-color: transparent !important;
-  padding: 0 !important;
-  border: none !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
-}
-
-.mapboxgl-popup-close-button{
+  /* background-color: #0e9686f2; */
   color: white;
-  font-size: 20px;
-  padding: 4px 8px;
-  z-index: 10;
-}
-
-.mapboxgl-popup-close-button:hover{
-  background-color: rgba(0,0,0,0.1);
-}
-
-.popup-female-card {
-  min-width: 280px;
-  padding: 24px 28px;
-  text-align: center;
-  background-color: #ffca3a;
-  color: #3d2e00;              /* dark warm brown instead of white — much better contrast */
-  border-radius: 14px;
-  border: none;
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.15),
-    0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-.popup-female-card {
-  animation: popupEnter 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-@keyframes popupEnter {
-  from {
-    opacity: 0;
-    transform: scale(0.92) translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.popup-male-card {
-  min-width: 250px;
-  padding: 16px 18px;
-  text-align: center;
-  background-color: #0e9686f2;
-  color: white;
-  border-radius: 8px;
+  font-weight: bold;
+  max-width: 150px;
   border: 2px solid white;
 }
-
-.popup-person-name {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin: 0 0 4px 0;
-  color: #1a1200;             /* near-black warm tone for the name */
-}
-
-.popup-subtitle {
-  font-size: 0.85rem;
-  font-weight: 500;
-  opacity: 0.7;
-  margin: 0 0 16px 0;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.popup-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #ffca3a;
-  background-color: #1a1200;
-  border: none;
-  border-radius: 999px;        /* pill shape */
-  cursor: pointer;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.popup-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.popup-button:disabled {
-  background-color: #1a120066;
-  cursor: not-allowed;
-  opacity: 0.5;
-  transform: none;
-  box-shadow: none;
-}
-
-.popup-button-icon {
-  font-size: 1rem;
-}
-
-/* Legacy classes for backwards compatibility */
+.mapboxgl-popup-close-button{color: white}
 .popup-female{
   min-width: 80px;
   margin-top: 5px;
