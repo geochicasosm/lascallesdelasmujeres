@@ -16,49 +16,10 @@
         "wikiTitle": "Dones amb article a Wikipedia"
     },
     "popup": {
-        "namedAfterWoman": "Carrer amb nom de dona",
-        "namedAfterMan": "Carrer amb nom d'home",
-        "learnMore": "Més informació",
-        "noArticleTooltip": "Article no disponible encara"
+        "noArticle": "Carrer sense article"
     },
     "footer": {
         "projectBy": "Un projecte de",
         "projectBy2": "Projecte de"
-    },
-    "stats": {
-        "navLink": "Estadístiques",
-        "backToMap": "Tornar al mapa",
-        "pageTitle": "Estadístiques per ciutat",
-        "pageSubtitle": "Compara les dades de representació de dones als carrers de totes les ciutats",
-        "filterByCountry": "Filtrar per país",
-        "allCountries": "Tots els països",
-        "sortBy": "Ordenar per",
-        "view": "Vista",
-        "viewCharts": "Gràfics",
-        "viewTable": "Taula",
-        "femalePercentageTitle": "% de carrers amb nom de dona",
-        "wikiCoverageTitle": "% de carrers de dones amb article a Wikipedia",
-        "cityCardsTitle": "Totes les ciutats",
-        "wikiOf": "Cobertura Wikipedia a",
-        "sort": {
-            "pcFemale": "% Dones",
-            "pcLink": "% Wikipedia",
-            "totalNames": "Total carrers",
-            "name": "Nom"
-        },
-        "summary": {
-            "cities": "Ciutats",
-            "totalStreets": "Total carrers",
-            "femaleStreets": "Carrers de dones",
-            "wikiStreets": "Amb Wikipedia"
-        },
-        "table": {
-            "city": "Ciutat",
-            "total": "Total carrers",
-            "female": "Dones",
-            "male": "Homes",
-            "wikiPc": "Wikipedia %",
-            "wikiNum": "Wiki (amb / total)"
-        }
     }
 }

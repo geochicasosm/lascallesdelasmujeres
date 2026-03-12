@@ -4,7 +4,6 @@ import { MapContainer } from './components/Map';
 import { ChartPanel } from './components/Charts';
 import { Legend } from './components/UI/Legend';
 import { ShareButton } from './components/UI/ShareButton';
-import { StatsPage } from './components/Stats';
 import { useInitialCity } from './hooks';
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
 
@@ -48,7 +47,6 @@ function App() {
             </>
           }
         />
-        <Route path="stats" element={<StatsPage />} />
       </Route>
     </Routes>
   );

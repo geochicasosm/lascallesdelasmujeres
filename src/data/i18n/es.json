@@ -16,49 +16,10 @@
         "wikiTitle": "Mujeres con artículo en Wikipedia"
     },
     "popup": {
-        "namedAfterWoman": "Calle con nombre de mujer",
-        "namedAfterMan": "Calle con nombre de hombre",
-        "learnMore": "Más información",
-        "noArticleTooltip": "Artículo no disponible aún"
+        "noArticle": "Calle sin artículo"
     },
     "footer": {
         "projectBy": "Un proyecto de",
         "projectBy2": "Proyecto de"
-    },
-    "stats": {
-        "navLink": "Estadísticas",
-        "backToMap": "Volver al mapa",
-        "pageTitle": "Estadísticas por ciudad",
-        "pageSubtitle": "Compara los datos de representación de mujeres en las calles de todas las ciudades",
-        "filterByCountry": "Filtrar por país",
-        "allCountries": "Todos los países",
-        "sortBy": "Ordenar por",
-        "view": "Vista",
-        "viewCharts": "Gráficos",
-        "viewTable": "Tabla",
-        "femalePercentageTitle": "% de calles con nombre de mujer",
-        "wikiCoverageTitle": "% de calles de mujeres con artículo en Wikipedia",
-        "cityCardsTitle": "Todas las ciudades",
-        "wikiOf": "Cobertura Wikipedia en",
-        "sort": {
-            "pcFemale": "% Mujeres",
-            "pcLink": "% Wikipedia",
-            "totalNames": "Total calles",
-            "name": "Nombre"
-        },
-        "summary": {
-            "cities": "Ciudades",
-            "totalStreets": "Total calles",
-            "femaleStreets": "Calles de mujeres",
-            "wikiStreets": "Con Wikipedia"
-        },
-        "table": {
-            "city": "Ciudad",
-            "total": "Total calles",
-            "female": "Mujeres",
-            "male": "Hombres",
-            "wikiPc": "Wikipedia %",
-            "wikiNum": "Wiki (con / total)"
-        }
     }
 }

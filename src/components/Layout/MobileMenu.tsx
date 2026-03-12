@@ -42,6 +42,12 @@ export const MobileMenu = () => {
             </div>
 
             <div className="mobile-menu-content">
+              <div className="mobile-description">
+                <p className="description-text">{t('description.textShort')}</p>
+              </div>
+
+              <div className="separator"></div>
+
               <div className="mobile-cities">
                 <CityList />
               </div>
