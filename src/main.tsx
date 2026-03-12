@@ -6,10 +6,12 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import './utils/i18n';
 import './styles/index.css';
 
+const basename = import.meta.env.BASE_URL.replace(/\/+$/, '');
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ErrorBoundary>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <App />
       </BrowserRouter>
     </ErrorBoundary>
