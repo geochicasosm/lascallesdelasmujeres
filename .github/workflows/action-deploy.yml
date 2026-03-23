@@ -35,8 +35,9 @@ jobs:
           echo VITE_GA_UID=${{ secrets.GA_UID }} >> .env
 
       - name: "Build & test"
-        run: |
-          npm run build
+        run: npm run build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
 
       - name: Upload static files as artifact
         id: deployment
