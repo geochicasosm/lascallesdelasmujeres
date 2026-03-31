@@ -1,4 +1,5 @@
 import {
+  femalePlaceholderImageId,
   framesPerSecond,
   initialOpacity,
   initialRadius,
@@ -8,6 +9,14 @@ import {
   SOURCE_TYPES_LIST,
   OVERLAY_ID,
 } from './Constants';
+
+import {
+  mainPopUpTemplate,
+  contentPopUpTemplate,
+  popUpWidths,
+} from './popUpTemplates';
+
+import getWikidataDetails from './WikidataService';
 
 export default class GeojsonMapService {
   static loadGeojson(map, folder, isMobile, coords, lang, popupText) {
@@ -26,13 +35,49 @@ export default class GeojsonMapService {
     }
   }
 
-  static getHTMLWikipediaLink(link, popupText) {
-    if (link !== '') {
-      return `<p class=""><a  class="btn btn-light" target="_blank" href='${link}'><i class="fab fa-wikipedia-w"></i></a></p>`;
+  static getHTMLWikipediaHTML(name, link, popupText, wikidataDetails, isFemale) {
+    if (link === '') {
+      return contentPopUpTemplate({
+        isFemale,
+        name,
+        popupText,
+      });
     }
 
-    return `<p class=""><a  class="btn btn-light disabled" target="_blank" href='${link}'><i class="fab fa-wikipedia-w"></i></a></p>
-              <span class="badge badge-secondary"><i class="fas fa-exclamation"></i>&nbsp;${popupText}</span>`;
+    let birthYear;
+    let deathYear;
+    if (wikidataDetails) {
+      try {
+        const birthDate = new Date(Date.parse(wikidataDetails.birth));
+        birthYear = birthDate instanceof Date && !isNaN(birthDate)
+          ? birthDate.getFullYear()
+          : undefined;
+      } catch (error) {
+        console.warn(error);
+      }
+      try {
+        const deathDate = new Date(Date.parse(wikidataDetails.death));
+        deathYear = deathDate instanceof Date && !isNaN(deathDate)
+          ? deathDate.getFullYear()
+          : undefined;
+      } catch (error) {
+        console.warn(error);
+      }
+    }
+
+    const image = wikidataDetails?.picture
+      ? wikidataDetails.picture
+      : document.getElementById(femalePlaceholderImageId).getAttribute('src');
+
+    return contentPopUpTemplate({
+      isFemale,
+      name,
+      wikidataDetails,
+      birthYear,
+      deathYear,
+      link,
+      image,
+    });
   }
 
   static addGeojsonSource(
@@ -107,44 +152,55 @@ export default class GeojsonMapService {
       map.on('click', `${sourcename}-${type}`, (e) => {
         popupHover.remove();
 
-        const link = e.features[0].properties.wikipedia_link; // .replace("es.wiki", lang+".wiki");
+        const link = e.features[0].properties.wikidata || e.features[0].properties.wikipedia_link;
         const { name, gender } = e.features[0].properties;
-        const color = gender === FEMALE ? '#ffca3af2' : '#0e9686f2';
         const popupType = gender === FEMALE ? 'popup-female' : 'popup-male';
+        const getHTML = this.getHTMLWikipediaHTML;
 
-        const html = `<div class="row"><div class="col-sm"><div class="${popupType}"><p>${name}</p>
-          ${gender === FEMALE ? this.getHTMLWikipediaLink(link, popupText) : ''}</div></div></div>`;
+        getWikidataDetails(link).then((wikidataDetails) => {
+          const htmlContent = getHTML(name, link, popupText, wikidataDetails, gender === FEMALE);
+          const html = mainPopUpTemplate({
+            popupType,
+            name,
+            htmlContent,
+          });
 
-        popupClick.setLngLat(e.lngLat)
-          .setHTML(html)
-          .addTo(map);
-        const popUpContent = document.getElementsByClassName('mapboxgl-popup-content');
-        if (popUpContent.length !== 0) {
-          popUpContent[0].style.backgroundColor = color;
-        }
+          popupClick.setLngLat(e.lngLat)
+            .setHTML(html)
+            .setMaxWidth(link !== '' ? popUpWidths[gender] : '240px')
+            .addTo(map);
+          popupClick.getElement().classList.add(gender);
+        });
       });
 
       if (!isMobile) {
+        // Hover PopUp
         map.on('mouseenter', `${sourcename}-${type}`, (e) => {
           popupClick.remove();
           const mapCanvas = map.getCanvas();
           mapCanvas.style.cursor = 'pointer';
           // TODO .replace("es.wiki", lang+".wiki");;
-          const link = e.features[0].properties.wikipedia_link;
+          const link = e.features[0].properties.wikidata || e.features[0].properties.wikipedia_link;
           const { name, gender } = e.features[0].properties;
-          const color = gender === FEMALE ? '#ffca3af2' : '#0e9686f2';
+
           const popupType = gender === FEMALE ? 'popup-female' : 'popup-male';
 
-          const html = `<div class="row"><div class="col-sm"><div class="${popupType}"><p>${name}</p>
-            ${gender === FEMALE ? this.getHTMLWikipediaLink(link, popupText) : ''}</div></div></div>`;
+          const getHTML = this.getHTMLWikipediaHTML;
 
-          popupHover.setLngLat(e.lngLat)
-            .setHTML(html)
-            .addTo(map);
-          const popUpContent = document.getElementsByClassName('mapboxgl-popup-content');
-          if (popUpContent.length !== 0) {
-            popUpContent[0].style.backgroundColor = color;
-          }
+          getWikidataDetails(link).then((wikidataDetails) => {
+            const htmlContent = getHTML(name, link, popupText, wikidataDetails, gender === FEMALE);
+            const html = mainPopUpTemplate({
+              popupType,
+              name,
+              htmlContent,
+            });
+
+            popupHover.setLngLat(e.lngLat)
+              .setHTML(html)
+              .setMaxWidth(link !== '' ? popUpWidths[gender] : '240px')
+              .addTo(map);
+            popupHover.getElement().classList.add(gender);
+          });
         });
 
         map.on('mouseleave', `${sourcename}-${type}`, () => {

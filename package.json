@@ -14,11 +14,14 @@
     "@eslint/js": "^9.25.1",
     "eslint": "^9.25.1",
     "globals": "^16.0.0",
+    "husky": "^9.1.7",
     "vite": "^6.3.1"
   },
   "dependencies": {
+    "@activejs/core": "^0.2.3",
     "@fortawesome/fontawesome-free": "^6.7.2",
     "animate.css": "^4.1.1",
-    "chart.js": "^2.9.4"
+    "chart.js": "^2.9.4",
+    "handlebars": "^4.7.8"
   }
 }
