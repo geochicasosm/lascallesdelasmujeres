@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import { CityList } from '../CityList';
+import logoProyecto from '../../images/logo_proyecto.svg?url';
+import logoGeo from '../../images/logo_geo.svg?url';
 
 export const Sidebar = () => {
   const { t } = useTranslation();
@@ -10,7 +12,7 @@ export const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebar-header">
         <img
-          src="/src/images/logo_proyecto.svg"
+          src={logoProyecto}
           alt="Las Calles de las Mujeres"
           className="logo"
         />
@@ -20,7 +22,7 @@ export const Sidebar = () => {
         <p className="project-by">{t('footer.projectBy')}</p>
         <a href="http://geochicas.org/" target="_blank" rel="noopener noreferrer">
           <img
-            src="/src/images/logo_geo.svg"
+            src={logoGeo}
             alt="Geochicas"
             className="logo-geochicas"
           />

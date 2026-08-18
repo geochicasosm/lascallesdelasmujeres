@@ -9,9 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
     
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/src/images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/src/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/src/images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/images/favicon/favicon-16x16.png">
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Mapa interactivo de calles con nombres de mujeres en ciudades de Latinoamérica y España. Visualiza la brecha de género en los nombres de las calles." />
@@ -29,6 +29,22 @@
     
     <!-- Theme Color -->
     <meta name="theme-color" content="#19535f" />
+
+    <!--
+      GitHub Pages SPA redirect decoder — counterpart to public/404.html.
+      Restores the real URL from the encoded query string before React boots,
+      so BrowserRouter sees the correct path and useInitialCity sees the hash.
+    -->
+    <script>
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
 </head>
 <body>
     <div id="root"></div>

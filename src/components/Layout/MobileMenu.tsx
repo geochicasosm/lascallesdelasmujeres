@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CityList } from '../CityList';
+import logoProyecto from '../../images/logo_proyecto.svg?url';
+import logoGeo from '../../images/logo_geo.svg?url';
 
 export const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +30,7 @@ export const MobileMenu = () => {
           <div className="mobile-menu">
             <div className="mobile-menu-header">
               <img
-                src="/src/images/logo_proyecto.svg"
+                src={logoProyecto}
                 alt="Las Calles de las Mujeres"
                 className="mobile-logo"
               />
@@ -56,7 +58,7 @@ export const MobileMenu = () => {
                   rel="noopener noreferrer"
                 >
                   <img
-                    src="/src/images/logo_geo.svg"
+                    src={logoGeo}
                     alt="Geochicas"
                     className="logo-geochicas-mobile"
                   />
