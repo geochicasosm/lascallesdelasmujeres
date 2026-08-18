@@ -9,13 +9,13 @@ export default defineConfig({
   base: '/lascallesdelasmujeres/',
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@components': path.resolve(__dirname, './src/components'),
-      '@hooks': path.resolve(__dirname, './src/hooks'),
-      '@types': path.resolve(__dirname, './src/types'),
-      '@stores': path.resolve(__dirname, './src/stores'),
-      '@data': path.resolve(__dirname, './src/data'),
-      '@utils': path.resolve(__dirname, './src/utils'),
+      '@': path.resolve(import.meta.dirname, './src'),
+      '@components': path.resolve(import.meta.dirname, './src/components'),
+      '@hooks': path.resolve(import.meta.dirname, './src/hooks'),
+      '@types': path.resolve(import.meta.dirname, './src/types'),
+      '@stores': path.resolve(import.meta.dirname, './src/stores'),
+      '@data': path.resolve(import.meta.dirname, './src/data'),
+      '@utils': path.resolve(import.meta.dirname, './src/utils'),
     },
   },
   build: {
