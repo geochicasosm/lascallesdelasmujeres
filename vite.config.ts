@@ -6,7 +6,7 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   root: '.',
-  base: '/lascallesdelasmujeres/',
+  base: process.env.VITE_BASE_PATH ?? '/lascallesdelasmujeres/',
   resolve: {
     alias: {
       '@': path.resolve(import.meta.dirname, './src'),
