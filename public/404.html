@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Las Calles de las Mujeres</title>
+    <!--
+      GitHub Pages SPA fallback — rafgraph/spa-github-pages approach.
+      Pages serves this file for any path it cannot match. We encode the
+      requested path into a query string and redirect to the app root so
+      BrowserRouter can take over. pathSegmentsToKeep=1 preserves the
+      repo-name segment (/lascallesdelasmujeres) in the redirect target.
+    -->
+    <script>
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

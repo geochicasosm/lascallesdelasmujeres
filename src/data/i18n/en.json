@@ -1,0 +1,64 @@
+{
+    "app": {
+        "title": "The Streets of the Women"
+    },
+    "description": {
+        "text1": "Map generated from the data obtained of Women Street names in Spanish speaking cities (Latin America and Spain).",
+        "text2": "The objective is visualize the historic gap representing women figures in the streets of the cities.",
+        "textShort": "Map of the streets containing women's names in cities of Latin America and Spain, visualizing the gap representing women figures in the cities."
+    },
+    "chart": {
+        "men": "Men",
+        "women": "Women",
+        "streetsOf": "The streets of",
+        "have": "have",
+        "notHave": "doesn't have",
+        "wikiTitle": "Women having a Wikipedia article"
+    },
+    "popup": {
+        "namedAfterWoman": "Named After a Woman",
+        "namedAfterMan": "Named After a Man",
+        "learnMore": "Learn More",
+        "noArticleTooltip": "Article not available yet"
+    },
+    "footer": {
+        "projectBy": "A project from",
+        "projectBy2": "Project from"
+    },
+    "stats": {
+        "navLink": "Statistics",
+        "backToMap": "Back to map",
+        "pageTitle": "City Statistics",
+        "pageSubtitle": "Compare data on women's street representation across all cities",
+        "filterByCountry": "Filter by country",
+        "allCountries": "All countries",
+        "sortBy": "Sort by",
+        "view": "View",
+        "viewCharts": "Charts",
+        "viewTable": "Table",
+        "femalePercentageTitle": "% of streets named after women",
+        "wikiCoverageTitle": "% of women's streets with a Wikipedia article",
+        "cityCardsTitle": "All cities",
+        "wikiOf": "Wikipedia coverage in",
+        "sort": {
+            "pcFemale": "% Women",
+            "pcLink": "% Wikipedia",
+            "totalNames": "Total streets",
+            "name": "Name"
+        },
+        "summary": {
+            "cities": "Cities",
+            "totalStreets": "Total streets",
+            "femaleStreets": "Women's streets",
+            "wikiStreets": "With Wikipedia"
+        },
+        "table": {
+            "city": "City",
+            "total": "Total streets",
+            "female": "Women",
+            "male": "Men",
+            "wikiPc": "Wikipedia %",
+            "wikiNum": "Wiki (with / total)"
+        }
+    }
+}
