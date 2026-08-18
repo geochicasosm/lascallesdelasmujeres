@@ -1,9 +1,7 @@
-/* eslint-disable no-undef */
-
 window.dataLayer = window.dataLayer || [];
 
-function gtag() {
-  dataLayer.push(arguments);
+function gtag(...args) {
+  dataLayer.push(args);
 }
 
 gtag('js', new Date());

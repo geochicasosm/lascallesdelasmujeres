@@ -20,7 +20,7 @@ export const ShareButton = () => {
     if (navigator.share) {
       try {
         await navigator.share({ title, text, url });
-      } catch (err) {
+      } catch {
         console.log('Share cancelled');
       }
     } else {

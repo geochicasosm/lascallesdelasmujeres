@@ -30,7 +30,7 @@ export const MapContainer = () => {
     }
   }, [selectedCity, flyToCity]);
 
-  const handleMapClick = (event: any) => {
+  const handleMapClick = (event: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
     const features = event.features;
     if (features && features.length > 0) {
       const feature = features[0];
@@ -46,7 +46,7 @@ export const MapContainer = () => {
     }
   };
 
-  const handleMouseMove = useCallback((event: any) => {
+  const handleMouseMove = useCallback((event: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
     const features = event.features;
     const hasFeatures = features && features.length > 0;
     
