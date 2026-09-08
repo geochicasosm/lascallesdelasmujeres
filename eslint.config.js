@@ -1,16 +1,25 @@
-import js from "@eslint/js";
-import globals from "globals";
-import css from "@eslint/css";
-import { defineConfig } from "eslint/config";
+import js from '@eslint/js'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
-
-export default defineConfig([
-  { files: ["src/**/*.{js,mjs,cjs}"], plugins: { js }, extends: ["js/recommended"] },
-  { files: ["src/**/*.{js,mjs,cjs}"], languageOptions: { globals: globals.browser } },
-  { files: ["src/**/*.{js,mjs,cjs}"], languageOptions: { globals: 
-    {
-      "mapboxgl": "readonly",
-    }
-   } },
-  { files: ["src/**/*.css"], plugins: { css }, language: "css/css", extends: ["css/recommended"] },
-]);
+export default tseslint.config(
+  { ignores: ['dist', 'node_modules'] },
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.{ts,tsx,js,jsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: {
+        ...globals.browser,
+        mapboxgl: 'readonly',
+      },
+    },
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/no-explicit-any': 'warn',
+    },
+  },
+)
